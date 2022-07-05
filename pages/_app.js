@@ -1,6 +1,8 @@
 import "../styles/globals.css";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Loading() {
   const router = useRouter();
@@ -31,11 +33,17 @@ function Loading() {
     }, 500);
   }, []);
   return (
-    loading && (
-      <div className="spinner-wrapper">
-        <div className="spinner" />
-      </div>
-    )
+    <AnimatePresence>
+      {loading && (
+        <motion.div
+          className="spinner-wrapper"
+          transition={{ default: { duration: 0.35 } }}
+          exit={{ opacity: 0 }}
+        >
+          <div className="spinner" />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
   //routeChangeStart
   //routeChangeComplete
