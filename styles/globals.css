@@ -14,3 +14,65 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.spinner-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+.spinner {
+  height: 100px;
+  width: 100px;
+  margin: 0px auto;
+  -webkit-animation: rotation 0.5s infinite linear;
+  -moz-animation: rotation 0.5s infinite linear;
+  -o-animation: rotation 0.5s infinite linear;
+  animation: rotation 0.5s infinite linear;
+  border: 6px solid darkblue;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-o-keyframes rotation {
+  from {
+    -o-transform: rotate(0deg);
+  }
+
+  to {
+    -o-transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
