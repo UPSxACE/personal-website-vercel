@@ -10,6 +10,7 @@ import { $padding1 } from "../utils/config";
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import { TypedSpanDiv } from "../components/text";
+import { Main } from "../components/main";
 
 export default function Home() {
   useEffect(() => {
@@ -50,7 +51,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <Main>
         <MainContainer className="g-0" fluid>
           <Row className="g-0 h-100">
             <ResizableContainerHalfCol
@@ -112,16 +113,39 @@ export default function Home() {
                 className="d-flex justify-content-center align-items-center flex-column"
                 transition={{ delay: 2, default: { duration: 1.65 } }}
               >
-                <motion.h1 variants={overlayDivChildAnimation}>A</motion.h1>
-                <motion.h1 variants={overlayDivChildAnimation}>B</motion.h1>
-                <motion.h1 variants={overlayDivChildAnimation}>C</motion.h1>
-                <motion.h1 variants={overlayDivChildAnimation}>D</motion.h1>
-                <motion.h1 variants={overlayDivChildAnimation}>E</motion.h1>
+                <Picture variants={overlayDivChildAnimation} />
+                <motion.h1 variants={overlayDivChildAnimation}>
+                  Eduardo Botelho
+                </motion.h1>
+                <motion.ul
+                  className="d-flex unstyled noMnoP"
+                  variants={overlayDivChildAnimation}
+                >
+                  <motion.li className="h3" variants={overlayDivChildAnimation}>
+                    i
+                  </motion.li>
+                  <motion.li className="h3" variants={overlayDivChildAnimation}>
+                    i
+                  </motion.li>
+                  <motion.li className="h3" variants={overlayDivChildAnimation}>
+                    i
+                  </motion.li>
+                </motion.ul>
+                <motion.h3 variants={overlayDivChildAnimation}>HOME</motion.h3>
+                <motion.h3 variants={overlayDivChildAnimation}>
+                  ABOUT ME
+                </motion.h3>
+                <motion.h3 variants={overlayDivChildAnimation}>
+                  PROJECTS
+                </motion.h3>
+                <motion.h3 variants={overlayDivChildAnimation}>
+                  CONTACT ME
+                </motion.h3>
               </OverlayDiv>
             </ResizableContainerHalfCol>
           </Row>
         </MainContainer>
-      </main>
+      </Main>
     </div>
   );
 }
@@ -129,6 +153,18 @@ export default function Home() {
 const MainContainer = styled(Container)`
   height: 100vh;
   width: 100vw;
+`;
+
+const Picture = styled(motion.img)`
+  display: inline-block;
+  height: 9rem;
+  width: 9rem;
+  padding: 4.5rem;
+   {
+    /* make it a perfect circle */
+  }
+  background-color: black;
+  border-radius: 100%;
 `;
 
 function ResizableContainerHalfCol(props) {
