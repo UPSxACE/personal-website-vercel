@@ -39,6 +39,7 @@ function Loading() {
           className="spinner-wrapper"
           transition={{ default: { duration: 0.35 } }}
           exit={{ opacity: 0 }}
+          style={{ zIndex: 99 }}
         >
           <div className="spinner" />
         </motion.div>
