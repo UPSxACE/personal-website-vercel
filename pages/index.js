@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const MainContainer = styled.div`
   height: 100vh;
@@ -22,49 +23,62 @@ const ContainerHalf = styled.div`
   }
 `;
 
-const Arrow = styled.span`
-  height: 30px;
-  width: 30px;
+const Arrow = styled(motion.span)`
+  height: 45px;
+  width: 45px;
 
   &.arrow1 {
     position: absolute;
-    border-left: 3px solid black;
-    border-top: 3px solid black;
-    top: 30px;
-    left: 30px;
+    top: calc(50% + 90px);
+    left: calc(50% + 90px);
+
+    box-shadow: inset 8px 8px 0px 0px black;
   }
   &.arrow2 {
     position: absolute;
-    border-right: 3px solid black;
-    border-top: 3px solid black;
-    top: 30px;
-    right: 30px;
+
+    top: calc(50% + 90px);
+    right: calc(50% + 90px);
+    box-shadow: inset -8px 8px 0px 0px black;
   }
   &.arrow3 {
     position: absolute;
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
-    bottom: 30px;
-    left: 30px;
+    bottom: calc(50% + 90px);
+    left: calc(50% + 90px);
+
+    box-shadow: inset 8px -8px 0px 0px black;
   }
   &.arrow4 {
     position: absolute;
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
-    bottom: 30px;
-    right: 30px;
+    bottom: calc(50% + 90px);
+    right: calc(50% + 90px);
+
+    box-shadow: inset -8px -8px 0px 0px black;
   }
 `;
 
-const OverlayDiv = styled.div`
+const OverlayDiv = styled(motion.div)`
+  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   /*background-color: red;*/
   height: 100%;
   width: 100%;
+
+  * {
+    opacity: 0;
+  }
 `;
 
+const overlayDivChildAnimation = {
+  initial: { opacity: 0 },
+  show: { opacity: 1 },
+};
+
+const overlayDivParentAnimation = {
+  show: { opacity: 1 },
+};
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -83,16 +97,54 @@ export default function Home() {
             <h1>Eduardo</h1>
           </ContainerHalf>
           <ContainerHalf className="right d-flex justify-content-center align-items-center">
-            <Arrow className="arrow1"></Arrow>
-            <Arrow className="arrow2"></Arrow>
-            <Arrow className="arrow3"></Arrow>
-            <Arrow className="arrow4"></Arrow>
-            <OverlayDiv className="d-flex justify-content-center align-items-center flex-column">
-              <h1>A</h1>
-              <h1>B</h1>
-              <h1>C</h1>
-              <h1>D</h1>
-              <h1>E</h1>
+            <Arrow
+              className="arrow1"
+              animate={{ top: 30, left: 30 }}
+              transition={{
+                ease: "easeIn",
+                delay: 1,
+                default: { duration: 1.05 },
+              }}
+            ></Arrow>
+            <Arrow
+              className="arrow2"
+              animate={{ top: 30, right: 30 }}
+              transition={{
+                ease: "easeIn",
+                delay: 1,
+                default: { duration: 1.05 },
+              }}
+            ></Arrow>
+            <Arrow
+              className="arrow3"
+              animate={{ bottom: 30, left: 30 }}
+              transition={{
+                ease: "easeIn",
+                delay: 1,
+                default: { duration: 1.05 },
+              }}
+            ></Arrow>
+            <Arrow
+              className="arrow4"
+              animate={{ bottom: 30, right: 30 }}
+              transition={{
+                ease: "easeIn",
+                delay: 1,
+                default: { duration: 1.05 },
+              }}
+            ></Arrow>
+            <OverlayDiv
+              animate="show"
+              initial="initial"
+              variants={overlayDivParentAnimation}
+              className="d-flex justify-content-center align-items-center flex-column"
+              transition={{ delay: 2, default: { duration: 1.65 } }}
+            >
+              <motion.h1 variants={overlayDivChildAnimation}>A</motion.h1>
+              <motion.h1 variants={overlayDivChildAnimation}>B</motion.h1>
+              <motion.h1 variants={overlayDivChildAnimation}>C</motion.h1>
+              <motion.h1 variants={overlayDivChildAnimation}>D</motion.h1>
+              <motion.h1 variants={overlayDivChildAnimation}>E</motion.h1>
             </OverlayDiv>
           </ContainerHalf>
         </MainContainer>
