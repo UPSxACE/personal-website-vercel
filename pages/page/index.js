@@ -1,4 +1,4 @@
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 import styled from "styled-components";
 import { PageTransition } from "@steveeeie/react-page-transition";
 import { useState } from "react";

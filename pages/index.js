@@ -6,15 +6,129 @@ import styled from "styled-components";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
 import useMeasure from "react-use-measure";
+import { $padding1 } from "../utils/config";
+import { useEffect, useRef, useState } from "react";
+import Typed from "typed.js";
+import { TypedSpanDiv } from "../components/text";
+
+export default function Home() {
+  useEffect(() => {
+    const typed = new Typed("#typed", {
+      strings: [
+        "Hi",
+        "I'm EDUARDO BOTELHO",
+        "I'm DEVELOPER",
+        "I'm EDUARDO BOTELHO",
+        "I'm DEVELOPER",
+        "I'm EDUARDO BOTELHO",
+        "I'm DEVELOPER",
+        "I'm EDUARDO BOTELHO",
+        "I'm DEVELOPER",
+        "I'm EDUARDO BOTELHO",
+        "I'm DEVELOPER",
+      ],
+      typeSpeed: 35,
+      backSpeed: 27,
+      backDelay: 2000,
+      smartBackspace: true,
+      loop: true,
+    });
+
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Eduardo Botelho</title>
+        <meta
+          name="description"
+          content="Personal porfolio, created using the awesome technology of Next.js and Vercel"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className={styles.main}>
+        <MainContainer className="g-0" fluid>
+          <Row className="g-0 h-100">
+            <ResizableContainerHalfCol
+              xs={12}
+              lg={6}
+              className="g-0 left d-flex justify-content-center align-items-center flex-column"
+              style={{ zIndex: 90 }}
+            >
+              <TypedSpanDiv>
+                <span id="typed"></span>
+              </TypedSpanDiv>
+            </ResizableContainerHalfCol>
+
+            <ResizableContainerHalfCol
+              lg={6}
+              className="d-none g-0 right d-flex justify-content-center align-items-center"
+              dNoneToBlock="lg"
+            >
+              <Arrow
+                className="arrow1"
+                animate={{ top: $padding1, left: $padding1 }}
+                transition={{
+                  ease: "easeIn",
+                  delay: 1,
+                  default: { duration: 1.05 },
+                }}
+              ></Arrow>
+              <Arrow
+                className="arrow2"
+                animate={{ top: $padding1, right: $padding1 }}
+                transition={{
+                  ease: "easeIn",
+                  delay: 1,
+                  default: { duration: 1.05 },
+                }}
+              ></Arrow>
+              <Arrow
+                className="arrow3"
+                animate={{ bottom: $padding1, left: $padding1 }}
+                transition={{
+                  ease: "easeIn",
+                  delay: 1,
+                  default: { duration: 1.05 },
+                }}
+              ></Arrow>
+              <Arrow
+                className="arrow4"
+                animate={{ bottom: $padding1, right: $padding1 }}
+                transition={{
+                  ease: "easeIn",
+                  delay: 1,
+                  default: { duration: 1.05 },
+                }}
+              ></Arrow>
+              <OverlayDiv
+                animate="show"
+                initial="initial"
+                variants={overlayDivParentAnimation}
+                className="d-flex justify-content-center align-items-center flex-column"
+                transition={{ delay: 2, default: { duration: 1.65 } }}
+              >
+                <motion.h1 variants={overlayDivChildAnimation}>A</motion.h1>
+                <motion.h1 variants={overlayDivChildAnimation}>B</motion.h1>
+                <motion.h1 variants={overlayDivChildAnimation}>C</motion.h1>
+                <motion.h1 variants={overlayDivChildAnimation}>D</motion.h1>
+                <motion.h1 variants={overlayDivChildAnimation}>E</motion.h1>
+              </OverlayDiv>
+            </ResizableContainerHalfCol>
+          </Row>
+        </MainContainer>
+      </main>
+    </div>
+  );
+}
 
 const MainContainer = styled(Container)`
   height: 100vh;
   width: 100vw;
-`;
-
-const GreenMotion = styled(motion.div)`
-  background-color: green;
-  z-index: 99;
 `;
 
 function ResizableContainerHalfCol(props) {
@@ -59,8 +173,6 @@ const ContainerHalf = styled.div`
   }
 `;
 
-const ContainerHalfMotion = motion(ContainerHalf);
-
 const Arrow = styled(motion.span)`
   height: 45px;
   width: 45px;
@@ -68,7 +180,13 @@ const Arrow = styled(motion.span)`
   &.arrow1 {
     position: absolute;
     top: calc(50% + 90px);
+     {
+      /* maybe should be configurable later */
+    }
     left: calc(50% + 90px);
+     {
+      /* maybe should be configurable later */
+    }
 
     box-shadow: inset 8px 8px 0px 0px black;
   }
@@ -76,20 +194,38 @@ const Arrow = styled(motion.span)`
     position: absolute;
 
     top: calc(50% + 90px);
+     {
+      /* maybe should be configurable later */
+    }
     right: calc(50% + 90px);
+     {
+      /* maybe should be configurable later */
+    }
     box-shadow: inset -8px 8px 0px 0px black;
   }
   &.arrow3 {
     position: absolute;
     bottom: calc(50% + 90px);
+     {
+      /* maybe should be configurable later */
+    }
     left: calc(50% + 90px);
+     {
+      /* maybe should be configurable later */
+    }
 
     box-shadow: inset 8px -8px 0px 0px black;
   }
   &.arrow4 {
     position: absolute;
     bottom: calc(50% + 90px);
+     {
+      /* maybe should be configurable later */
+    }
     right: calc(50% + 90px);
+     {
+      /* maybe should be configurable later */
+    }
 
     box-shadow: inset -8px -8px 0px 0px black;
   }
@@ -117,88 +253,3 @@ const overlayDivChildAnimation = {
 const overlayDivParentAnimation = {
   show: { opacity: 1 },
 };
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Eduardo Botelho</title>
-        <meta
-          name="description"
-          content="Personal porfolio, created using the awesome technology of Next.js and Vercel"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <MainContainer className="g-0" fluid>
-          <Row className="g-0 h-100">
-            <ResizableContainerHalfCol
-              xs={12}
-              lg={6}
-              className="g-0 left d-flex justify-content-center align-items-center"
-              style={{ zIndex: 90 }}
-            >
-              <h1>Eduardo</h1>
-            </ResizableContainerHalfCol>
-
-            <ResizableContainerHalfCol
-              lg={6}
-              className="d-none g-0 right d-flex justify-content-center align-items-center"
-              dNoneToBlock="lg"
-            >
-              <Arrow
-                className="arrow1"
-                animate={{ top: 30, left: 30 }}
-                transition={{
-                  ease: "easeIn",
-                  delay: 1,
-                  default: { duration: 1.05 },
-                }}
-              ></Arrow>
-              <Arrow
-                className="arrow2"
-                animate={{ top: 30, right: 30 }}
-                transition={{
-                  ease: "easeIn",
-                  delay: 1,
-                  default: { duration: 1.05 },
-                }}
-              ></Arrow>
-              <Arrow
-                className="arrow3"
-                animate={{ bottom: 30, left: 30 }}
-                transition={{
-                  ease: "easeIn",
-                  delay: 1,
-                  default: { duration: 1.05 },
-                }}
-              ></Arrow>
-              <Arrow
-                className="arrow4"
-                animate={{ bottom: 30, right: 30 }}
-                transition={{
-                  ease: "easeIn",
-                  delay: 1,
-                  default: { duration: 1.05 },
-                }}
-              ></Arrow>
-              <OverlayDiv
-                animate="show"
-                initial="initial"
-                variants={overlayDivParentAnimation}
-                className="d-flex justify-content-center align-items-center flex-column"
-                transition={{ delay: 2, default: { duration: 1.65 } }}
-              >
-                <motion.h1 variants={overlayDivChildAnimation}>A</motion.h1>
-                <motion.h1 variants={overlayDivChildAnimation}>B</motion.h1>
-                <motion.h1 variants={overlayDivChildAnimation}>C</motion.h1>
-                <motion.h1 variants={overlayDivChildAnimation}>D</motion.h1>
-                <motion.h1 variants={overlayDivChildAnimation}>E</motion.h1>
-              </OverlayDiv>
-            </ResizableContainerHalfCol>
-          </Row>
-        </MainContainer>
-      </main>
-    </div>
-  );
-}
