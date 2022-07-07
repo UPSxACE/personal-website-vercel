@@ -132,40 +132,83 @@ export default function Home() {
                 transition={{ delay: 2, default: { duration: 1.65 } }}
               >
                 <Picture variants={overlayDivChildAnimation} />
-                <motion.h1
+                <motion.h3
+                  className="myName"
                   variants={overlayDivChildAnimation}
                   style={{ marginTop: $margin1 }}
                 >
                   Eduardo Botelho
-                </motion.h1>
+                </motion.h3>
                 <motion.ul
-                  className="d-flex unstyled noMnoP"
+                  className="d-flex unstyled noMnoP iconList"
                   variants={overlayDivChildAnimation}
                   style={{ marginBottom: $margin1 }}
                 >
-                  <motion.li variants={overlayDivChildAnimation}>
-                    <FontAwesomeIcon icon={faLinkedinIn}></FontAwesomeIcon>
+                  <motion.li
+                    className="clickable1"
+                    variants={overlayDivChildAnimation}
+                  >
+                    <Link href={"/"}>
+                      <FontAwesomeIcon icon={faLinkedinIn}></FontAwesomeIcon>
+                    </Link>
                   </motion.li>
-                  <motion.li variants={overlayDivChildAnimation}>
-                    <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+                  <motion.li
+                    className="clickable1"
+                    variants={overlayDivChildAnimation}
+                  >
+                    <Link href={"/"}>
+                      <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+                    </Link>
                   </motion.li>
-                  <motion.li variants={overlayDivChildAnimation}>
-                    <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
+                  <motion.li
+                    className="clickable1"
+                    variants={overlayDivChildAnimation}
+                  >
+                    <Link href={"/"}>
+                      <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
+                    </Link>
                   </motion.li>
-                  <motion.li variants={overlayDivChildAnimation}>
-                    <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
+                  <motion.li
+                    className="clickable1"
+                    variants={overlayDivChildAnimation}
+                  >
+                    <Link href={"/"}>
+                      <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
+                    </Link>
                   </motion.li>
                 </motion.ul>
-                <motion.h3 variants={overlayDivChildAnimation}>Home</motion.h3>
-                <motion.h3 variants={overlayDivChildAnimation}>
-                  About Me
-                </motion.h3>
-                <motion.h3 variants={overlayDivChildAnimation}>
-                  Projects
-                </motion.h3>
-                <motion.h3 variants={overlayDivChildAnimation}>
-                  Contact Me
-                </motion.h3>
+                <Link href={"/"}>
+                  <motion.h4
+                    className="menuItem clickable1"
+                    variants={overlayDivChildAnimation}
+                  >
+                    Home
+                  </motion.h4>
+                </Link>
+                <Link href={"/"}>
+                  <motion.h4
+                    className="menuItem clickable1"
+                    variants={overlayDivChildAnimation}
+                  >
+                    About Me
+                  </motion.h4>
+                </Link>
+                <Link href={"/"}>
+                  <motion.h4
+                    className="menuItem clickable1"
+                    variants={overlayDivChildAnimation}
+                  >
+                    Projects
+                  </motion.h4>
+                </Link>
+                <Link href={"/"}>
+                  <motion.h4
+                    className="menuItem clickable1"
+                    variants={overlayDivChildAnimation}
+                  >
+                    Contact Me
+                  </motion.h4>
+                </Link>
               </OverlayDiv>
             </ResizableContainerHalfCol>
           </Row>
@@ -188,9 +231,9 @@ const MainContainer = styled(Container)`
 
 const Picture = styled(motion.img)`
   display: inline-block;
-  height: 9rem;
-  width: 9rem;
-  padding: 4.5rem;
+  height: 8rem;
+  width: 8rem;
+  padding: 4rem;
    {
     /* make it a perfect circle */
   }
@@ -208,8 +251,11 @@ function ResizableContainerHalfCol(props) {
       }
       style={props.style}
       xs={props.xs}
+      sm={props.sm}
+      md={props.md}
       lg={props.lg}
       xl={props.xl}
+      xxl={props.xxl}
       ref={ref}
     >
       <motion.div
@@ -311,8 +357,12 @@ const OverlayDiv = styled(motion.div)`
     opacity: 0;
   }
 
-  &.frontpage h3 {
+  &.frontpage .menuItem {
     margin-bottom: 2px;
+  }
+
+  &.frontpage .myName {
+    font-weight: 500;
   }
 `;
 

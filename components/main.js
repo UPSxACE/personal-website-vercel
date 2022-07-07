@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { $color1, $fontFamily1, $textColor1 } from "../utils/config";
+import { $color1, $color2, $fontFamily1, $textColor1 } from "../utils/config";
 
 export const Main = styled.main`
   font-family: ${$fontFamily1};
@@ -28,7 +28,7 @@ export const Main = styled.main`
 
   ul.noMnoP li svg {
     opacity: inherit;
-    height: calc(1.8rem + 0.6vw);
+    height: calc(1.3rem + 0.6vw);
     width: auto;
   }
 
@@ -48,6 +48,23 @@ export const Main = styled.main`
   h4,
   h5,
   h6 {
-    font-weight: 600;
+    font-weight: 400;
+  }
+
+  .clickable1 {
+    transition-duration: 0.16s;
+  }
+
+  .clickable1:hover {
+    cursor: pointer;
+    transition-duration: 0.16s;
+    transform: scale(1.22);
+    color: ${$color2};
+  }
+
+  .iconList li {
+    min-width: 32px;
+    display: flex;
+    justify-content: center;
   }
 `;
