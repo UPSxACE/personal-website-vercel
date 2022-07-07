@@ -26,9 +26,15 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
-import { HambuerguerMenuIcon } from "../components/hamburguer";
+import { HamburguerMenuIcon } from "../components/hamburguer";
 
 export default function Home() {
+  const [phoneMenu, setPhoneMenu] = useState(false);
+
+  function togglePhoneMenu() {
+    setPhoneMenu(!phoneMenu);
+  }
+
   useEffect(() => {
     const typed = new Typed("#typed", {
       strings: [
@@ -63,6 +69,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
+        <AnimatePresence>
+          {phoneMenu && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className={"darkOverlay"}
+            />
+          )}
+        </AnimatePresence>
+
         <MainContainer className="g-0" fluid>
           <Row className="g-0 h-100">
             <Col
@@ -71,7 +88,7 @@ export default function Home() {
               xs={12}
             >
               <h4 className="m-0">Eduardo</h4>
-              <HambuerguerMenuIcon />
+              <HamburguerMenuIcon onClick={togglePhoneMenu} />
             </Col>
             <ResizableContainerHalfCol
               xs={12}
@@ -92,6 +109,9 @@ export default function Home() {
               lg={6}
               className="d-none g-0 right d-flex justify-content-center align-items-center"
               dNoneToBlock="lg"
+              menu
+              menuExpand
+              phoneMenu={phoneMenu}
             >
               <Arrow
                 className="arrow1"
@@ -232,6 +252,24 @@ const ButtonPairWrapper = styled.div`
 const MainContainer = styled(Container)`
   height: 100vh;
   width: 100vw;
+
+  @media (max-width: 991px) {
+    .arrow1,
+    .arrow2,
+    .arrow3,
+    .arrow4 {
+      transition-delay: 0.5s;
+      opacity: 1;
+    }
+
+    .menuExpand .arrow1,
+    .menuExpand .arrow2,
+    .menuExpand .arrow3,
+    .menuExpand .arrow4 {
+      transition-delay: 0s;
+      opacity: 0;
+    }
+  }
 `;
 
 const Picture = styled(motion.img)`
@@ -252,9 +290,11 @@ function ResizableContainerHalfCol(props) {
   return (
     <Col
       className={
-        props.dNoneToBlock
+        (props.dNoneToBlock
           ? "contentCol d-none d-" + props.dNoneToBlock + "-block"
-          : "contentCol "
+          : "contentCol") +
+        (props.menu ? " menu" : "") +
+        (props.menuExpand && props.phoneMenu === true ? " menuExpand" : "")
       }
       style={props.style}
       xs={props.xs}
@@ -272,7 +312,9 @@ function ResizableContainerHalfCol(props) {
       >
         <ContainerHalf
           className={
-            props.className + " h-100" + " d-" + props.dNoneToBlock + "-block"
+            props.className +
+            " h-100" +
+            (props.dNoneToBlock ? " d-" + props.dNoneToBlock + "-block" : "")
           }
         >
           {props.children}
@@ -289,6 +331,7 @@ const ContainerHalf = styled.div`
   }
 
   &.right {
+    background-color: ${$color1};
     position: relative;
   }
 `;
@@ -352,6 +395,10 @@ const Arrow = styled(motion.span)`
 `;
 
 const OverlayDiv = styled(motion.div)`
+  @media (max-width: 991px) {
+    opacity: 1 !important;
+  }
+
   opacity: 0;
   position: absolute;
   top: 0;

@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { $textColor1 } from "../utils/config";
 
-export function HambuerguerMenuIcon() {
+export function HamburguerMenuIcon(props) {
   return (
     <HamburguerMenuIconDiv className="d-flex align-items-center ms-auto">
-      <input id="toggle" type="checkbox" className="d-none"></input>
+      <input
+        onClick={props.onClick}
+        id="toggle"
+        type="checkbox"
+        className="d-none"
+      ></input>
       <label htmlFor="toggle" className="hamburger">
         <div className="top-bun"></div>
         <div className="meat"></div>

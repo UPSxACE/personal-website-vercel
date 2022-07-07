@@ -70,6 +70,10 @@ export const Main = styled.main`
 
   .phoneNav {
     display: none;
+    z-index: 96;
+    box-shadow: 1px 1px 5px rgb(95 95 95 / 28%);
+    background-color: ${$color1};
+
     @media (max-width: 991px) {
       display: flex;
       height: 60px;
@@ -82,6 +86,57 @@ export const Main = styled.main`
   .contentCol {
     @media (max-width: 991px) {
       height: calc(100vh - 60px);
+    }
+  }
+
+  .menu {
+    @media (max-width: 991px) {
+      position: fixed;
+      top: 60px;
+      right: -300px;
+      z-index: 95;
+      display: block !important;
+      width: 300px;
+
+      transition-duration: 0.5s;
+
+      .d-none,
+      span {
+        display: block !important;
+        z-index: 95;
+      }
+    }
+  }
+
+  .menuExpand {
+    @media (max-width: 991px) {
+      position: fixed;
+      top: 60px;
+      right: 0;
+      z-index: 95;
+      display: block !important;
+      width: 300px;
+
+      .d-none,
+      span {
+        display: block !important;
+        z-index: 95;
+      }
+    }
+  }
+
+  .darkOverlay {
+    @media (max-width: 991px) {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.38);
+      z-index: 91;
     }
   }
 `;
