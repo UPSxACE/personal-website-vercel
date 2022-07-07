@@ -6,27 +6,42 @@ import styled from "styled-components";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
 import useMeasure from "react-use-measure";
-import { $padding1 } from "../utils/config";
+import {
+  $color1,
+  $margin1,
+  $padding1,
+  $textColor1,
+  $textColor1Alt,
+} from "../utils/config";
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import { TypedSpanDiv } from "../components/text";
 import { Main } from "../components/main";
+import { Button1, Button2 } from "../components/buttons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLinkedinIn,
+  faFacebookF,
+  faGithub,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
 
 export default function Home() {
   useEffect(() => {
     const typed = new Typed("#typed", {
       strings: [
         "Hi",
-        "I'm EDUARDO BOTELHO",
-        "I'm DEVELOPER",
-        "I'm EDUARDO BOTELHO",
-        "I'm DEVELOPER",
-        "I'm EDUARDO BOTELHO",
-        "I'm DEVELOPER",
-        "I'm EDUARDO BOTELHO",
-        "I'm DEVELOPER",
-        "I'm EDUARDO BOTELHO",
-        "I'm DEVELOPER",
+        "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>DEVELOPER</em>",
+        "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>DEVELOPER</em>",
+        "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>DEVELOPER</em>",
+        "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>DEVELOPER</em>",
+        "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>DEVELOPER</em>",
       ],
       typeSpeed: 35,
       backSpeed: 27,
@@ -41,7 +56,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Eduardo Botelho</title>
         <meta
@@ -50,7 +65,6 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Main>
         <MainContainer className="g-0" fluid>
           <Row className="g-0 h-100">
@@ -60,9 +74,13 @@ export default function Home() {
               className="g-0 left d-flex justify-content-center align-items-center flex-column"
               style={{ zIndex: 90 }}
             >
-              <TypedSpanDiv>
+              <TypedSpanDiv className="mb-2">
                 <span id="typed"></span>
               </TypedSpanDiv>
+              <ButtonPairWrapper className="d-flex justify-content-center mt-4 flex-wrap">
+                <Button1 className="p-2 ps-3 pe-3">Download CV</Button1>
+                <Button2 className="p-2 ps-3 pe-3">Contact Me</Button2>
+              </ButtonPairWrapper>
             </ResizableContainerHalfCol>
 
             <ResizableContainerHalfCol
@@ -110,36 +128,43 @@ export default function Home() {
                 animate="show"
                 initial="initial"
                 variants={overlayDivParentAnimation}
-                className="d-flex justify-content-center align-items-center flex-column"
+                className="d-flex justify-content-center align-items-center flex-column frontpage"
                 transition={{ delay: 2, default: { duration: 1.65 } }}
               >
                 <Picture variants={overlayDivChildAnimation} />
-                <motion.h1 variants={overlayDivChildAnimation}>
+                <motion.h1
+                  variants={overlayDivChildAnimation}
+                  style={{ marginTop: $margin1 }}
+                >
                   Eduardo Botelho
                 </motion.h1>
                 <motion.ul
                   className="d-flex unstyled noMnoP"
                   variants={overlayDivChildAnimation}
+                  style={{ marginBottom: $margin1 }}
                 >
-                  <motion.li className="h3" variants={overlayDivChildAnimation}>
-                    i
+                  <motion.li variants={overlayDivChildAnimation}>
+                    <FontAwesomeIcon icon={faLinkedinIn}></FontAwesomeIcon>
                   </motion.li>
-                  <motion.li className="h3" variants={overlayDivChildAnimation}>
-                    i
+                  <motion.li variants={overlayDivChildAnimation}>
+                    <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
                   </motion.li>
-                  <motion.li className="h3" variants={overlayDivChildAnimation}>
-                    i
+                  <motion.li variants={overlayDivChildAnimation}>
+                    <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
+                  </motion.li>
+                  <motion.li variants={overlayDivChildAnimation}>
+                    <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
                   </motion.li>
                 </motion.ul>
-                <motion.h3 variants={overlayDivChildAnimation}>HOME</motion.h3>
+                <motion.h3 variants={overlayDivChildAnimation}>Home</motion.h3>
                 <motion.h3 variants={overlayDivChildAnimation}>
-                  ABOUT ME
+                  About Me
                 </motion.h3>
                 <motion.h3 variants={overlayDivChildAnimation}>
-                  PROJECTS
+                  Projects
                 </motion.h3>
                 <motion.h3 variants={overlayDivChildAnimation}>
-                  CONTACT ME
+                  Contact Me
                 </motion.h3>
               </OverlayDiv>
             </ResizableContainerHalfCol>
@@ -149,6 +174,12 @@ export default function Home() {
     </div>
   );
 }
+
+const ButtonPairWrapper = styled.div`
+  button {
+    margin: 0.75rem;
+  }
+`;
 
 const MainContainer = styled(Container)`
   height: 100vh;
@@ -200,8 +231,8 @@ function ResizableContainerHalfCol(props) {
 
 const ContainerHalf = styled.div`
   &.left {
+    background-color: ${$textColor1};
     z-index: 90;
-    background-color: grey;
   }
 
   &.right {
@@ -224,7 +255,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset 8px 8px 0px 0px black;
+    box-shadow: inset 8px 8px 0px 0px ${$textColor1};
   }
   &.arrow2 {
     position: absolute;
@@ -237,7 +268,7 @@ const Arrow = styled(motion.span)`
      {
       /* maybe should be configurable later */
     }
-    box-shadow: inset -8px 8px 0px 0px black;
+    box-shadow: inset -8px 8px 0px 0px ${$textColor1};
   }
   &.arrow3 {
     position: absolute;
@@ -250,7 +281,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset 8px -8px 0px 0px black;
+    box-shadow: inset 8px -8px 0px 0px ${$textColor1};
   }
   &.arrow4 {
     position: absolute;
@@ -263,7 +294,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset -8px -8px 0px 0px black;
+    box-shadow: inset -8px -8px 0px 0px ${$textColor1};
   }
 `;
 
@@ -278,6 +309,10 @@ const OverlayDiv = styled(motion.div)`
 
   * {
     opacity: 0;
+  }
+
+  &.frontpage h3 {
+    margin-bottom: 2px;
   }
 `;
 

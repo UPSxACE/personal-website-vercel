@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { $color1, $color2, $textColor1, $textColor2 } from "../utils/config";
 
 export const TypedSpanDiv = styled.div`
+  color: ${$textColor2};
   span {
     font-size: calc(1rem + 1.5vw);
   }
@@ -27,5 +29,10 @@ export const TypedSpanDiv = styled.div`
     span {
       font-size: 3rem;
     }
+  }
+
+  em {
+    font-style: normal;
+    color: ${$color2};
   }
 `;
