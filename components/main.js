@@ -67,4 +67,21 @@ export const Main = styled.main`
     display: flex;
     justify-content: center;
   }
+
+  .phoneNav {
+    display: none;
+    @media (max-width: 991px) {
+      display: flex;
+      height: 60px;
+    }
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .contentCol {
+    @media (max-width: 991px) {
+      height: calc(100vh - 60px);
+    }
+  }
 `;

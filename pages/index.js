@@ -26,16 +26,13 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { HambuerguerMenuIcon } from "../components/hamburguer";
 
 export default function Home() {
   useEffect(() => {
     const typed = new Typed("#typed", {
       strings: [
         "Hi",
-        "I'm <em>EDUARDO BOTELHO</em>",
-        "I'm <em>DEVELOPER</em>",
-        "I'm <em>EDUARDO BOTELHO</em>",
-        "I'm <em>DEVELOPER</em>",
         "I'm <em>EDUARDO BOTELHO</em>",
         "I'm <em>DEVELOPER</em>",
         "I'm <em>EDUARDO BOTELHO</em>",
@@ -68,6 +65,14 @@ export default function Home() {
       <Main>
         <MainContainer className="g-0" fluid>
           <Row className="g-0 h-100">
+            <Col
+              className="phoneNav
+             align-items-center"
+              xs={12}
+            >
+              <h4 className="m-0">Eduardo</h4>
+              <HambuerguerMenuIcon />
+            </Col>
             <ResizableContainerHalfCol
               xs={12}
               lg={6}
@@ -247,7 +252,9 @@ function ResizableContainerHalfCol(props) {
   return (
     <Col
       className={
-        props.dNoneToBlock ? "d-none d-" + props.dNoneToBlock + "-block" : ""
+        props.dNoneToBlock
+          ? "contentCol d-none d-" + props.dNoneToBlock + "-block"
+          : "contentCol "
       }
       style={props.style}
       xs={props.xs}
