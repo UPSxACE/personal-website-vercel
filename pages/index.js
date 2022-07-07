@@ -30,9 +30,15 @@ import { HamburguerMenuIcon } from "../components/hamburguer";
 
 export default function Home() {
   const [phoneMenu, setPhoneMenu] = useState(false);
+  const [frontPage, setFrontPage] = useState(true);
 
   function togglePhoneMenu() {
     setPhoneMenu(!phoneMenu);
+  }
+
+  function toggleFrontPage(value) {
+    console.log("funcionou: " + frontPage);
+    setFrontPage(value);
   }
 
   useEffect(() => {
@@ -80,7 +86,7 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        <MainContainer className="g-0" fluid>
+        <MainContainer as={motion.div} className="g-0" fluid>
           <Row className="g-0 h-100">
             <Col
               className="phoneNav
@@ -93,8 +99,12 @@ export default function Home() {
             <ResizableContainerHalfCol
               xs={12}
               lg={6}
-              className="g-0 left d-flex justify-content-center align-items-center flex-column"
+              className={
+                "g-0 left d-flex justify-content-center align-items-center flex-column"
+              }
               style={{ zIndex: 90 }}
+              frontPage={frontPage}
+              side={"left"}
             >
               <TypedSpanDiv className="mb-2">
                 <span id="typed"></span>
@@ -107,11 +117,16 @@ export default function Home() {
 
             <ResizableContainerHalfCol
               lg={6}
-              className="d-none g-0 right d-flex justify-content-center align-items-center"
+              className={
+                "d-none g-0 right d-flex justify-content-center align-items-center" +
+                (!frontPage ? " showInfo" : "")
+              }
               dNoneToBlock="lg"
               menu
               menuExpand
               phoneMenu={phoneMenu}
+              frontPage={frontPage}
+              side={"right"}
             >
               <Arrow
                 className="arrow1"
@@ -206,6 +221,9 @@ export default function Home() {
                   <motion.h4
                     className="menuItem clickable1"
                     variants={overlayDivChildAnimation}
+                    onClick={() => {
+                      toggleFrontPage(true);
+                    }}
                   >
                     Home
                   </motion.h4>
@@ -214,6 +232,9 @@ export default function Home() {
                   <motion.h4
                     className="menuItem clickable1"
                     variants={overlayDivChildAnimation}
+                    onClick={() => {
+                      toggleFrontPage(false);
+                    }}
                   >
                     About Me
                   </motion.h4>
@@ -222,6 +243,9 @@ export default function Home() {
                   <motion.h4
                     className="menuItem clickable1"
                     variants={overlayDivChildAnimation}
+                    onClick={() => {
+                      toggleFrontPage(false);
+                    }}
                   >
                     Projects
                   </motion.h4>
@@ -230,12 +254,26 @@ export default function Home() {
                   <motion.h4
                     className="menuItem clickable1"
                     variants={overlayDivChildAnimation}
+                    onClick={() => {
+                      toggleFrontPage(false);
+                    }}
                   >
                     Contact Me
                   </motion.h4>
                 </Link>
               </OverlayDiv>
             </ResizableContainerHalfCol>
+
+            <ResizableFixedCol
+              xs={12}
+              className={
+                "g-0 extra d-flex justify-content-center align-items-center"
+              }
+              frontPage={frontPage}
+              side={"extra"}
+            >
+              AAA
+            </ResizableFixedCol>
           </Row>
         </MainContainer>
       </Main>
@@ -252,6 +290,29 @@ const ButtonPairWrapper = styled.div`
 const MainContainer = styled(Container)`
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
+
+   {
+    /* make this compatible with the starting frontpage animation later... 
+  .arrow1,
+  .arrow2,
+  .arrow3,
+  .arrow4 {
+    opacity: 1;
+    transition-delay: 0.1s;
+    transition-duration: 0.7s;
+  }
+  */
+  }
+
+  .showInfo .arrow1,
+  .showInfo .arrow2,
+  .showInfo .arrow3,
+  .showInfo .arrow4 {
+    transition-delay: 0.1s;
+    transition-duration: 0.7s;
+    opacity: 0;
+  }
 
   @media (max-width: 991px) {
     .arrow1,
@@ -294,7 +355,9 @@ function ResizableContainerHalfCol(props) {
           ? "contentCol d-none d-" + props.dNoneToBlock + "-block"
           : "contentCol") +
         (props.menu ? " menu" : "") +
-        (props.menuExpand && props.phoneMenu === true ? " menuExpand" : "")
+        (props.menuExpand && props.phoneMenu === true ? " menuExpand" : "") +
+        (!props.frontPage ? " showInfo" : "") +
+        (props.side ? " " + props.side : "")
       }
       style={props.style}
       xs={props.xs}
@@ -303,6 +366,57 @@ function ResizableContainerHalfCol(props) {
       lg={props.lg}
       xl={props.xl}
       xxl={props.xxl}
+      ref={ref}
+    >
+      <motion.div
+        className="h-100"
+        animate={{ width }}
+        transition={{ type: "tween", duration: 0 }}
+      >
+        <ContainerHalf
+          className={
+            props.className +
+            " h-100" +
+            (props.dNoneToBlock ? " d-" + props.dNoneToBlock + "-block" : "")
+          }
+        >
+          {props.children}
+        </ContainerHalf>
+      </motion.div>
+    </Col>
+  );
+}
+
+function ResizableFixedCol(props) {
+  let [ref, { width }] = useMeasure();
+
+  const FixedCol = styled(Col)`
+    position: fixed !important;
+    background-color: green;
+    height: 100% !important;
+    left: 100%;
+    top: 0px;
+
+    @media (max-width: 991px) {
+      height: calc(100% - 60px) !important;
+      top: 60px;
+    } ;
+  `;
+
+  return (
+    <FixedCol
+      className={
+        (props.dNoneToBlock
+          ? "contentCol d-none d-" + props.dNoneToBlock + "-block"
+          : "contentCol") +
+        (props.menu ? " menu" : "") +
+        (props.menuExpand && props.phoneMenu === true ? " menuExpand" : "") +
+        " extra" +
+        (!props.frontPage ? " showInfo" : "") +
+        (props.side ? " " + props.side : "")
+      }
+      xs={12}
+      style={props.style}
       ref={ref}
     >
       <motion.div
@@ -320,7 +434,7 @@ function ResizableContainerHalfCol(props) {
           {props.children}
         </ContainerHalf>
       </motion.div>
-    </Col>
+    </FixedCol>
   );
 }
 

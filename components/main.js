@@ -84,8 +84,36 @@ export const Main = styled.main`
   }
 
   .contentCol {
+    transition-duration: 0s;
+    position: relative;
+    height: 100%;
+
     @media (max-width: 991px) {
       height: calc(100vh - 60px);
+    }
+  }
+
+  .contentCol.left {
+    transition-property: left, height;
+    transition-duration: 1s, 0s !important;
+    left: 0;
+  }
+
+  @media (min-width: 992px) {
+    .contentCol.right {
+      transition-duration: 1s !important;
+      left: 0;
+    }
+
+    .contentCol.left.showInfo {
+      transition-duration: 1s !important;
+      left: -50% !important;
+    }
+
+    .contentCol.right.showInfo {
+      transition-duration: 1s !important;
+      left: -50% !important;
+      width: 300px;
     }
   }
 
