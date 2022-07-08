@@ -32,12 +32,21 @@ export default function Home() {
   const [phoneMenu, setPhoneMenu] = useState(false);
   const [frontPage, setFrontPage] = useState(true);
 
-  function togglePhoneMenu() {
-    setPhoneMenu(!phoneMenu);
+  let state = useRef();
+
+  function setCheckbox(value) {
+    state.current.checked = value;
+  }
+
+  function togglePhoneMenu(value) {
+    if (value === true || value === false) {
+      setPhoneMenu(value);
+    } else {
+      setPhoneMenu(!phoneMenu);
+    }
   }
 
   function toggleFrontPage(value) {
-    console.log("funcionou: " + frontPage);
     setFrontPage(value);
   }
 
@@ -94,7 +103,10 @@ export default function Home() {
               xs={12}
             >
               <h4 className="m-0">Eduardo</h4>
-              <HamburguerMenuIcon onClick={togglePhoneMenu} />
+              <HamburguerMenuIcon
+                checkboxRef={state}
+                onClick={togglePhoneMenu}
+              />
             </Col>
             <ResizableContainerHalfCol
               xs={12}
@@ -223,6 +235,8 @@ export default function Home() {
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       toggleFrontPage(true);
+                      togglePhoneMenu(false);
+                      setCheckbox(false);
                     }}
                   >
                     Home
@@ -234,6 +248,8 @@ export default function Home() {
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       toggleFrontPage(false);
+                      togglePhoneMenu(false);
+                      setCheckbox(false);
                     }}
                   >
                     About Me
@@ -245,6 +261,8 @@ export default function Home() {
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       toggleFrontPage(false);
+                      togglePhoneMenu(false);
+                      setCheckbox(false);
                     }}
                   >
                     Projects
@@ -256,6 +274,8 @@ export default function Home() {
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       toggleFrontPage(false);
+                      togglePhoneMenu(false);
+                      setCheckbox(false);
                     }}
                   >
                     Contact Me
@@ -271,6 +291,7 @@ export default function Home() {
               }
               frontPage={frontPage}
               side={"extra"}
+              key={"A"}
             >
               AAA
             </ResizableFixedCol>
@@ -390,19 +411,6 @@ function ResizableContainerHalfCol(props) {
 function ResizableFixedCol(props) {
   let [ref, { width }] = useMeasure();
 
-  const FixedCol = styled(Col)`
-    position: fixed !important;
-    background-color: green;
-    height: 100% !important;
-    left: 100%;
-    top: 0px;
-
-    @media (max-width: 991px) {
-      height: calc(100% - 60px) !important;
-      top: 60px;
-    } ;
-  `;
-
   return (
     <FixedCol
       className={
@@ -412,8 +420,7 @@ function ResizableFixedCol(props) {
         (props.menu ? " menu" : "") +
         (props.menuExpand && props.phoneMenu === true ? " menuExpand" : "") +
         " extra" +
-        (!props.frontPage ? " showInfo" : "") +
-        (props.side ? " " + props.side : "")
+        (!props.frontPage ? " showInfo" : "")
       }
       xs={12}
       style={props.style}
@@ -437,6 +444,20 @@ function ResizableFixedCol(props) {
     </FixedCol>
   );
 }
+
+const FixedCol = styled(Col)`
+  position: fixed !important;
+  background-color: white;
+  height: 100% !important;
+  transition-duration: 1s;
+  top: 0px;
+
+  @media (max-width: 991px) {
+    height: calc(100% - 60px) !important;
+    width: 100% !important;
+    top: 60px;
+  }
+`;
 
 const ContainerHalf = styled.div`
   &.left {

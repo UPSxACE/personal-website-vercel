@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { $textColor1 } from "../utils/config";
 
@@ -9,6 +10,7 @@ export function HamburguerMenuIcon(props) {
         id="toggle"
         type="checkbox"
         className="d-none"
+        ref={props.checkboxRef}
       ></input>
       <label htmlFor="toggle" className="hamburger">
         <div className="top-bun"></div>

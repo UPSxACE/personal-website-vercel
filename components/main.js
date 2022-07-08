@@ -83,8 +83,11 @@ export const Main = styled.main`
     padding-right: 40px;
   }
 
+  .right {
+    z-index: 95 !important;
+  }
+
   .contentCol {
-    transition-duration: 0s;
     position: relative;
     height: 100%;
 
@@ -99,6 +102,11 @@ export const Main = styled.main`
     left: 0;
   }
 
+  .contentCol.left.showInfo {
+    transition-duration: 1s !important;
+    left: -100% !important;
+  }
+
   @media (min-width: 992px) {
     .contentCol.right {
       transition-duration: 1s !important;
@@ -111,9 +119,14 @@ export const Main = styled.main`
     }
 
     .contentCol.right.showInfo {
-      transition-duration: 1s !important;
+      transition-property: left, width;
+      transition-duration: 1s, 1s !important;
       left: -50% !important;
       width: 300px;
+    }
+
+    .contentCol.showInfo .right {
+      border-right: solid 1px rgba(191, 191, 191, 0.58);
     }
   }
 
@@ -133,6 +146,27 @@ export const Main = styled.main`
         display: block !important;
         z-index: 95;
       }
+    }
+  }
+
+  .contentCol.extra {
+    transition-property: left, height;
+    transition-duration: 1s, 0s;
+    left: 100%;
+  }
+
+  .contentCol.extra.showInfo {
+    left: 0px !important;
+    width: calc(100% - 300px);
+    transition-property: left, height, width;
+    transition-duration: 0s, 0s, 0s !important;
+  }
+
+  @media (min-width: 992px) {
+    .contentCol.extra.showInfo {
+      left: 300px !important;
+      transition-property: left, height;
+      transition-duration: 1s, 0s !important;
     }
   }
 
