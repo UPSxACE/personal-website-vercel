@@ -263,7 +263,7 @@ export default function Home() {
                       frontPage
                         ? setTab(tab)
                         : setTimeout(() => {
-                            if (tab % 2 !== 0) {
+                            if (tab % 2 === 0) {
                               //the tab value is verified again to avoid bugs related to the fact of setTimeout being an asynchronous function
                               setTab(tab + 1);
                             }
@@ -349,7 +349,7 @@ export default function Home() {
                 </>
               ) : (
                 <PageTransition preset={getAnimation()} transitionKey={tab}>
-                  {tab === 1 && <ContentDiv className="h-100">CCC</ContentDiv>}
+                  {tab === 1 && <ContentDiv className="h-100">FFF</ContentDiv>}
                   {tab === 3 && <ContentDiv className="h-100">DDD</ContentDiv>}
                   {tab === 5 && <ContentDiv className="h-100">EEE</ContentDiv>}
                 </PageTransition>
