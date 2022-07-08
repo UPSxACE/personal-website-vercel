@@ -7,6 +7,11 @@ export const Main = styled.main`
 
   color: ${$textColor1};
 
+  .zero {
+    height: 0 !important;
+    width: 0 !important;
+  }
+
   ul.unstyled {
     list-style: none;
   }
@@ -125,7 +130,7 @@ export const Main = styled.main`
       width: 300px;
     }
 
-    .contentCol.showInfo .right {
+    .contentCol .right {
       border-right: solid 1px rgba(191, 191, 191, 0.58);
     }
   }

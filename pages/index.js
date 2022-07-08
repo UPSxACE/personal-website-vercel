@@ -7,6 +7,7 @@ import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
 import useMeasure from "react-use-measure";
 import {
+  $backgroundColor,
   $color1,
   $margin1,
   $padding1,
@@ -27,10 +28,25 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { HamburguerMenuIcon } from "../components/hamburguer";
+import { PageTransition } from "@steveeeie/react-page-transition";
 
 export default function Home() {
   const [phoneMenu, setPhoneMenu] = useState(false);
   const [frontPage, setFrontPage] = useState(true);
+
+  const [tab, setTab] = useState(0);
+
+  useEffect(() => {
+    console.log(tab);
+  }, [tab]);
+
+  function changeTab(value) {
+    setTab(value);
+  }
+
+  function getAnimation() {
+    return "foldTopFromBottom";
+  }
 
   let state = useRef();
 
@@ -237,6 +253,7 @@ export default function Home() {
                       toggleFrontPage(true);
                       togglePhoneMenu(false);
                       setCheckbox(false);
+                      setTab(tab + (frontPage ? 0 : 1));
                     }}
                   >
                     Home
@@ -250,6 +267,7 @@ export default function Home() {
                       toggleFrontPage(false);
                       togglePhoneMenu(false);
                       setCheckbox(false);
+                      setTab(1);
                     }}
                   >
                     About Me
@@ -263,6 +281,7 @@ export default function Home() {
                       toggleFrontPage(false);
                       togglePhoneMenu(false);
                       setCheckbox(false);
+                      setTab(3);
                     }}
                   >
                     Projects
@@ -276,6 +295,7 @@ export default function Home() {
                       toggleFrontPage(false);
                       togglePhoneMenu(false);
                       setCheckbox(false);
+                      setTab(5);
                     }}
                   >
                     Contact Me
@@ -291,9 +311,35 @@ export default function Home() {
               }
               frontPage={frontPage}
               side={"extra"}
-              key={"A"}
             >
-              AAA
+              {/* for SEO reasons, initially, all the content will be loaded */}
+              {tab % 2 === 0 ? (
+                <>
+                  <ContentDiv
+                    className={
+                      "h-100 w-100" + (tab !== 0 && tab !== 2 ? " zero" : "")
+                    }
+                  >
+                    AAA
+                  </ContentDiv>
+                  <ContentDiv
+                    className={"h-100 w-100" + (tab !== 4 ? " zero" : "")}
+                  >
+                    BBB
+                  </ContentDiv>
+                  <ContentDiv
+                    className={"h-100 w-100" + (tab !== 6 ? " zero" : "")}
+                  >
+                    CCC
+                  </ContentDiv>
+                </>
+              ) : (
+                <PageTransition preset={getAnimation()} transitionKey={tab}>
+                  {tab === 1 && <ContentDiv className="h-100">CCC</ContentDiv>}
+                  {tab === 3 && <ContentDiv className="h-100">DDD</ContentDiv>}
+                  {tab === 5 && <ContentDiv className="h-100">EEE</ContentDiv>}
+                </PageTransition>
+              )}
             </ResizableFixedCol>
           </Row>
         </MainContainer>
@@ -301,6 +347,10 @@ export default function Home() {
     </div>
   );
 }
+
+const ContentDiv = styled.div`
+  background-color: ${$color1};
+`;
 
 const ButtonPairWrapper = styled.div`
   button {
@@ -447,7 +497,10 @@ function ResizableFixedCol(props) {
 
 const FixedCol = styled(Col)`
   position: fixed !important;
-  background-color: white;
+  background-color: ${$backgroundColor};
+   {
+    /* this is the color that will be behind the content col background */
+  }
   height: 100% !important;
   transition-duration: 1s;
   top: 0px;
