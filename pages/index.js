@@ -69,17 +69,24 @@ export default function Home() {
   useEffect(() => {
     const typed = new Typed("#typed", {
       strings: [
+        "",
         "Hi",
         "I'm <em>EDUARDO BOTELHO</em>",
-        "I'm <em>DEVELOPER</em>",
         "I'm <em>EDUARDO BOTELHO</em>",
         "I'm <em>DEVELOPER</em>",
+        "I'm <em>DEVELOPER</em>",
         "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>DEVELOPER</em>",
+        "I'm <em>DEVELOPER</em>",
+        "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>EDUARDO BOTELHO</em>",
+        "I'm <em>DEVELOPER</em>",
         "I'm <em>DEVELOPER</em>",
       ],
       typeSpeed: 35,
       backSpeed: 27,
-      backDelay: 2000,
+      backDelay: 1200,
       smartBackspace: true,
       loop: true,
     });
@@ -253,7 +260,14 @@ export default function Home() {
                       toggleFrontPage(true);
                       togglePhoneMenu(false);
                       setCheckbox(false);
-                      setTab(tab + (frontPage ? 0 : 1));
+                      frontPage
+                        ? setTab(tab)
+                        : setTimeout(() => {
+                            if (tab % 2 !== 0) {
+                              //the tab value is verified again to avoid bugs related to the fact of setTimeout being an asynchronous function
+                              setTab(tab + 1);
+                            }
+                          }, 1000);
                     }}
                   >
                     Home
