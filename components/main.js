@@ -159,7 +159,7 @@ export const Main = styled.main`
     left: 0px !important;
     width: calc(100% - 300px);
     transition-property: left, height, width;
-    transition-duration: 0s, 0s, 0s !important;
+    transition-duration: 1s, 0s, 0s !important;
   }
 
   @media (min-width: 992px) {
