@@ -36,13 +36,7 @@ export default function Home() {
 
   const [tab, setTab] = useState(0);
 
-  useEffect(() => {
-    console.log(tab);
-  }, [tab]);
-
-  function changeTab(value) {
-    setTab(value);
-  }
+  let delayTimer = 0;
 
   function getAnimation() {
     return "foldTopFromBottom";
@@ -257,17 +251,16 @@ export default function Home() {
                     className="menuItem clickable1"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
+                      clearTimeout(delayTimer);
+                      let tabWhenPressed = tab;
+                      delayTimer = setTimeout(() => {
+                        if (tabWhenPressed % 2 !== 0)
+                          //the tab value is verified again to avoid bugs related to the fact of setTimeout being an asynchronous function
+                          setTab(tabWhenPressed + 1);
+                      }, 1000);
                       toggleFrontPage(true);
                       togglePhoneMenu(false);
                       setCheckbox(false);
-                      frontPage
-                        ? setTab(tab)
-                        : setTimeout(() => {
-                            if (tab % 2 === 0) {
-                              //the tab value is verified again to avoid bugs related to the fact of setTimeout being an asynchronous function
-                              setTab(tab + 1);
-                            }
-                          }, 1000);
                     }}
                   >
                     Home
@@ -278,6 +271,7 @@ export default function Home() {
                     className="menuItem clickable1"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
+                      clearTimeout(delayTimer);
                       toggleFrontPage(false);
                       togglePhoneMenu(false);
                       setCheckbox(false);
@@ -292,6 +286,7 @@ export default function Home() {
                     className="menuItem clickable1"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
+                      clearTimeout(delayTimer);
                       toggleFrontPage(false);
                       togglePhoneMenu(false);
                       setCheckbox(false);
@@ -306,6 +301,7 @@ export default function Home() {
                     className="menuItem clickable1"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
+                      clearTimeout(delayTimer);
                       toggleFrontPage(false);
                       togglePhoneMenu(false);
                       setCheckbox(false);
