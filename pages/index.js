@@ -34,7 +34,7 @@ import {
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { HamburguerMenuIcon } from "../components/hamburguer";
 import { PageTransition } from "@steveeeie/react-page-transition";
-import { Section } from "./home/section";
+import { Section } from "../components/home/section";
 import { ProfilePicture } from "../components/home/profilePicture";
 import { IconSpanDiv } from "../components/home/iconSpanDiv";
 import {

@@ -2,7 +2,7 @@ import styles from "../../styles/Home.module.css";
 import styled from "styled-components";
 import { PageTransition } from "@steveeeie/react-page-transition";
 import { useState } from "react";
-import { Section } from "../home/section";
+import { Section } from "../../components/home/section";
 import { ProfilePicture } from "../../components/home/profilePicture";
 
 export default function Page() {
