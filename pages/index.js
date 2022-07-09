@@ -3,7 +3,12 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import styled from "styled-components";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  AnimateSharedLayout,
+  motion,
+  useForceUpdate,
+} from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
 import useMeasure from "react-use-measure";
 import {
@@ -44,12 +49,17 @@ import {
   AiOutlineMail,
   AiOutlineHome,
 } from "react-icons/ai";
+import { pages } from "./home/pages";
 
 export default function Home() {
   const [phoneMenu, setPhoneMenu] = useState(false);
   const [frontPage, setFrontPage] = useState(true);
 
   const [tab, setTab] = useState(0);
+
+  useEffect(() => {
+    console.log("tab: " + tab);
+  }, [tab]);
 
   let delayTimer = 0;
 
@@ -339,80 +349,27 @@ export default function Home() {
             >
               {/* for SEO reasons, initially, all the content will be loaded */}
               {tab % 2 === 0 ? (
-                <>
-                  <ContentDiv
-                    className={
-                      "h-100 w-100" + (tab !== 0 && tab !== 2 ? " zero" : "")
-                    }
-                  >
-                    <Section title="About Me">
-                      <Container fluid>
-                        <Row>
-                          <Col xs={12} xl={6}>
-                            <ProfilePicture />
-                          </Col>
-                        </Row>
-                      </Container>
-                    </Section>
-                  </ContentDiv>
-                  <ContentDiv
-                    className={"h-100 w-100" + (tab !== 4 ? " zero" : "")}
-                  >
-                    BBB
-                  </ContentDiv>
-                  <ContentDiv
-                    className={"h-100 w-100" + (tab !== 6 ? " zero" : "")}
-                  >
-                    CCC
-                  </ContentDiv>
-                </>
+                pages.map((page, index) => {
+                  return (
+                    <>
+                      <ContentDiv
+                        className={
+                          "h-100 w-100" +
+                          (tab !== 0 && tab !== index - index / 2 - 1
+                            ? " zero"
+                            : "")
+                        }
+                      >
+                        {page}
+                      </ContentDiv>
+                    </>
+                  );
+                })
               ) : (
                 <PageTransition preset={getAnimation()} transitionKey={tab}>
-                  {tab === 1 && (
-                    <ContentDiv className="h-100">
-                      <Section title="About Me">
-                        <Container fluid>
-                          <Row className="pt-5">
-                            <Col xs={12} xl={6} xxl={4}>
-                              <ProfilePicture />
-                            </Col>
-                            <Col
-                              className="d-flex flex-column"
-                              xs={12}
-                              xl={6}
-                              xxl={8}
-                            >
-                              <h2>Eduardo Botelho</h2>
-                              <h5 className="pb-2 pt-2">
-                                Software Development Student
-                              </h5>
-                              <p>
-                                I started learning how to code by myself on the
-                                internet in 2020, and now I am currently
-                                studying to become a Software Engineer. I love
-                                to solve problems, to overcome challenges, and
-                                to create things!
-                              </p>
-                              <IconSpanDiv icon={<AiOutlineCalendar />}>
-                                11th January, 2001
-                              </IconSpanDiv>
-                              <IconSpanDiv flip icon={<AiOutlinePhone />}>
-                                +351 962 075 694
-                              </IconSpanDiv>
-                              <IconSpanDiv icon={<AiOutlineMail />}>
-                                eduardo11224b@gmail.com
-                              </IconSpanDiv>
-                              <IconSpanDiv icon={<AiOutlineHome />}>
-                                Bragança, Portugal
-                              </IconSpanDiv>
-                            </Col>
-                          </Row>
-                        </Container>
-                      </Section>
-                    </ContentDiv>
-                  )}
-                  {tab === 3 && <ContentDiv className="h-100">DDD</ContentDiv>}
-                  {tab === 5 && <ContentDiv className="h-100">EEE</ContentDiv>}
+                  <ContentDiv className="h-100">
+                    {pages[(tab - 1) / 2]}
+                  </ContentDiv>
                 </PageTransition>
               )}
             </ResizableFixedCol>
@@ -692,5 +649,3 @@ const overlayDivChildAnimation = {
 const overlayDivParentAnimation = {
   show: { opacity: 1 },
 };
-
-export function getStaticProps() {}
