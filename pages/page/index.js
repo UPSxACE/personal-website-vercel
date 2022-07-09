@@ -2,6 +2,8 @@ import styles from "../../styles/Home.module.css";
 import styled from "styled-components";
 import { PageTransition } from "@steveeeie/react-page-transition";
 import { useState } from "react";
+import { Section } from "../home/section";
+import { ProfilePicture } from "../home/profilePicture";
 
 export default function Page() {
   const [contador, setContador] = useState(0);
@@ -17,7 +19,7 @@ export default function Page() {
       <Square>
         <PageTransition preset={"foldTopFromBottom"} transitionKey={contador}>
           {contador % 2 === 0 ? (
-            <Square2 onClick={contar}>AAA</Square2>
+            <Section title="About Me"></Section>
           ) : (
             <Square2 onClick={contar}>BBB</Square2>
           )}

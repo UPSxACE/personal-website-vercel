@@ -29,6 +29,21 @@ import {
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { HamburguerMenuIcon } from "../components/hamburguer";
 import { PageTransition } from "@steveeeie/react-page-transition";
+import { Section } from "./home/section";
+import { ProfilePicture } from "./home/profilePicture";
+import { IconSpanDiv } from "./home/iconSpanDiv";
+import {
+  faHouseChimney,
+  faCalendar,
+  faEnvelope,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  AiOutlineCalendar,
+  AiOutlinePhone,
+  AiOutlineMail,
+  AiOutlineHome,
+} from "react-icons/ai";
 
 export default function Home() {
   const [phoneMenu, setPhoneMenu] = useState(false);
@@ -330,7 +345,15 @@ export default function Home() {
                       "h-100 w-100" + (tab !== 0 && tab !== 2 ? " zero" : "")
                     }
                   >
-                    AAA
+                    <Section title="About Me">
+                      <Container fluid>
+                        <Row>
+                          <Col xs={12} xl={6}>
+                            <ProfilePicture />
+                          </Col>
+                        </Row>
+                      </Container>
+                    </Section>
                   </ContentDiv>
                   <ContentDiv
                     className={"h-100 w-100" + (tab !== 4 ? " zero" : "")}
@@ -345,7 +368,49 @@ export default function Home() {
                 </>
               ) : (
                 <PageTransition preset={getAnimation()} transitionKey={tab}>
-                  {tab === 1 && <ContentDiv className="h-100">FFF</ContentDiv>}
+                  {tab === 1 && (
+                    <ContentDiv className="h-100">
+                      <Section title="About Me">
+                        <Container fluid>
+                          <Row className="pt-5">
+                            <Col xs={12} xl={6} xxl={4}>
+                              <ProfilePicture />
+                            </Col>
+                            <Col
+                              className="d-flex flex-column"
+                              xs={12}
+                              xl={6}
+                              xxl={8}
+                            >
+                              <h2>Eduardo Botelho</h2>
+                              <h5 className="pb-2 pt-2">
+                                Software Development Student
+                              </h5>
+                              <p>
+                                I started learning how to code by myself on the
+                                internet in 2020, and now I am currently
+                                studying to become a Software Engineer. I love
+                                to solve problems, to overcome challenges, and
+                                to create things!
+                              </p>
+                              <IconSpanDiv icon={<AiOutlineCalendar />}>
+                                11th January, 2001
+                              </IconSpanDiv>
+                              <IconSpanDiv flip icon={<AiOutlinePhone />}>
+                                +351 962 075 694
+                              </IconSpanDiv>
+                              <IconSpanDiv icon={<AiOutlineMail />}>
+                                eduardo11224b@gmail.com
+                              </IconSpanDiv>
+                              <IconSpanDiv icon={<AiOutlineHome />}>
+                                Bragança, Portugal
+                              </IconSpanDiv>
+                            </Col>
+                          </Row>
+                        </Container>
+                      </Section>
+                    </ContentDiv>
+                  )}
                   {tab === 3 && <ContentDiv className="h-100">DDD</ContentDiv>}
                   {tab === 5 && <ContentDiv className="h-100">EEE</ContentDiv>}
                 </PageTransition>
@@ -359,6 +424,7 @@ export default function Home() {
 }
 
 const ContentDiv = styled.div`
+  overflow-y: auto;
   background-color: ${$color1};
 `;
 
@@ -540,11 +606,11 @@ const Arrow = styled(motion.span)`
 
   &.arrow1 {
     position: absolute;
-    top: calc(50% + 90px);
+    top: calc(50% + 80px);
      {
       /* maybe should be configurable later */
     }
-    left: calc(50% + 90px);
+    left: calc(50% + 80px);
      {
       /* maybe should be configurable later */
     }
@@ -554,11 +620,11 @@ const Arrow = styled(motion.span)`
   &.arrow2 {
     position: absolute;
 
-    top: calc(50% + 90px);
+    top: calc(50% + 80px);
      {
       /* maybe should be configurable later */
     }
-    right: calc(50% + 90px);
+    right: calc(50% + 80px);
      {
       /* maybe should be configurable later */
     }
@@ -566,11 +632,11 @@ const Arrow = styled(motion.span)`
   }
   &.arrow3 {
     position: absolute;
-    bottom: calc(50% + 90px);
+    bottom: calc(50% + 80px);
      {
       /* maybe should be configurable later */
     }
-    left: calc(50% + 90px);
+    left: calc(50% + 80px);
      {
       /* maybe should be configurable later */
     }
@@ -579,11 +645,11 @@ const Arrow = styled(motion.span)`
   }
   &.arrow4 {
     position: absolute;
-    bottom: calc(50% + 90px);
+    bottom: calc(50% + 80px);
      {
       /* maybe should be configurable later */
     }
-    right: calc(50% + 90px);
+    right: calc(50% + 80px);
      {
       /* maybe should be configurable later */
     }
@@ -626,3 +692,5 @@ const overlayDivChildAnimation = {
 const overlayDivParentAnimation = {
   show: { opacity: 1 },
 };
+
+export function getStaticProps() {}
