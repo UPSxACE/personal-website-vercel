@@ -355,9 +355,7 @@ export default function Home() {
                       <ContentDiv
                         className={
                           "h-100 w-100" +
-                          (tab !== 0 && tab !== index - index / 2 - 1
-                            ? " zero"
-                            : "")
+                          (tab !== 0 && tab !== (index + 1) * 2 ? " zero" : "")
                         }
                       >
                         {page}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export function ProfilePicture() {
   return (
     <PictureDiv>
-      <PictureBase src="" />
+      <PictureBase src="https://preview.colorlib.com/theme/meetme/img/xpersonal.jpg.pagespeed.ic.0nYDRDpxHl.webp" />
     </PictureDiv>
   );
 }
