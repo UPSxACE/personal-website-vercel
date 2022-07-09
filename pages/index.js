@@ -35,8 +35,8 @@ import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { HamburguerMenuIcon } from "../components/hamburguer";
 import { PageTransition } from "@steveeeie/react-page-transition";
 import { Section } from "./home/section";
-import { ProfilePicture } from "./home/profilePicture";
-import { IconSpanDiv } from "./home/iconSpanDiv";
+import { ProfilePicture } from "../components/home/profilePicture";
+import { IconSpanDiv } from "../components/home/iconSpanDiv";
 import {
   faHouseChimney,
   faCalendar,
@@ -49,7 +49,7 @@ import {
   AiOutlineMail,
   AiOutlineHome,
 } from "react-icons/ai";
-import { pages } from "./home/pages";
+import { pages } from "../components/home/pages";
 
 export default function Home() {
   const [phoneMenu, setPhoneMenu] = useState(false);

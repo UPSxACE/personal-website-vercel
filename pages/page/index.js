@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { PageTransition } from "@steveeeie/react-page-transition";
 import { useState } from "react";
 import { Section } from "../home/section";
-import { ProfilePicture } from "../home/profilePicture";
+import { ProfilePicture } from "../../components/home/profilePicture";
 
 export default function Page() {
   const [contador, setContador] = useState(0);

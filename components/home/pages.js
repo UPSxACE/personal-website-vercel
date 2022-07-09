@@ -1,4 +1,4 @@
-import { Section } from "./section";
+import { Section } from "../../pages/home/section";
 import { ProfilePicture } from "./profilePicture";
 import { IconSpanDiv } from "./iconSpanDiv";
 import {
