@@ -1,11 +1,26 @@
 import styled from "styled-components";
-import { $color1, $color2, $fontFamily1, $textColor1 } from "../utils/config";
+import {
+  $color1,
+  $color2,
+  $fontFamily1,
+  $textColor1,
+  $textColor3,
+} from "../utils/config";
 
 export const Main = styled.main`
   font-family: ${$fontFamily1};
   background-color: ${$color1};
 
   color: ${$textColor1};
+
+  span,
+  p {
+    color: ${$textColor3};
+  }
+
+  .textColor1 {
+    color: ${$textColor1};
+  }
 
   .zero {
     height: 0 !important;
@@ -43,12 +58,15 @@ export const Main = styled.main`
 
   .h1,
   .h2,
+  h1,
+  h2 {
+    font-weight: 500;
+  }
+
   .h3,
   .h4,
   .h5,
   .h6,
-  h1,
-  h2,
   h3,
   h4,
   h5,
@@ -209,5 +227,25 @@ export const Main = styled.main`
       background-color: rgba(0, 0, 0, 0.38);
       z-index: 91;
     }
+  }
+
+  .fw-300 {
+    font-weight: 300 !important;
+  }
+
+  .fw-400 {
+    font-weight: 400 !important;
+  }
+
+  .fw-500 {
+    font-weight: 500 !important;
+  }
+
+  .fw-600 {
+    font-weight: 600 !important;
+  }
+
+  .fw-700 {
+    font-weight: 700 !important;
   }
 `;

@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { AnimatePresence, motion } from "framer-motion";
 import loadingIcon from "../img/atoms-lottie-animation-200x200-black.gif";
 import Image from "next/image";
+import { createTheme, ThemeProvider } from "@mui/system";
+import { $color1, $color2, $color3 } from "../utils/config";
 
 function Loading(props) {
   const router = useRouter();
@@ -59,10 +61,34 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Loading setLoaded={setLoaded} />
-      <Component key={loaded} {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Loading setLoaded={setLoaded} />
+        <Component key={loaded} {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
+
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: $color2,
+    },
+  },
+});
+
+theme = createTheme(theme, {
+  components: {
+    MuiLinearProgress: {
+      styleOverrides: {
+        root: {
+          // ap
+          backgroundColor: $color3,
+          height: 12,
+        },
+      },
+    },
+  },
+});
 
 export default MyApp;

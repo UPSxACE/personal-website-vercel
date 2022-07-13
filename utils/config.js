@@ -10,9 +10,11 @@ export const $margin1 = 24; // On top of the name on the frontpage, below frontp
 export const $backgroundColor = "#fff";
 export const $color1 = "#f9f9ff";
 export const $color2 = "#FF4C60";
+export const $color3 = "#e0e0e5"; //"#ececec"
 export const $textColor1 = "#21252a";
 export const $textColor1Alt = "#353353";
 export const $textColor2 = "#ffffff";
+export const $textColor3 = "#3a3a3a";
 
 // Font families:
 export const $fontFamily1 = "'Poppins', sans-serif";

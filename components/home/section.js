@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { $color2 } from "../../utils/config";
+import { $color2, $color3 } from "../../utils/config";
 
 export function Section(props) {
   return (
@@ -29,6 +29,19 @@ export function OtherSection(props) {
   );
 }
 
+export function SubSection(props) {
+  return (
+    <>
+      {props.title && (
+        <>
+          <h2 className="">{props.title}</h2>
+        </>
+      )}
+      {props.children}
+    </>
+  );
+}
+
 function LineDiv() {
   return (
     <>
@@ -47,5 +60,5 @@ const Square = styled.div`
 const Line = styled.div`
   height: 1px;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: ${$color3};
 `;
