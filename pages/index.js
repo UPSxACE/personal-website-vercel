@@ -145,7 +145,7 @@ export default function Home() {
              align-items-center"
               xs={12}
             >
-              <h4 className="m-0">Eduardo</h4>
+              <h3 className="m-0">Eduardo</h3>
               <HamburguerMenuIcon
                 checkboxRef={state}
                 onClick={togglePhoneMenu}
