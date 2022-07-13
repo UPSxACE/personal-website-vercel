@@ -89,6 +89,7 @@ export default function Home() {
     const typed = new Typed("#typed", {
       strings: [
         "",
+        "",
         "Hi",
         "I'm <em>EDUARDO BOTELHO</em>",
         "I'm <em>EDUARDO BOTELHO</em>",
@@ -187,7 +188,7 @@ export default function Home() {
                 animate={{ top: $padding1, left: $padding1 }}
                 transition={{
                   ease: "easeIn",
-                  delay: 0.4,
+                  delay: 0.8,
                   default: { duration: 1.05 },
                 }}
               ></Arrow>
@@ -196,7 +197,7 @@ export default function Home() {
                 animate={{ top: $padding1, right: $padding1 }}
                 transition={{
                   ease: "easeIn",
-                  delay: 0.4,
+                  delay: 0.8,
                   default: { duration: 1.05 },
                 }}
               ></Arrow>
@@ -205,7 +206,7 @@ export default function Home() {
                 animate={{ bottom: $padding1, left: $padding1 }}
                 transition={{
                   ease: "easeIn",
-                  delay: 0.4,
+                  delay: 0.8,
                   default: { duration: 1.05 },
                 }}
               ></Arrow>
@@ -214,7 +215,7 @@ export default function Home() {
                 animate={{ bottom: $padding1, right: $padding1 }}
                 transition={{
                   ease: "easeIn",
-                  delay: 0.4,
+                  delay: 0.8,
                   default: { duration: 1.05 },
                 }}
               ></Arrow>
@@ -223,7 +224,7 @@ export default function Home() {
                 initial="initial"
                 variants={overlayDivParentAnimation}
                 className="d-flex justify-content-center align-items-center flex-column frontpage"
-                transition={{ delay: 1.4, default: { duration: 1.65 } }}
+                transition={{ delay: 1.75, default: { duration: 1.65 } }}
               >
                 <Picture variants={overlayDivChildAnimation} />
                 <motion.h3

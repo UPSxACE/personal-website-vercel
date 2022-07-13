@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AnimatePresence, motion } from "framer-motion";
+import loadingIcon from "../img/atoms-lottie-animation-200x200-black.gif";
+import Image from "next/image";
 
 function Loading(props) {
   const router = useRouter();
@@ -31,18 +33,18 @@ function Loading(props) {
     setTimeout(() => {
       props.setLoaded(true);
       setLoading(false);
-    }, 500);
+    }, 2000);
   }, []);
   return (
     <AnimatePresence>
       {loading && (
         <motion.div
           className="spinner-wrapper"
-          transition={{ default: { duration: 0.35 } }}
+          transition={{ default: { duration: 0.65 } }}
           exit={{ opacity: 0 }}
           style={{ zIndex: 99 }}
         >
-          <div className="spinner" />
+          <Image alt="loader icon" src={loadingIcon} />
         </motion.div>
       )}
     </AnimatePresence>
