@@ -3,7 +3,7 @@ import { $color2, $color3 } from "../../utils/config";
 
 export function Section(props) {
   return (
-    <section className="p-5">
+    <section className="p-5 pt-4b">
       {props.title && (
         <>
           <h1>{props.title}</h1>

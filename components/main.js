@@ -14,6 +14,23 @@ export const Main = styled.main`
 
   color: ${$textColor1};
 
+  .pt-4b {
+    padding-top: 2rem !important;
+  }
+  .pb-4b {
+    padding-bottom: 2rem !important;
+  }
+  .ps-4b {
+    padding-left: 2rem !important;
+  }
+  .pe-4b {
+    padding-right: 2rem !important;
+  }
+
+  .p-4b {
+    padding: 2rem !important;
+  }
+
   span,
   p {
     color: ${$textColor3};
