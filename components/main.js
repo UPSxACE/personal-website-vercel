@@ -4,6 +4,7 @@ import {
   $color2,
   $fontFamily1,
   $textColor1,
+  $textColor2,
   $textColor3,
 } from "../utils/config";
 
@@ -20,6 +21,10 @@ export const Main = styled.main`
 
   .textColor1 {
     color: ${$textColor1};
+  }
+
+  .textColor2 {
+    color: ${$textColor2};
   }
 
   .zero {

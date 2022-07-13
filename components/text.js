@@ -2,7 +2,12 @@ import styled from "styled-components";
 import { $color1, $color2, $textColor1, $textColor2 } from "../utils/config";
 
 export const TypedSpanDiv = styled.div`
-  color: ${$textColor2};
+  color: ${$textColor2}!important;
+
+  .typed-cursor {
+    color: ${$textColor2}!important;
+  }
+
   span {
     font-size: calc(1rem + 1.5vw);
   }

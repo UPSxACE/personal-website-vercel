@@ -162,7 +162,7 @@ export default function Home() {
               side={"left"}
             >
               <TypedSpanDiv className="mb-2">
-                <span id="typed"></span>
+                <span id="typed" className="textColor2"></span>
               </TypedSpanDiv>
               <ButtonPairWrapper className="d-flex justify-content-center mt-4 flex-wrap">
                 <Button1 className="p-2 ps-3 pe-3">Download CV</Button1>
