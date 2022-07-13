@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AnimatePresence, motion } from "framer-motion";
 
-function Loading() {
+function Loading(props) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -29,6 +29,7 @@ function Loading() {
   });
   useEffect(() => {
     setTimeout(() => {
+      props.setLoaded(true);
       setLoading(false);
     }, 500);
   }, []);
@@ -52,10 +53,12 @@ function Loading() {
 }
 
 function MyApp({ Component, pageProps }) {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <>
-      <Loading />
-      <Component {...pageProps} />
+      <Loading setLoaded={setLoaded} />
+      <Component key={loaded} {...pageProps} />
     </>
   );
 }
