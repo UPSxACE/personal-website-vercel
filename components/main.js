@@ -158,6 +158,10 @@ export const Main = styled.main`
     transition-property: left, height;
     transition-duration: 1s, 0s;
     left: 100%;
+    width: calc(100% - 300px);
+     {
+      /* careful with this one (width) */
+    }
   }
 
   .contentCol.extra.showInfo {

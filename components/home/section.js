@@ -15,6 +15,20 @@ export function Section(props) {
   );
 }
 
+export function OtherSection(props) {
+  return (
+    <section className="p-5 pt-0">
+      {props.title && (
+        <>
+          <h1>{props.title}</h1>
+          <LineDiv></LineDiv>
+        </>
+      )}
+      {props.children}
+    </section>
+  );
+}
+
 function LineDiv() {
   return (
     <>

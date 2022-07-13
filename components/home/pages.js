@@ -1,4 +1,4 @@
-import { Section } from "./section";
+import { OtherSection, Section } from "./section";
 import { ProfilePicture } from "./profilePicture";
 import { IconSpanDiv } from "./iconSpanDiv";
 import {
@@ -16,35 +16,70 @@ const ContentDiv = styled.div`
   background-color: ${$color1};
 `;
 export const pages = [
-  <Section key={0} title="About Me">
-    <Container fluid>
-      <Row className="pt-5">
-        <Col xs={12} xl={6} xxl={4}>
-          <ProfilePicture />
-        </Col>
-        <Col className="d-flex flex-column" xs={12} xl={6} xxl={8}>
-          <h2>Eduardo Botelho</h2>
-          <h5 className="pb-2 pt-2">Software Development Student</h5>
-          <p>
-            I started learning how to code by myself on the internet in 2020,
-            and now I am currently studying to become a Software Engineer. I
-            love to solve problems, to overcome challenges, and to create
-            things!
-          </p>
-          <IconSpanDiv icon={<AiOutlineCalendar />}>
-            11th January, 2001
-          </IconSpanDiv>
-          <IconSpanDiv flip icon={<AiOutlinePhone />}>
-            +351 962 075 694
-          </IconSpanDiv>
-          <IconSpanDiv icon={<AiOutlineMail />}>
-            eduardo11224b@gmail.com
-          </IconSpanDiv>
-          <IconSpanDiv icon={<AiOutlineHome />}>Bragança, Portugal</IconSpanDiv>
-        </Col>
-      </Row>
-    </Container>
-  </Section>,
-  <div key={1}>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>,
-  <div key={2}>BBBBBBBBBBBBBBBBBBBBB</div>,
+  <>
+    <Section key={0} title="About Me">
+      <Container fluid>
+        <Row className="pt-5">
+          <Col xs={12} xl={6} xxl={4}>
+            <ProfilePicture />
+          </Col>
+          <Col className="d-flex flex-column" xs={12} xl={6} xxl={8}>
+            <h2 className="pt-3 pt-xl-0">Eduardo Botelho</h2>
+            <h5 className="pb-2 pt-2">Software Development Student</h5>
+            <p>
+              I started learning how to code by myself on the internet in 2020,
+              and now I am currently studying to become a Software Engineer. I
+              love to solve problems, to overcome challenges, and to create
+              things!
+            </p>
+            <IconSpanDiv icon={<AiOutlineCalendar />}>
+              11th January, 2001
+            </IconSpanDiv>
+            <IconSpanDiv flip icon={<AiOutlinePhone />}>
+              +351 962 075 694
+            </IconSpanDiv>
+            <IconSpanDiv icon={<AiOutlineMail />}>
+              eduardo11224b@gmail.com
+            </IconSpanDiv>
+            <IconSpanDiv icon={<AiOutlineHome />}>
+              Bragança, Portugal
+            </IconSpanDiv>
+          </Col>
+        </Row>
+      </Container>
+    </Section>
+    <OtherSection key={1} title="About Me">
+      <Container fluid>
+        <Row className="pt-5">
+          <Col xs={12} xl={6} xxl={4}>
+            <ProfilePicture />
+          </Col>
+          <Col className="d-flex flex-column" xs={12} xl={6} xxl={8}>
+            <h2 className="pt-3 pt-xl-0">Eduardo Botelho</h2>
+            <h5 className="pb-2 pt-2">Software Development Student</h5>
+            <p>
+              I started learning how to code by myself on the internet in 2020,
+              and now I am currently studying to become a Software Engineer. I
+              love to solve problems, to overcome challenges, and to create
+              things!
+            </p>
+            <IconSpanDiv icon={<AiOutlineCalendar />}>
+              11th January, 2001
+            </IconSpanDiv>
+            <IconSpanDiv flip icon={<AiOutlinePhone />}>
+              +351 962 075 694
+            </IconSpanDiv>
+            <IconSpanDiv icon={<AiOutlineMail />}>
+              eduardo11224b@gmail.com
+            </IconSpanDiv>
+            <IconSpanDiv icon={<AiOutlineHome />}>
+              Bragança, Portugal
+            </IconSpanDiv>
+          </Col>
+        </Row>
+      </Container>
+    </OtherSection>
+  </>,
+  <div key={2}>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>,
+  <div key={3}>BBBBBBBBBBBBBBBBBBBBB</div>,
 ];
