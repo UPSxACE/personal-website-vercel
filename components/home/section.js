@@ -3,7 +3,7 @@ import { $color2, $color3 } from "../../utils/config";
 
 export function Section(props) {
   return (
-    <section className="p-4 p-lg-5 pt-4b">
+    <section className="p-4 p-lg-5 pt-lg-4">
       {props.title && (
         <>
           <h1>{props.title}</h1>
@@ -17,7 +17,7 @@ export function Section(props) {
 
 export function OtherSection(props) {
   return (
-    <section className="p-4 p-lg-5 pt-0">
+    <section className="p-4 p-lg-5 pt-lg-0 pt-0">
       {props.title && (
         <>
           <h1>{props.title}</h1>

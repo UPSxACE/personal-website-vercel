@@ -20,6 +20,7 @@ import {
 } from "./skills";
 import { VerticalTimeLine } from "./timeline";
 import { education, experience } from "./education";
+import { Squares } from "./squares";
 
 const ContentDiv = styled.div`
   overflow-y: auto;
@@ -55,7 +56,8 @@ export const pages = [
               Bragança, Portugal
             </IconSpanDiv>
           </Col>
-          <Col className="pt-5 pe-xxl-4" xs={12} xxl={6}>
+          <Squares />
+          <Col className="pt-4 pt-4b pe-xxl-4" xs={12} xxl={6}>
             <SubSection title="Soft Skills">
               {soft_skills.map((soft_skill, index) => {
                 return (
@@ -69,7 +71,7 @@ export const pages = [
               })}
             </SubSection>
           </Col>
-          <Col className="pt-5 ps-xxl-4" xs={12} xxl={6}>
+          <Col className="pt-4 pt-4b ps-xxl-4" xs={12} xxl={6}>
             <SubSection title="Programming Languages">
               {programming_languages.map((programming_language, index) => {
                 return (
@@ -83,7 +85,7 @@ export const pages = [
               })}
             </SubSection>
           </Col>
-          <Col className="pt-5 pe-xxl-4" xs={12} xxl={6}>
+          <Col className="pt-4 pt-4b pe-xxl-4" xs={12} xxl={6}>
             <SubSection title="Hard Skills">
               {hard_skills.map((hard_skill, index) => {
                 return (
@@ -97,7 +99,7 @@ export const pages = [
               })}
             </SubSection>
           </Col>
-          <Col className="pt-5 ps-xxl-4" xs={12} xxl={6}>
+          <Col className="pt-4 pt-4b ps-xxl-4" xs={12} xxl={6}>
             <SubSection title="Frameworks">
               {frameworks.map((framework, index) => {
                 return (
@@ -111,11 +113,19 @@ export const pages = [
               })}
             </SubSection>
           </Col>
-          <Col className="pt-5 pe-xxl-4 d-flex flex-column" xs={12} xxl={6}>
+          <Col
+            className="pt-4 pt-4b pe-xxl-4 d-flex flex-column"
+            xs={12}
+            xxl={6}
+          >
             <SubSection title="Education"></SubSection>
             <VerticalTimeLine cards={education}></VerticalTimeLine>
           </Col>
-          <Col className="pt-5 ps-xxl-4 d-flex flex-column" xs={12} xxl={6}>
+          <Col
+            className="pt-4 pt-4b ps-xxl-4 d-flex flex-column"
+            xs={12}
+            xxl={6}
+          >
             <SubSection title="Experience"></SubSection>
             <VerticalTimeLine cards={experience}></VerticalTimeLine>
           </Col>
