@@ -84,7 +84,7 @@ theme = createTheme(theme, {
         root: {
           // ap
           backgroundColor: $color3,
-          height: 12,
+          height: 8,
         },
       },
     },

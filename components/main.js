@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {
+  $borderColor,
   $color1,
   $color2,
   $fontFamily1,
@@ -31,11 +32,34 @@ export const Main = styled.main`
     .p-4b {
       padding: 2rem !important;
     }
+    .mt-4b {
+      margin-top: 2rem !important;
+    }
+    .mb-4b {
+      margin-bottom: 2rem !important;
+    }
+    .ms-4b {
+      margin-left: 2rem !important;
+    }
+    .me-4b {
+      margin-right: 2rem !important;
+    }
+
+    .m-4b {
+      margin: 2rem !important;
+    }
   }
 
   span,
   p {
     color: ${$textColor3};
+  }
+
+  .color1 {
+    color: ${$color1};
+  }
+  .color2 {
+    color: ${$color2};
   }
 
   .textColor1 {
@@ -173,7 +197,7 @@ export const Main = styled.main`
     }
 
     .contentCol .right {
-      border-right: solid 1px rgba(191, 191, 191, 0.58);
+      border-right: solid 1px ${$borderColor};
     }
   }
 

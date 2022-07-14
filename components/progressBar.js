@@ -2,26 +2,26 @@ import { LinearProgress } from "@mui/material";
 
 export function ProgressBar(props) {
   function getValueText(value) {
-    if (value <= 40) {
-      // smaller than 40
+    if (value <= 50) {
+      // smaller than 50
       if (value <= 20) {
         // 0-20
         return "Learning";
       } else {
-        //21-40
+        //21-50
         return "Comfortable";
       }
     } else {
-      // bigger than 40
-      if (value <= 60) {
-        // 41-60
+      // bigger than 50
+      if (value <= 70) {
+        // 51-70
         return "Effective";
       } else {
-        if (value <= 80) {
-          // 61-80
+        if (value <= 85) {
+          // 71-85
           return "Solid";
         } else {
-          // 81-100
+          // 86-100
           return "Great";
         }
       }

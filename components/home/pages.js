@@ -12,6 +12,14 @@ import styled from "styled-components";
 import { $color1 } from "../../utils/config";
 import { createTheme, LinearProgress } from "@mui/material";
 import { ProgressBar } from "../progressBar";
+import {
+  frameworks,
+  hard_skills,
+  programming_languages,
+  soft_skills,
+} from "./skills";
+import { VerticalTimeLine } from "./timeline";
+import { education, experience } from "./education";
 
 const ContentDiv = styled.div`
   overflow-y: auto;
@@ -26,8 +34,8 @@ export const pages = [
             <ProfilePicture />
           </Col>
           <Col className="d-flex flex-column" xs={12} xl={6} xxl={8}>
-            <h2 className="pt-4 pt-xl-0">Eduardo Botelho</h2>
-            <h5 className="pb-2 pt-2">Software Development Student</h5>
+            <h2 className="pt-5 pt-xl-0">Eduardo Botelho</h2>
+            <h5>Software Development Student</h5>
             <p>
               I started learning how to code by myself on the internet in 2020,
               and now I am currently studying to become a Software Engineer. I
@@ -47,63 +55,69 @@ export const pages = [
               Bragança, Portugal
             </IconSpanDiv>
           </Col>
-          <Col className="pt-4 pe-xxl-4" xs={12} xxl={6}>
+          <Col className="pt-5 pe-xxl-4" xs={12} xxl={6}>
             <SubSection title="Soft Skills">
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
+              {soft_skills.map((soft_skill, index) => {
+                return (
+                  <ProgressBar
+                    key={"softskill" + index}
+                    skill={soft_skill[0]}
+                    variant="determinate"
+                    value={soft_skill[1]}
+                  />
+                );
+              })}
             </SubSection>
           </Col>
-          <Col className="pt-4 ps-xxl-4" xs={12} xxl={6}>
-            <SubSection title="Hard Skills">
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
-              <ProgressBar
-                skill="Problem Solving"
-                variant="determinate"
-                value={50}
-              />
+          <Col className="pt-5 ps-xxl-4" xs={12} xxl={6}>
+            <SubSection title="Programming Languages">
+              {programming_languages.map((programming_language, index) => {
+                return (
+                  <ProgressBar
+                    key={"programminglanguage" + index}
+                    skill={programming_language[0]}
+                    variant="determinate"
+                    value={programming_language[1]}
+                  />
+                );
+              })}
             </SubSection>
+          </Col>
+          <Col className="pt-5 pe-xxl-4" xs={12} xxl={6}>
+            <SubSection title="Hard Skills">
+              {hard_skills.map((hard_skill, index) => {
+                return (
+                  <ProgressBar
+                    key={"hardskill" + index}
+                    skill={hard_skill[0]}
+                    variant="determinate"
+                    value={hard_skill[1]}
+                  />
+                );
+              })}
+            </SubSection>
+          </Col>
+          <Col className="pt-5 ps-xxl-4" xs={12} xxl={6}>
+            <SubSection title="Frameworks">
+              {frameworks.map((framework, index) => {
+                return (
+                  <ProgressBar
+                    key={"framework" + index}
+                    skill={framework[0]}
+                    variant="determinate"
+                    value={framework[1]}
+                  />
+                );
+              })}
+            </SubSection>
+          </Col>
+          <Col className="pt-5 pe-xxl-4 d-flex flex-column" xs={12} xxl={6}>
+            <SubSection title="Education"></SubSection>
+            <VerticalTimeLine cards={education}></VerticalTimeLine>
+          </Col>
+          <Col className="pt-5 ps-xxl-4 d-flex flex-column" xs={12} xxl={6}>
+            <SubSection title="Experience"></SubSection>
+            <VerticalTimeLine cards={experience}></VerticalTimeLine>
           </Col>
         </Row>
       </Container>
