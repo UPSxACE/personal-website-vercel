@@ -16,6 +16,9 @@ export const hard_skills = [
   //["Wordpress", 60],
   //["Git", 80],
   //["Unif. Model. Lang. (UML)", 75],
+  ["Bootstrap", 95],
+  ["Yii2", 80],
+  ["React", 80],
 ];
 
 export const programming_languages = [

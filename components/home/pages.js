@@ -19,7 +19,8 @@ import {
   soft_skills,
 } from "./skills";
 import { VerticalTimeLine } from "./timeline";
-import { education, experience } from "./education";
+import { education } from "./education";
+import { experience } from "./experience";
 import { Squares } from "./squares";
 
 const ContentDiv = styled.div`
@@ -71,21 +72,8 @@ export const pages = [
               })}
             </SubSection>
           </Col>
+
           <Col className="pt-4 pt-4b ps-xxl-4" xs={12} xxl={6}>
-            <SubSection title="Programming Languages">
-              {programming_languages.map((programming_language, index) => {
-                return (
-                  <ProgressBar
-                    key={"programminglanguage" + index}
-                    skill={programming_language[0]}
-                    variant="determinate"
-                    value={programming_language[1]}
-                  />
-                );
-              })}
-            </SubSection>
-          </Col>
-          <Col className="pt-4 pt-4b pe-xxl-4" xs={12} xxl={6}>
             <SubSection title="Hard Skills">
               {hard_skills.map((hard_skill, index) => {
                 return (
@@ -99,20 +87,7 @@ export const pages = [
               })}
             </SubSection>
           </Col>
-          <Col className="pt-4 pt-4b ps-xxl-4" xs={12} xxl={6}>
-            <SubSection title="Frameworks">
-              {frameworks.map((framework, index) => {
-                return (
-                  <ProgressBar
-                    key={"framework" + index}
-                    skill={framework[0]}
-                    variant="determinate"
-                    value={framework[1]}
-                  />
-                );
-              })}
-            </SubSection>
-          </Col>
+
           <Col
             className="pt-4 pt-4b pe-xxl-4 d-flex flex-column"
             xs={12}
