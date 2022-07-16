@@ -22,6 +22,7 @@ import { VerticalTimeLine } from "./timeline";
 import { education } from "./education";
 import { experience } from "./experience";
 import { Squares } from "./squares";
+import { ContactCard } from "./contactCard";
 
 const ContentDiv = styled.div`
   overflow-y: auto;
@@ -117,24 +118,37 @@ export const pages = [
       </Container>
     </Section>
   </>,
-  <Section key={3} title="Contact Me">
-    <Container fluid>
-      <Row className="pt-5">
-        <Col xs={12} xxl={4}>
-          <SubSection title="Location">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.00302705745!2d-6.757794067689142!3d41.806695211428085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3a49fc3e4f4915%3A0xe96f35f2dfacc35!2sLargo%20Cel.%20Albino%20Lopo%2023%2C%205300-111%20Bragan%C3%A7a!5e0!3m2!1spt-PT!2spt!4v1657979060419!5m2!1spt-PT!2spt"
-              width="100%"
-              height="400px"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </SubSection>
+  <Section key={3} title="Contact Me" dh100>
+    <Container className="h-100" fluid>
+      <Row className="pt-5 d-flex flex-column h-100">
+        <Col xs={12} className="d-flex flex-wrap">
+          <Col xs={12} xxl={4}>
+            <SubSection title="Location">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.00302705745!2d-6.757794067689142!3d41.806695211428085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3a49fc3e4f4915%3A0xe96f35f2dfacc35!2sLargo%20Cel.%20Albino%20Lopo%2023%2C%205300-111%20Bragan%C3%A7a!5e0!3m2!1spt-PT!2spt!4v1657979060419!5m2!1spt-PT!2spt"
+                width="100%"
+                height="520px"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </SubSection>
+          </Col>
+          <Col className="pt-5 pt-xxl-0" xs={12} xxl={8}>
+            <SubSection title="Contact Form"></SubSection>
+          </Col>
         </Col>
-        <Col xs={12} xxl={8}>
-          <SubSection title="Contact Form"></SubSection>
+
+        <Col xs={12} className="flex-grow-1 d-flex flex-wrap">
+          <Col xs={12} xl={4}>
+            <ContactCard>A</ContactCard>
+          </Col>
+          <Col xs={12} xl={4}>
+            <ContactCard>A</ContactCard>
+          </Col>
+          <Col xs={12} xl={4}>
+            <ContactCard>A</ContactCard>
+          </Col>
         </Col>
       </Row>
     </Container>
