@@ -319,7 +319,7 @@ export default function Home() {
                       setTab(3);
                     }}
                   >
-                    Projects
+                    My Resume
                   </motion.h4>
                 </Link>
                 <Link href={"/"}>
@@ -332,6 +332,21 @@ export default function Home() {
                       togglePhoneMenu(false);
                       setCheckbox(false);
                       setTab(5);
+                    }}
+                  >
+                    Projects
+                  </motion.h4>
+                </Link>
+                <Link href={"/"}>
+                  <motion.h4
+                    className="menuItem clickable1"
+                    variants={overlayDivChildAnimation}
+                    onClick={() => {
+                      clearTimeout(delayTimer);
+                      toggleFrontPage(false);
+                      togglePhoneMenu(false);
+                      setCheckbox(false);
+                      setTab(7);
                     }}
                   >
                     Contact Me

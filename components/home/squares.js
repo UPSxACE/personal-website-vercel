@@ -84,6 +84,7 @@ const SquareBase = styled.div`
   width: 100%;
   object-fit: cover;
   border: 3px solid ${$borderColor};
+  //background-color: white;
 
   svg {
     width: 100%;

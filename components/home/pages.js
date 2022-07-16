@@ -58,7 +58,15 @@ export const pages = [
             </IconSpanDiv>
           </Col>
           <Squares />
-          <Col className="pt-4 pt-4b pe-xxl-4" xs={12} xxl={6}>
+        </Row>
+      </Container>
+    </Section>
+  </>,
+  <>
+    <Section key={1} title="My Resume">
+      <Container fluid>
+        <Row className="pt-5">
+          <Col className="pe-xxl-4" xs={12} xxl={6}>
             <SubSection title="Soft Skills">
               {soft_skills.map((soft_skill, index) => {
                 return (
@@ -73,7 +81,7 @@ export const pages = [
             </SubSection>
           </Col>
 
-          <Col className="pt-4 pt-4b ps-xxl-4" xs={12} xxl={6}>
+          <Col className="pt-5 pt-xxl-0 ps-xxl-4" xs={12} xxl={6}>
             <SubSection title="Hard Skills">
               {hard_skills.map((hard_skill, index) => {
                 return (
@@ -88,19 +96,11 @@ export const pages = [
             </SubSection>
           </Col>
 
-          <Col
-            className="pt-4 pt-4b pe-xxl-4 d-flex flex-column"
-            xs={12}
-            xxl={6}
-          >
+          <Col className="pt-5 pe-xxl-4 d-flex flex-column" xs={12} xxl={6}>
             <SubSection title="Education"></SubSection>
             <VerticalTimeLine cards={education}></VerticalTimeLine>
           </Col>
-          <Col
-            className="pt-4 pt-4b ps-xxl-4 d-flex flex-column"
-            xs={12}
-            xxl={6}
-          >
+          <Col className="pt-5 ps-xxl-4 d-flex flex-column" xs={12} xxl={6}>
             <SubSection title="Experience"></SubSection>
             <VerticalTimeLine cards={experience}></VerticalTimeLine>
           </Col>
@@ -108,6 +108,14 @@ export const pages = [
       </Container>
     </Section>
   </>,
-  <div key={2}>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>,
+  <>
+    <Section key={2} title="Projects">
+      <Container fluid>
+        <Row className="pt-5">
+          <Col xs={12} xl={6} xxl={4}></Col>
+        </Row>
+      </Container>
+    </Section>
+  </>,
   <div key={3}>BBBBBBBBBBBBBBBBBBBBB</div>,
 ];
