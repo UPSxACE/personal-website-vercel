@@ -26,6 +26,8 @@ import { ContactCard } from "./contactCard";
 import { FormWrapper } from "../form";
 import { Button1, Button2 } from "../buttons";
 import { $borderColorSolid, $borderColor } from "../../utils/config";
+import { GrLocation, GrMailOption, GrPhone } from "react-icons/gr";
+import { $color2 } from "../../utils/config";
 
 const ContentDiv = styled.div`
   overflow-y: auto;
@@ -188,22 +190,37 @@ export const pages = [
                   Please write a message.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Button1 className="static" type="submit">
-                Submit
+              <Button1 className="static" style={{ height: 48 }} type="submit">
+                <span className="h4 textColor2">Submit</span>
               </Button1>
             </FormWrapper>
           </Col>
         </Col>
 
-        <Col xs={12} className="flex-grow-1 d-flex flex-wrap">
-          <Col xs={12} xl={4}>
-            <ContactCard>A</ContactCard>
+        <Col xs={12} className="flex-grow-1 d-flex flex-wrap pt-5 pt-xxl-0">
+          <Col xs={12} xxl={4}>
+            <ContactCard>
+              <h1 className="icon">
+                <GrLocation />
+              </h1>
+              <h4 className="fw-300">Bragança, Portugal</h4>
+            </ContactCard>
           </Col>
-          <Col xs={12} xl={4}>
-            <ContactCard>A</ContactCard>
+          <Col xs={12} xxl={4}>
+            <ContactCard>
+              <h1 className="icon">
+                <GrMailOption />
+              </h1>
+              <h4 className="fw-300">eduardo11224b@gmail.com</h4>
+            </ContactCard>
           </Col>
-          <Col xs={12} xl={4}>
-            <ContactCard>A</ContactCard>
+          <Col xs={12} xxl={4}>
+            <ContactCard>
+              <h1 className="icon">
+                <GrPhone />
+              </h1>
+              <h4 className="fw-300">+351 962 075 694</h4>
+            </ContactCard>
           </Col>
         </Col>
       </Row>
