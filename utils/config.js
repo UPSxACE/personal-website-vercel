@@ -10,6 +10,7 @@ export const $margin1 = 24; // On top of the name on the frontpage, below frontp
 export const $backgroundColor = "#21252a"; //"#fff"
 export const $borderColor = "rgba(191,191,191,0.58)";
 export const $borderColorLighter = "#eee";
+export const $borderColorSolid = "#ced4da";
 export const $color1 = "#f9f9ff";
 export const $color2 = "#FF4C60";
 export const $color3 = "#e0e0e5"; //"#ececec"

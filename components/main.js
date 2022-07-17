@@ -296,4 +296,10 @@ export const Main = styled.main`
   .fw-700 {
     font-weight: 700 !important;
   }
+
+  @media (min-width: 1400px) {
+    .h100fix7px {
+      height: calc(100% - 7px);
+    }
+  }
 `;

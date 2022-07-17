@@ -7,7 +7,7 @@ import {
   AiOutlineMail,
   AiOutlineHome,
 } from "react-icons/ai";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import styled from "styled-components";
 import { $color1 } from "../../utils/config";
 import { createTheme, LinearProgress } from "@mui/material";
@@ -23,6 +23,9 @@ import { education } from "./education";
 import { experience } from "./experience";
 import { Squares } from "./squares";
 import { ContactCard } from "./contactCard";
+import { FormWrapper } from "../input";
+import { Button1, Button2 } from "../buttons";
+import { $borderColorSolid, $borderColor } from "../../utils/config";
 
 const ContentDiv = styled.div`
   overflow-y: auto;
@@ -128,14 +131,61 @@ export const pages = [
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.00302705745!2d-6.757794067689142!3d41.806695211428085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3a49fc3e4f4915%3A0xe96f35f2dfacc35!2sLargo%20Cel.%20Albino%20Lopo%2023%2C%205300-111%20Bragan%C3%A7a!5e0!3m2!1spt-PT!2spt!4v1657979060419!5m2!1spt-PT!2spt"
                 width="100%"
                 height="520px"
-                style={{ border: 0 }}
+                style={{ border: `1px solid ${$borderColor}` }}
                 allowFullScreen=""
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </SubSection>
           </Col>
-          <Col className="pt-5 pt-xxl-0" xs={12} xxl={8}>
+          <Col
+            className="pt-5 pt-xxl-0 ps-xxl-4 d-flex flex-column h100fix7px"
+            xs={12}
+            xxl={8}
+          >
             <SubSection title="Contact Form"></SubSection>
+            <FormWrapper className="d-flex flex-column">
+              <Form.Group className="group" controlId="name">
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Name"
+                  defaultValue=""
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  This field is mandatory.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="group" controlId="email">
+                <Form.Control
+                  required
+                  type="email"
+                  placeholder="Email"
+                  defaultValue=""
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid email.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="group textarea" controlId="message">
+                <Form.Control
+                  as={"textarea"}
+                  className=""
+                  required
+                  type
+                  placeholder="Message"
+                  defaultValue=""
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Please write a message.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Button1 className="static" type="submit">
+                Submit
+              </Button1>
+            </FormWrapper>
           </Col>
         </Col>
 

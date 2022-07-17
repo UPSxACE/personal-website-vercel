@@ -11,7 +11,7 @@ const Button1Base = styled.button`
   color: ${$textColor2};
   transition-duration: 0.12s;
 
-  &:hover {
+  &:hover:not(.static) {
      {
       /*background-color: transparent;*/
     }
@@ -20,7 +20,7 @@ const Button1Base = styled.button`
     transform: scale(1.12);
   }
 
-  &:focus {
+  &:focus:not(.static) {
     transform: scale(1.12);
     transition-duration: 0.5s;
     box-shadow: 0 0 0 0.2rem rgb(255 76 96 / 50%);
@@ -29,7 +29,11 @@ const Button1Base = styled.button`
 
 export const Button1 = (props) => {
   return (
-    <Button1Base className={props.className} style={props.style}>
+    <Button1Base
+      type={props.type}
+      className={props.className}
+      style={props.style}
+    >
       {props.children}
     </Button1Base>
   );
@@ -37,21 +41,25 @@ export const Button1 = (props) => {
 
 const Button2Base = styled(Button1Base)`
   background-color: transparent;
-  &:hover {
+  &:hover:not(.static) {
     transition-duration: 0.16s;
      {
       /*background-color: ${$color2};*/
     }
   }
 
-  &:focus {
+  &:focus:not(.static) {
     transition-duration: 0.5s;
   }
 `;
 
 export const Button2 = (props) => {
   return (
-    <Button2Base className={props.className} style={props.style}>
+    <Button2Base
+      type={props.type}
+      className={props.className}
+      style={props.style}
+    >
       {props.children}
     </Button2Base>
   );
