@@ -306,4 +306,10 @@ export const Main = styled.main`
   .mh100 {
     min-height: 100%;
   }
+
+  .map {
+    @media (max-width: 1399px) {
+      height: 200px;
+    }
+  }
 `;

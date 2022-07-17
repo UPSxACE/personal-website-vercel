@@ -125,11 +125,12 @@ export const pages = [
   </>,
   <Section key={3} className="d-flex flex-column" title="Contact Me" dh100>
     <Container className="flex-grow-1 d-flex flex-column" fluid>
-      <Row className="pt-5 d-flex flex-column flex-grow-1">
+      <Row className="pt-4 pt-xxl-5 d-flex flex-column flex-grow-1">
         <Col xs={12} className="d-flex flex-wrap">
           <Col xs={12} xxl={4}>
             <SubSection title="Location">
               <iframe
+                className="map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.00302705745!2d-6.757794067689142!3d41.806695211428085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3a49fc3e4f4915%3A0xe96f35f2dfacc35!2sLargo%20Cel.%20Albino%20Lopo%2023%2C%205300-111%20Bragan%C3%A7a!5e0!3m2!1spt-PT!2spt!4v1657979060419!5m2!1spt-PT!2spt"
                 width="100%"
                 height="520px"
@@ -140,7 +141,7 @@ export const pages = [
             </SubSection>
           </Col>
           <Col
-            className="pt-5 pt-xxl-0 ps-xxl-4 d-flex flex-column h100fix7px"
+            className="pt-4 pt-xxl-0 ps-xxl-4 d-flex flex-column h100fix7px"
             xs={12}
             xxl={8}
           >
@@ -197,26 +198,26 @@ export const pages = [
           </Col>
         </Col>
 
-        <Col xs={12} className="flex-grow-1 d-flex flex-wrap pt-5 pt-xxl-0">
-          <Col xs={12} xxl={4}>
+        <Col xs={12} className="flex-grow-1 d-flex flex-wrap pt-5 pt-xxl-3">
+          <Col xs={12} xxl={4} className="pe-xxl-2">
             <ContactCard>
-              <h1 className="icon">
+              <h1 className="icon pb-2">
                 <GrLocation />
               </h1>
               <h4 className="fw-300">Bragança, Portugal</h4>
             </ContactCard>
           </Col>
-          <Col xs={12} xxl={4}>
+          <Col xs={12} xxl={4} className="pt-3 pt-xxl-0 ps-xxl-2 pe-xxl-2">
             <ContactCard>
-              <h1 className="icon">
+              <h1 className="icon pb-2">
                 <GrMailOption />
               </h1>
               <h4 className="fw-300">eduardo11224b@gmail.com</h4>
             </ContactCard>
           </Col>
-          <Col xs={12} xxl={4}>
+          <Col xs={12} xxl={4} className="pt-3 pt-xxl-0 ps-xxl-2">
             <ContactCard>
-              <h1 className="icon">
+              <h1 className="icon pb-2">
                 <GrPhone />
               </h1>
               <h4 className="fw-300">+351 962 075 694</h4>

@@ -30,6 +30,10 @@ export function FormWrapper(props) {
 }
 
 const FormStyled = styled(Form)`
+  @media (max-width: 1399px) {
+    min-height: auto !important;
+  }
+
   @media (min-width: 1400px) {
     flex-grow: 1;
   }
@@ -41,7 +45,11 @@ const FormStyled = styled(Form)`
   }
 
   .group {
-    min-height: 76px;
+    min-height: 56px;
+
+    @media (min-width: 1400px) {
+      min-height: 76px;
+    }
   }
 
   .group.textarea {
@@ -50,7 +58,7 @@ const FormStyled = styled(Form)`
     }
 
     @media (max-width: 1399px) {
-      min-height: 328px;
+      min-height: 308px;
     }
   }
 
@@ -68,6 +76,10 @@ const FormStyled = styled(Form)`
   }
 
   &:not(.was-validated) .group.textarea {
-    padding-bottom: 28px;
+    padding-bottom: 8px;
+
+    @media (min-width: 1400px) {
+      padding-bottom: 28px;
+    }
   }
 `;

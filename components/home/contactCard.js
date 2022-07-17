@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { $color2 } from "../../utils/config";
+import {
+  $borderColor,
+  $color2,
+  $componentBackground,
+} from "../../utils/config";
 
 export function ContactCard(props) {
   return (
@@ -11,6 +15,8 @@ export function ContactCard(props) {
 
 const ContactDiv = styled.div`
   min-height: 150px;
+  border: 1px solid ${$borderColor};
+  background-color: ${$componentBackground};
 
   .icon {
     color: ${$color2};
