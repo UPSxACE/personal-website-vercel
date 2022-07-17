@@ -1,6 +1,6 @@
-import { OtherSection, Section, SubSection } from "./section";
-import { ProfilePicture } from "./profilePicture";
-import { IconSpanDiv } from "./iconSpanDiv";
+import { OtherSection, Section, SubSection } from "../components/home/section";
+import { ProfilePicture } from "../components/home/profilePicture";
+import { IconSpanDiv } from "../components/home/iconSpanDiv";
 import {
   AiOutlineCalendar,
   AiOutlinePhone,
@@ -9,25 +9,25 @@ import {
 } from "react-icons/ai";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import styled from "styled-components";
-import { $color1 } from "../../utils/config";
+import { $color1 } from "./config";
 import { createTheme, LinearProgress } from "@mui/material";
-import { ProgressBar } from "../progressBar";
+import { ProgressBar } from "../components/progressBar";
 import {
   frameworks,
   hard_skills,
   programming_languages,
   soft_skills,
 } from "./skills";
-import { VerticalTimeLine } from "./timeline";
+import { VerticalTimeLine } from "../components/home/timeline";
 import { education } from "./education";
 import { experience } from "./experience";
-import { Squares } from "./squares";
-import { ContactCard } from "./contactCard";
-import { FormWrapper } from "../form";
-import { Button1, Button2 } from "../buttons";
-import { $borderColorSolid, $borderColor } from "../../utils/config";
+import { Squares } from "../components/home/squares";
+import { ContactCard } from "../components/home/contactCard";
+import { FormWrapper } from "../components/form";
+import { Button1, Button2 } from "../components/buttons";
+import { $borderColorSolid, $borderColor } from "./config";
 import { GrLocation, GrMailOption, GrPhone } from "react-icons/gr";
-import { $color2 } from "../../utils/config";
+import { $color2 } from "./config";
 
 const ContentDiv = styled.div`
   overflow-y: auto;

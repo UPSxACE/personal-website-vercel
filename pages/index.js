@@ -49,7 +49,7 @@ import {
   AiOutlineMail,
   AiOutlineHome,
 } from "react-icons/ai";
-import { pages } from "../components/home/pages";
+import { pages } from "../utils/pages";
 
 export default function Home() {
   const [phoneMenu, setPhoneMenu] = useState(false);
