@@ -5,7 +5,9 @@ export function Section(props) {
   return (
     <section
       className={
-        "p-4 p-lg-5 pt-lg-4" + (props.dh100 ? " d-flex flex-column h-100" : "")
+        "p-4 p-lg-5 pt-lg-4" +
+        (props.dh100 ? " d-flex flex-column mh100" : "") +
+        (props.className ? " " + props.className : "")
       }
     >
       {props.title && (

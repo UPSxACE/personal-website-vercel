@@ -19,6 +19,7 @@ export function FormWrapper(props) {
   return (
     <FormStyled
       className={props.className}
+      style={props.style}
       noValidate
       validated={validated}
       onSubmit={handleSubmit}
@@ -34,7 +35,7 @@ const FormStyled = styled(Form)`
   }
 
   input {
-    height: 48px;
+    min-height: 48px;
     border-radius: 0;
     border: 1px solid ${$borderColor};
   }
@@ -44,20 +45,29 @@ const FormStyled = styled(Form)`
   }
 
   .group.textarea {
-    padding-bottom: 28px;
-
     @media (min-width: 1400px) {
       flex-grow: 1;
+    }
+
+    @media (max-width: 1399px) {
+      min-height: 328px;
     }
   }
 
   .group.textarea textarea {
     resize: none;
     border-radius: 0;
-    height: 300px;
 
     @media (min-width: 1400px) {
-      height: 100%;
+      flex-grow: 1;
     }
+
+    @media (max-width: 1399px) {
+      height: 300px;
+    }
+  }
+
+  &:not(.was-validated) .group.textarea {
+    padding-bottom: 28px;
   }
 `;

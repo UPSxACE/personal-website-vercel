@@ -23,7 +23,7 @@ import { education } from "./education";
 import { experience } from "./experience";
 import { Squares } from "./squares";
 import { ContactCard } from "./contactCard";
-import { FormWrapper } from "../input";
+import { FormWrapper } from "../form";
 import { Button1, Button2 } from "../buttons";
 import { $borderColorSolid, $borderColor } from "../../utils/config";
 
@@ -121,9 +121,9 @@ export const pages = [
       </Container>
     </Section>
   </>,
-  <Section key={3} title="Contact Me" dh100>
-    <Container className="h-100" fluid>
-      <Row className="pt-5 d-flex flex-column h-100">
+  <Section key={3} className="d-flex flex-column" title="Contact Me" dh100>
+    <Container className="flex-grow-1 d-flex flex-column" fluid>
+      <Row className="pt-5 d-flex flex-column flex-grow-1">
         <Col xs={12} className="d-flex flex-wrap">
           <Col xs={12} xxl={4}>
             <SubSection title="Location">
@@ -143,7 +143,10 @@ export const pages = [
             xxl={8}
           >
             <SubSection title="Contact Form"></SubSection>
-            <FormWrapper className="d-flex flex-column">
+            <FormWrapper
+              className="d-flex flex-column"
+              style={{ minHeight: 520 }}
+            >
               <Form.Group className="group" controlId="name">
                 <Form.Control
                   required
@@ -168,7 +171,10 @@ export const pages = [
                   Please provide a valid email.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group className="group textarea" controlId="message">
+              <Form.Group
+                className="group textarea d-flex flex-column"
+                controlId="message"
+              >
                 <Form.Control
                   as={"textarea"}
                   className=""

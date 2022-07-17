@@ -302,4 +302,8 @@ export const Main = styled.main`
       height: calc(100% - 7px);
     }
   }
+
+  .mh100 {
+    min-height: 100%;
+  }
 `;
