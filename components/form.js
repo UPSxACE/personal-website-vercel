@@ -12,6 +12,10 @@ export function FormWrapper(props) {
       event.preventDefault();
       event.stopPropagation();
     }
+    if (form.checkValidity() === true) {
+      event.preventDefault();
+      props.afterValid(form);
+    }
 
     setValidated(true);
   };
