@@ -28,6 +28,7 @@ import { Button1, Button2 } from "../components/buttons";
 import { $borderColorSolid, $borderColor } from "./config";
 import { GrLocation, GrMailOption, GrPhone } from "react-icons/gr";
 import { $color2 } from "./config";
+import { ProjectGallery } from "../components/home/projectGallery";
 
 const ContentDiv = styled.div`
   overflow-y: auto;
@@ -118,7 +119,9 @@ export const pages = [
     <Section key={2} title="Projects">
       <Container fluid>
         <Row className="pt-5">
-          <Col xs={12} xl={6} xxl={4}></Col>
+          <Col xs={12}>
+            <ProjectGallery />
+          </Col>
         </Row>
       </Container>
     </Section>
