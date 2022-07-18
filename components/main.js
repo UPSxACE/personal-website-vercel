@@ -137,6 +137,19 @@ export const Main = styled.main`
     font-weight: 400;
   }
 
+  .h4xsfix {
+    font-size: calc(1.275rem + 0.3vw);
+    margin-bottom: 8px;
+
+    @media (max-width: 475px) {
+      font-size: calc(1rem + 0.2vw);
+    }
+
+    @media (max-width: 395px) {
+      font-size: calc(0.8rem + 0.2vw);
+    }
+  }
+
   .clickable1 {
     transition-duration: 0.16s;
   }

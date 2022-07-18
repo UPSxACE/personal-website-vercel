@@ -39,7 +39,9 @@ export function ProjectGallery() {
     <>
       <div className="d-flex w-100 z999">
         <ProjectFilterSpan
-          className={"h3 pe-3 clickable2" + (filter === null ? " active" : "")}
+          className={
+            "h4xsfix pe-3 clickable2" + (filter === null ? " active" : "")
+          }
           onClick={() => {
             movement_transition_duration = 0.3;
             setFilter(null);
@@ -49,7 +51,8 @@ export function ProjectGallery() {
         </ProjectFilterSpan>
         <ProjectFilterSpan
           className={
-            "h3 ps-1 pe-3 clickable2" + (filter === "React" ? " active" : "")
+            "h4xsfix ps-1 pe-3 clickable2" +
+            (filter === "React" ? " active" : "")
           }
           onClick={() => {
             movement_transition_duration = 0.15;
@@ -60,7 +63,8 @@ export function ProjectGallery() {
         </ProjectFilterSpan>
         <ProjectFilterSpan
           className={
-            "h3 ps-1 pe-3 clickable2" + (filter === "Yii2" ? " active" : "")
+            "h4xsfix ps-1 pe-3 clickable2" +
+            (filter === "Yii2" ? " active" : "")
           }
           onClick={() => {
             movement_transition_duration = 0.15;
@@ -71,7 +75,7 @@ export function ProjectGallery() {
         </ProjectFilterSpan>
         <ProjectFilterSpan
           className={
-            "h3 ps-1 pe-3 clickable2" +
+            "h4xsfix ps-1 pe-3 clickable2" +
             (filter === "Wordpress" ? " active" : "")
           }
           onClick={() => {
@@ -83,7 +87,8 @@ export function ProjectGallery() {
         </ProjectFilterSpan>
         <ProjectFilterSpan
           className={
-            "h3 ps-1 pe-3 clickable2" + (filter === "Others" ? " active" : "")
+            "h4xsfix ps-1 pe-3 clickable2" +
+            (filter === "Others" ? " active" : "")
           }
           onClick={() => {
             movement_transition_duration = 0.15;
@@ -159,7 +164,9 @@ export function ProjectGallery() {
   );
 }
 
-const ProjectFilterSpan = styled.span``;
+const ProjectFilterSpan = styled.span`
+  z-index: 999;
+`;
 
 const ProjectCard = styled.div`
   display: flex;
