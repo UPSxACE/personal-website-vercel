@@ -2,25 +2,15 @@ import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useEffect } from "react";
+import { projects } from "../../utils/projects";
+import { Col } from "react-bootstrap";
+import Image from "next/image";
+import pic from "../../utils/project_pics/portfolio_old.png";
+import pic2 from "../../utils/project_pics/portfolio_old_2.png";
+import pic3 from "../../utils/project_pics/portfolio_old_3.png";
+import { GoPlus } from "react-icons/go";
 
-const options = ["All", "trrr", "brrr"];
-const projects = [
-  { Name: "AAA", Type: "One" },
-  { Name: "BBB", Type: "One" },
-  { Name: "CCC", Type: "One" },
-  { Name: "DDD", Type: "Two" },
-  { Name: "EEE", Type: "Two" },
-  { Name: "AAA", Type: "One" },
-  { Name: "BBB", Type: "One" },
-  { Name: "CCC", Type: "One" },
-  { Name: "DDD", Type: "Two" },
-  { Name: "EEE", Type: "Two" },
-  { Name: "AAA", Type: "One" },
-  { Name: "BBB", Type: "One" },
-  { Name: "CCC", Type: "One" },
-  { Name: "DDD", Type: "Two" },
-  { Name: "EEE", Type: "Two" },
-];
+let movement_transition_duration = 0.3;
 
 export function ProjectGallery() {
   const [filter, setFilter] = useState(null);
@@ -34,71 +24,132 @@ export function ProjectGallery() {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.12,
-        delay: 0.18,
+        duration: 0.2,
+        delay: 0.3,
       },
     },
     exit: {
       opacity: 0,
       scale: 0.5,
-      transition: { duration: 0.12, delay: 0 },
+      transition: { duration: 0.2, delay: 0 },
     },
   };
 
   return (
     <>
-      <div className="d-flex w-100">
+      <div className="d-flex w-100 z999">
         <ProjectFilterSpan
-          className="h3"
+          className={"h3 pe-3 clickable2" + (filter === null ? " active" : "")}
           onClick={() => {
+            movement_transition_duration = 0.3;
             setFilter(null);
           }}
         >
           All
         </ProjectFilterSpan>
         <ProjectFilterSpan
-          className="h3"
+          className={
+            "h3 ps-1 pe-3 clickable2" + (filter === "React" ? " active" : "")
+          }
           onClick={() => {
-            setFilter("One");
+            movement_transition_duration = 0.15;
+            setFilter("React");
           }}
         >
-          One
+          React.js
         </ProjectFilterSpan>
         <ProjectFilterSpan
-          className="h3"
+          className={
+            "h3 ps-1 pe-3 clickable2" + (filter === "Yii2" ? " active" : "")
+          }
           onClick={() => {
-            setFilter("Two");
+            movement_transition_duration = 0.15;
+            setFilter("Yii2");
           }}
         >
-          Two
+          Yii2
+        </ProjectFilterSpan>
+        <ProjectFilterSpan
+          className={
+            "h3 ps-1 pe-3 clickable2" +
+            (filter === "Wordpress" ? " active" : "")
+          }
+          onClick={() => {
+            movement_transition_duration = 0.15;
+            setFilter("Wordpress");
+          }}
+        >
+          Wordpress
+        </ProjectFilterSpan>
+        <ProjectFilterSpan
+          className={
+            "h3 ps-1 pe-3 clickable2" + (filter === "Others" ? " active" : "")
+          }
+          onClick={() => {
+            movement_transition_duration = 0.15;
+            setFilter("Others");
+          }}
+        >
+          Others
         </ProjectFilterSpan>
       </div>
-      <motion.div layout className="d-flex flex-wrap">
-        <AnimatePresence exitBeforeEnter={false}>
+      <motion.div layout className="d-flex flex-wrap row g-4">
+        <AnimatePresence initial={false} exitBeforeEnter={false}>
           {projects.map((project, index) => {
-            if (filter === null || filter === project.Type) {
+            if (
+              filter === null ||
+              undefined !==
+                project.typeArray.find((type) => {
+                  return filter === type;
+                })
+            ) {
               return (
-                <motion.div
+                <Col
+                  as={motion.div}
+                  xs={12}
+                  md={6}
+                  xxl={4}
+                  className="g-4"
                   initial="initial"
                   animate="enter"
                   exit="exit"
-                  key={project.Name + index}
+                  key={project.title + index}
                   variants={animation_variants}
                   layout
                   transition={{
-                    duration: 0.14,
+                    duration: movement_transition_duration,
                     delay: 0,
                   }}
                 >
-                  <ProjectCard>
-                    <span>
-                      <strong className="h3">Name:</strong> {project.Name}
-                    </span>
-                    <span>
-                      <strong className="h3">Type:</strong> {project.Type}
-                    </span>
+                  <ProjectCard className="d-sm-none">
+                    <div className="overlay">
+                      <span className="h3 textColor2 text-center pb-1 pb-sm-3">
+                        <GoPlus />
+                      </span>
+                      <span className="h5 fw-400 textColor2 text-center">
+                        {project.title}
+                      </span>
+                      <span className="h5 fw-300 color2Alt text-center">
+                        {project.typeString}
+                      </span>
+                    </div>
+                    <Image alt="project preview" src={project.smlPic} />
                   </ProjectCard>
-                </motion.div>
+                  <ProjectCard className="d-none d-sm-flex">
+                    <div className="overlay">
+                      <span className="h3 textColor2 text-center pb-1 pb-sm-3">
+                        <GoPlus />
+                      </span>
+                      <span className="h5 fw-400 textColor2 text-center">
+                        {project.title}
+                      </span>
+                      <span className="h5 fw-300 color2Alt text-center">
+                        {project.typeString}
+                      </span>
+                    </div>
+                    <Image alt="project preview" src={project.medPic} />
+                  </ProjectCard>
+                </Col>
               );
             }
           })}
@@ -111,8 +162,35 @@ export function ProjectGallery() {
 const ProjectFilterSpan = styled.span``;
 
 const ProjectCard = styled.div`
-  height: 200px;
-  width: 200px;
-  margin: 20px;
-  border: 2px solid black;
+  display: flex;
+  position: relative;
+  z-index: 999;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    //transform: scale(0.001);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.66);
+    transition-duration: 0.3s;
+    z-index: 91;
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+    //transform: scale(1);
+    transition-duration: 0.3s;
+  }
 `;

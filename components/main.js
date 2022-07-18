@@ -3,13 +3,19 @@ import {
   $borderColor,
   $color1,
   $color2,
+  $color2Alt,
   $fontFamily1,
   $textColor1,
   $textColor2,
+  $textColor2Lighter,
   $textColor3,
 } from "../utils/config";
 
 export const Main = styled.main`
+  .z999 {
+    z-index: 999;
+  }
+
   font-family: ${$fontFamily1};
   background-color: ${$color1};
 
@@ -58,8 +64,13 @@ export const Main = styled.main`
   .color1 {
     color: ${$color1};
   }
+
   .color2 {
     color: ${$color2};
+  }
+
+  .color2Alt {
+    color: ${$color2Alt};
   }
 
   .textColor1 {
@@ -68,6 +79,10 @@ export const Main = styled.main`
 
   .textColor2 {
     color: ${$textColor2};
+  }
+
+  .textColor2Lighter {
+    color: ${$textColor2Lighter};
   }
 
   .zero {
@@ -130,6 +145,24 @@ export const Main = styled.main`
     cursor: pointer;
     transition-duration: 0.16s;
     transform: scale(1.22);
+    color: ${$color2};
+  }
+
+  .clickable1.active {
+    color: ${$color2};
+  }
+
+  .clickable2 {
+    transition-duration: 0.16s;
+  }
+
+  .clickable2:hover {
+    cursor: pointer;
+    transition-duration: 0.16s;
+    color: ${$color2};
+  }
+
+  .clickable2.active {
     color: ${$color2};
   }
 
