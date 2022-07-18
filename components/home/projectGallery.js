@@ -5,9 +5,6 @@ import { useEffect } from "react";
 import { projects } from "../../utils/projects";
 import { Col } from "react-bootstrap";
 import Image from "next/image";
-import pic from "../../utils/project_pics/portfolio_old.png";
-import pic2 from "../../utils/project_pics/portfolio_old_2.png";
-import pic3 from "../../utils/project_pics/portfolio_old_3.png";
 import { GoPlus } from "react-icons/go";
 
 let movement_transition_duration = 0.3;
@@ -178,6 +175,12 @@ const ProjectCard = styled.div`
   img {
     width: 100%;
     height: auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover img {
+    filter: blur(1px);
+    transform: scale(1.05);
   }
 
   .overlay {
@@ -193,13 +196,13 @@ const ProjectCard = styled.div`
     //transform: scale(0.001);
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.66);
-    transition-duration: 0.3s;
+    transition-duration: 0.5s;
     z-index: 91;
   }
 
   &:hover .overlay {
     opacity: 1;
     //transform: scale(1);
-    transition-duration: 0.3s;
+    transition-duration: 0.5s;
   }
 `;
