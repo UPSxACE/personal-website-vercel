@@ -5,8 +5,10 @@ import {
   $color2,
   $color2Alt,
   $fontFamily1,
+  $textColor0,
   $textColor1,
   $textColor2,
+  $textColor2Alt,
   $textColor2Lighter,
   $textColor3,
 } from "../utils/config";
@@ -73,12 +75,20 @@ export const Main = styled.main`
     color: ${(props) => $color2Alt[props.mode]};
   }
 
+  .textColor0 {
+    color: ${(props) => $textColor0[props.mode]};
+  }
+
   .textColor1 {
     color: ${(props) => $textColor1[props.mode]};
   }
 
   .textColor2 {
     color: ${(props) => $textColor2[props.mode]};
+  }
+
+  .textColor2Alt {
+    color: ${(props) => $textColor2Alt[props.mode]};
   }
 
   .textColor2Lighter {

@@ -13,9 +13,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import useMeasure from "react-use-measure";
 import {
   $backgroundColor,
+  $color0,
   $color1,
   $margin1,
   $padding1,
+  $textColor0,
   $textColor1,
   $textColor1Alt,
 } from "../utils/config";
@@ -164,7 +166,7 @@ export default function Home(props) {
               side={"left"}
             >
               <TypedSpanDiv mode={mode} className="mb-2">
-                <span id="typed" className="textColor2"></span>
+                <span id="typed" className="textColor2Alt"></span>
               </TypedSpanDiv>
               <ButtonPairWrapper className="d-flex justify-content-center mt-4 flex-wrap">
                 <Button1 className="p-2 ps-3 pe-3">Download CV</Button1>
@@ -234,7 +236,7 @@ export default function Home(props) {
               >
                 <Picture variants={overlayDivChildAnimation} />
                 <motion.h3
-                  className="myName"
+                  className="myName textColor0"
                   variants={overlayDivChildAnimation}
                   style={{ marginTop: $margin1 }}
                 >
@@ -246,7 +248,7 @@ export default function Home(props) {
                   style={{ marginBottom: $margin1 }}
                 >
                   <motion.li
-                    className="clickable1"
+                    className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
                     <Link href={"/"}>
@@ -254,7 +256,7 @@ export default function Home(props) {
                     </Link>
                   </motion.li>
                   <motion.li
-                    className="clickable1"
+                    className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
                     <Link href={"/"}>
@@ -262,7 +264,7 @@ export default function Home(props) {
                     </Link>
                   </motion.li>
                   <motion.li
-                    className="clickable1"
+                    className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
                     <Link href={"/"}>
@@ -270,7 +272,7 @@ export default function Home(props) {
                     </Link>
                   </motion.li>
                   <motion.li
-                    className="clickable1"
+                    className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
                     <Link href={"/"}>
@@ -280,7 +282,7 @@ export default function Home(props) {
                 </motion.ul>
                 <Link href={"/"}>
                   <motion.h4
-                    className="menuItem clickable1"
+                    className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       clearTimeout(delayTimer);
@@ -300,7 +302,7 @@ export default function Home(props) {
                 </Link>
                 <Link href={"/"}>
                   <motion.h4
-                    className="menuItem clickable1"
+                    className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       clearTimeout(delayTimer);
@@ -315,7 +317,7 @@ export default function Home(props) {
                 </Link>
                 <Link href={"/"}>
                   <motion.h4
-                    className="menuItem clickable1"
+                    className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       clearTimeout(delayTimer);
@@ -330,7 +332,7 @@ export default function Home(props) {
                 </Link>
                 <Link href={"/"}>
                   <motion.h4
-                    className="menuItem clickable1"
+                    className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       clearTimeout(delayTimer);
@@ -345,7 +347,7 @@ export default function Home(props) {
                 </Link>
                 <Link href={"/"}>
                   <motion.h4
-                    className="menuItem clickable1"
+                    className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
                       clearTimeout(delayTimer);
@@ -403,7 +405,7 @@ export default function Home(props) {
 
 const ContentDiv = styled.div`
   overflow-y: auto;
-  background-color: ${(props) => $color1[props.mode]};
+  background-color: ${(props) => $color0[props.mode]};
 `;
 
 const ButtonPairWrapper = styled.div`
@@ -573,7 +575,7 @@ const FixedCol = styled(Col)`
 
 const ContainerHalf = styled.div`
   &.left {
-    background-color: ${(props) => $textColor1[props.mode]};
+    background-color: #21252a; //${(props) => $textColor1[props.mode]};
     z-index: 90;
   }
 
@@ -598,7 +600,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset 8px 8px 0px 0px ${(props) => $textColor1[props.mode]};
+    box-shadow: inset 8px 8px 0px 0px ${(props) => $textColor0[props.mode]};
   }
   &.arrow2 {
     position: absolute;
@@ -611,7 +613,7 @@ const Arrow = styled(motion.span)`
      {
       /* maybe should be configurable later */
     }
-    box-shadow: inset -8px 8px 0px 0px ${(props) => $textColor1[props.mode]};
+    box-shadow: inset -8px 8px 0px 0px ${(props) => $textColor0[props.mode]};
   }
   &.arrow3 {
     position: absolute;
@@ -624,7 +626,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset 8px -8px 0px 0px ${(props) => $textColor1[props.mode]};
+    box-shadow: inset 8px -8px 0px 0px ${(props) => $textColor0[props.mode]};
   }
   &.arrow4 {
     position: absolute;
@@ -637,7 +639,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset -8px -8px 0px 0px ${(props) => $textColor1[props.mode]};
+    box-shadow: inset -8px -8px 0px 0px ${(props) => $textColor0[props.mode]};
   }
 `;
 

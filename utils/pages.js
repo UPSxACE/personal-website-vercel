@@ -32,10 +32,6 @@ import { ProjectGallery } from "../components/home/projectGallery";
 import axios from "axios";
 import { useContext, useRef } from "react";
 
-const ContentDiv = styled.div`
-  overflow-y: auto;
-  background-color: ${(props) => $color1[props.mode]};
-`;
 export const pages = [
   <>
     <Section key={0} title="About Me">
