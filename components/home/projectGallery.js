@@ -95,7 +95,7 @@ export function ProjectGallery() {
           Others
         </ProjectFilterSpan>
       </div>
-      <motion.div layout className="d-flex flex-wrap row g-4">
+      <motion.div className="d-flex flex-wrap row g-4">
         <AnimatePresence initial={false} exitBeforeEnter={false}>
           {projects.map((project, index) => {
             if (
@@ -169,8 +169,6 @@ const ProjectCard = styled.div`
   display: flex;
   position: relative;
   z-index: 999;
-  width: 100%;
-  height: 100%;
 
   img {
     width: 100%;
