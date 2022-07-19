@@ -1,16 +1,20 @@
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { projects } from "../../utils/projects";
-import { Col } from "react-bootstrap";
+import { Carousel, Col, Modal } from "react-bootstrap";
 import Image from "next/image";
 import { GoPlus } from "react-icons/go";
+import { $color2 } from "../../utils/config";
 
 let movement_transition_duration = 0.3;
 
 export function ProjectGallery() {
   const [filter, setFilter] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
+  const [projectToShow, setProjectToShow] = useState(0);
+  const mode = useContext(ThemeContext);
 
   const animation_variants = {
     initial: {
@@ -34,6 +38,50 @@ export function ProjectGallery() {
 
   return (
     <>
+      <ProjectModal
+        size="xl"
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        aria-labelledby="project-modal"
+      >
+        <Modal.Header
+          className="ps-3 pe-3 ps-md-4 pe-md-4 ps-xl-5 pe-xl-5"
+          closeButton
+        >
+          <Modal.Title id="project-modal">
+            {projects[projectToShow].title}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="d-flex flex-column justify-content-center p-3 p-md-4 p-xl-5 pt-4 pt-md-4 pt-xl-4">
+          <PicturesCarousel
+            indicators={<div>a</div>}
+            mode={mode}
+            variant="dark"
+          >
+            <Carousel.Item interval={5000}>
+              <Image
+                className="d-block w-100"
+                alt="Project main picture"
+                src={projects[projectToShow].medPic}
+              />
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <Image
+                className="d-block w-100"
+                alt="Project main picture"
+                src={projects[projectToShow].medPic}
+              />
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <Image
+                className="d-block w-100"
+                alt="Project main picture"
+                src={projects[projectToShow].medPic}
+              />
+            </Carousel.Item>
+          </PicturesCarousel>
+        </Modal.Body>
+      </ProjectModal>
       <div className="d-flex w-100 z999">
         <ProjectFilterSpan
           className={
@@ -123,7 +171,13 @@ export function ProjectGallery() {
                     delay: 0,
                   }}
                 >
-                  <ProjectCard className="d-sm-none">
+                  <ProjectCard
+                    onClick={() => {
+                      setProjectToShow(index);
+                      setModalShow(true);
+                    }}
+                    className="d-sm-none"
+                  >
                     <div className="overlay">
                       <span className="h3 textColor2 text-center pb-1 pb-sm-3">
                         <GoPlus />
@@ -137,7 +191,13 @@ export function ProjectGallery() {
                     </div>
                     <Image alt="project preview" src={project.smlPic} />
                   </ProjectCard>
-                  <ProjectCard className="d-none d-sm-flex">
+                  <ProjectCard
+                    onClick={() => {
+                      setProjectToShow(index);
+                      setModalShow(true);
+                    }}
+                    className="d-none d-sm-flex"
+                  >
                     <div className="overlay">
                       <span className="h3 textColor2 text-center pb-1 pb-sm-3">
                         <GoPlus />
@@ -202,5 +262,61 @@ const ProjectCard = styled.div`
     opacity: 1;
     //transform: scale(1);
     transition-duration: 0.5s;
+  }
+`;
+
+const ProjectModal = styled(Modal)`
+  @media (max-width: 1199px) {
+    .modal-xl {
+      max-width: 900px !important;
+    }
+    .modal-dialog {
+      margin: 0.75rem auto !important;
+    }
+  }
+
+  @media (max-width: 911px) {
+    .modal-dialog {
+      margin: 0.75rem !important;
+    }
+  }
+
+  @media (min-width: 1199px) {
+    .modal-xl {
+      max-width: 1058px !important;
+      width: max-content;
+    }
+  }
+`;
+
+const PicturesCarousel = styled(Carousel)`
+  .carousel-control-prev-icon {
+    background-image: url("/prev-arrow-pink.png");
+    background-size: contain;
+    filter: none;
+  }
+  .carousel-control-next-icon {
+    background-image: url("/next-arrow-pink.png");
+    filter: none;
+  }
+
+  .carousel-indicators {
+    align-items: center;
+  }
+
+  .carousel-indicators button {
+    height: 15px;
+    width: 15px;
+    background-color: ${(props) => $color2[props.mode]}!important;
+    border-radius: 100%;
+    opacity: 0.5;
+  }
+
+  .carousel-indicators button.active {
+    height: 15px;
+    width: 15px;
+    background-color: ${(props) => $color2[props.mode]}!important;
+    border-radius: 100%;
+    opacity: 1;
   }
 `;
