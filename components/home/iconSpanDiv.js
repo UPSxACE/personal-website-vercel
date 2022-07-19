@@ -22,7 +22,7 @@ const IconWrapper = styled.div`
   align-items: center;
   svg {
     height: calc(1.3rem + 0.6vw);
-    color: ${$color2};
+    color: ${(props) => $color2[props.mode]};
     width: auto;
   }
 

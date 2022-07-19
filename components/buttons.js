@@ -6,17 +6,17 @@ import { useContext } from "react";
 const Button1Base = styled.button`
   border-style: solid;
   border-radius: 0;
-  background-color: ${$color2};
+  background-color: ${(props) => $color2[props.mode]};
   border-width: 2px;
-  border-color: ${$color2};
-  color: ${$textColor2};
+  border-color: ${(props) => $color2[props.mode]};
+  color: ${(props) => $textColor2[props.mode]};
   transition-duration: 0.12s;
 
   &:hover:not(.static) {
      {
       /*background-color: transparent;*/
     }
-    border-color: ${$color2};
+    border-color: ${(props) => $color2[props.mode]};
     transition-duration: 0.16s;
     transform: scale(1.12);
   }
@@ -48,7 +48,7 @@ const Button2Base = styled(Button1Base)`
   &:hover:not(.static) {
     transition-duration: 0.16s;
      {
-      /*background-color: ${$color2};*/
+      /*background-color: ${(props) => $color2[props.mode]};*/
     }
   }
 

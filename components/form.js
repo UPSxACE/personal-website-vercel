@@ -48,7 +48,7 @@ const FormStyled = styled(Form)`
   input {
     min-height: 48px;
     border-radius: 0;
-    border: 1px solid ${$borderColor};
+    border: 1px solid ${(props) => $borderColor[props.mode]};
   }
 
   .group {

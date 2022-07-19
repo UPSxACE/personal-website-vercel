@@ -51,7 +51,7 @@ import {
 } from "react-icons/ai";
 import { pages } from "../utils/pages";
 
-export default function Home() {
+export default function Home(props) {
   const [phoneMenu, setPhoneMenu] = useState(false);
   const [frontPage, setFrontPage] = useState(true);
 
@@ -403,7 +403,7 @@ export default function Home() {
 
 const ContentDiv = styled.div`
   overflow-y: auto;
-  background-color: ${$color1};
+  background-color: ${(props) => $color1[props.mode]};
 `;
 
 const ButtonPairWrapper = styled.div`
@@ -556,7 +556,7 @@ function ResizableFixedCol(props) {
 
 const FixedCol = styled(Col)`
   position: fixed !important;
-  background-color: ${$backgroundColor};
+  background-color: ${(props) => $backgroundColor[props.mode]};
    {
     /* this is the color that will be behind the content col background */
   }
@@ -573,12 +573,12 @@ const FixedCol = styled(Col)`
 
 const ContainerHalf = styled.div`
   &.left {
-    background-color: ${$textColor1};
+    background-color: ${(props) => $textColor1[props.mode]};
     z-index: 90;
   }
 
   &.right {
-    background-color: ${$color1};
+    background-color: ${(props) => $color1[props.mode]};
     position: relative;
   }
 `;
@@ -598,7 +598,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset 8px 8px 0px 0px ${$textColor1};
+    box-shadow: inset 8px 8px 0px 0px ${(props) => $textColor1[props.mode]};
   }
   &.arrow2 {
     position: absolute;
@@ -611,7 +611,7 @@ const Arrow = styled(motion.span)`
      {
       /* maybe should be configurable later */
     }
-    box-shadow: inset -8px 8px 0px 0px ${$textColor1};
+    box-shadow: inset -8px 8px 0px 0px ${(props) => $textColor1[props.mode]};
   }
   &.arrow3 {
     position: absolute;
@@ -624,7 +624,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset 8px -8px 0px 0px ${$textColor1};
+    box-shadow: inset 8px -8px 0px 0px ${(props) => $textColor1[props.mode]};
   }
   &.arrow4 {
     position: absolute;
@@ -637,7 +637,7 @@ const Arrow = styled(motion.span)`
       /* maybe should be configurable later */
     }
 
-    box-shadow: inset -8px -8px 0px 0px ${$textColor1};
+    box-shadow: inset -8px -8px 0px 0px ${(props) => $textColor1[props.mode]};
   }
 `;
 

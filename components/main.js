@@ -17,9 +17,9 @@ export const Main = styled.main`
   }
 
   font-family: ${$fontFamily1};
-  background-color: ${$color1};
+  background-color: ${(props) => $color1[props.mode]};
 
-  color: ${$textColor1};
+  color: ${(props) => $textColor1[props.mode]};
 
   @media (min-width: 992px) {
     .pt-4b {
@@ -58,31 +58,31 @@ export const Main = styled.main`
 
   span,
   p {
-    color: ${$textColor3};
+    color: ${(props) => $textColor3[props.mode]};
   }
 
   .color1 {
-    color: ${$color1};
+    color: ${(props) => $color1[props.mode]};
   }
 
   .color2 {
-    color: ${$color2};
+    color: ${(props) => $color2[props.mode]};
   }
 
   .color2Alt {
-    color: ${$color2Alt};
+    color: ${(props) => $color2Alt[props.mode]};
   }
 
   .textColor1 {
-    color: ${$textColor1};
+    color: ${(props) => $textColor1[props.mode]};
   }
 
   .textColor2 {
-    color: ${$textColor2};
+    color: ${(props) => $textColor2[props.mode]};
   }
 
   .textColor2Lighter {
-    color: ${$textColor2Lighter};
+    color: ${(props) => $textColor2Lighter[props.mode]};
   }
 
   .zero {
@@ -158,11 +158,11 @@ export const Main = styled.main`
     cursor: pointer;
     transition-duration: 0.16s;
     transform: scale(1.22);
-    color: ${$color2};
+    color: ${(props) => $color2[props.mode]};
   }
 
   .clickable1.active {
-    color: ${$color2};
+    color: ${(props) => $color2[props.mode]};
   }
 
   .clickable2 {
@@ -172,11 +172,11 @@ export const Main = styled.main`
   .clickable2:hover {
     cursor: pointer;
     transition-duration: 0.16s;
-    color: ${$color2};
+    color: ${(props) => $color2[props.mode]};
   }
 
   .clickable2.active {
-    color: ${$color2};
+    color: ${(props) => $color2[props.mode]};
   }
 
   .iconList li {
@@ -189,7 +189,7 @@ export const Main = styled.main`
     display: none;
     z-index: 96;
     box-shadow: 1px 1px 5px rgb(95 95 95 / 28%);
-    background-color: ${$color1};
+    background-color: ${(props) => $color1[props.mode]};
 
     @media (max-width: 991px) {
       display: flex;
@@ -243,7 +243,7 @@ export const Main = styled.main`
     }
 
     .contentCol .right {
-      border-right: solid 1px ${$borderColor};
+      border-right: solid 1px ${(props) => $borderColor[props.mode]};
     }
   }
 

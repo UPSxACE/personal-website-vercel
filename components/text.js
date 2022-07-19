@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { $color1, $color2, $textColor1, $textColor2 } from "../utils/config";
 
 export const TypedSpanDiv = styled.div`
-  color: ${$textColor2}!important;
+  color: ${(props) => $textColor2[props.mode]}!important;
 
   .typed-cursor {
-    color: ${$textColor2}!important;
+    color: ${(props) => $textColor2[props.mode]}!important;
   }
 
   span {
@@ -38,6 +38,6 @@ export const TypedSpanDiv = styled.div`
 
   em {
     font-style: normal;
-    color: ${$color2};
+    color: ${(props) => $color2[props.mode]};
   }
 `;

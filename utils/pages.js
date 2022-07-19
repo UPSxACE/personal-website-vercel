@@ -34,7 +34,7 @@ import { useContext, useRef } from "react";
 
 const ContentDiv = styled.div`
   overflow-y: auto;
-  background-color: ${$color1};
+  background-color: ${(props) => $color1[props.mode]};
 `;
 export const pages = [
   <>

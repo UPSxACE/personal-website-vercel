@@ -21,14 +21,14 @@ export function ContactCard(props) {
 
 const ContactDiv = styled.div`
   min-height: 150px;
-  border: 1px solid ${$borderColor};
-  background-color: ${$componentBackground};
+  border: 1px solid ${(props) => $borderColor[props.mode]};
+  background-color: ${(props) => $componentBackground[props.mode]};
 
   .icon {
-    color: ${$color2};
+    color: ${(props) => $color2[props.mode]};
   }
 
   .icon path {
-    stroke: ${$color2};
+    stroke: ${(props) => $color2[props.mode]};
   }
 `;

@@ -63,11 +63,11 @@ function LineDiv() {
 const Square = styled.div`
   width: 55px;
   height: 9px;
-  background-color: ${$color2};
+  background-color: ${(props) => $color2[props.mode]};
 `;
 
 const Line = styled.div`
   height: 1px;
   width: 100%;
-  background-color: ${$color3};
+  background-color: ${(props) => $color3[props.mode]};
 `;

@@ -36,7 +36,7 @@ const HamburguerMenuIconDiv = styled.div`
     width: 2em;
     height: 3px;
     border-radius: 3px;
-    background-color: ${$textColor1};
+    background-color: ${(props) => $textColor1[props.mode]};
     margin: 5px;
     transition: all 0.3s ease-in-out;
   }

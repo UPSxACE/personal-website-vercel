@@ -37,13 +37,13 @@ export function VerticalTimeLine(props) {
 const OutsideDiv = styled.div`
   height: max-content;
   width: 100%;
-  border-left: 4px solid ${$color2};
+  border-left: 4px solid ${(props) => $color2[props.mode]};
 `;
 
 const Card = styled.div`
   position: relative;
   background-color: white;
-  border: 1px solid ${$borderColorLighter};
+  border: 1px solid ${(props) => $borderColorLighter[props.mode]};
   //border-radius: 8px;
   width: calc(100% - 16px);
   //min-height: 150px;
@@ -56,12 +56,12 @@ const Card = styled.div`
     height: 0px;
     width: 0px;
     border: 6px solid transparent;
-    border-left: 6px solid ${$color2};
+    border-left: 6px solid ${(props) => $color2[props.mode]};
   }
 
   .line {
     position: absolute;
-    background-color: ${$color2};
+    background-color: ${(props) => $color2[props.mode]};
     top: 29px;
     left: -16px;
     height: 2px;

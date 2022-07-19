@@ -9,12 +9,6 @@ import { createTheme, ThemeProvider } from "@mui/system";
 import { $color1, $color2, $color3 } from "../utils/config";
 import { ThemeContext } from "styled-components";
 
-export let mode = 0;
-function changeMode() {
-  mode = mode + 1;
-  console.log("New mode: " + mode);
-}
-
 function Loading(props) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -67,42 +61,38 @@ function MyApp({ Component, pageProps }) {
   const [loaded, setLoaded] = useState(false);
   const [mode, setMode] = useState(0);
 
+  let theme = createTheme({
+    palette: {
+      primary: {
+        main: $color2[mode],
+      },
+    },
+  });
+
+  theme = createTheme(theme, {
+    components: {
+      MuiLinearProgress: {
+        styleOverrides: {
+          root: {
+            // ap
+            backgroundColor: $color3[mode],
+            height: 4,
+          },
+        },
+      },
+    },
+  });
+
   return (
     <>
       <ThemeContext.Provider value={mode}>
         <ThemeProvider theme={theme}>
           <Loading setLoaded={setLoaded} />
-          <Component
-            key={loaded + mode}
-            changeMode={changeMode}
-            {...pageProps}
-          />
+          <Component key={loaded} {...pageProps} />
         </ThemeProvider>
       </ThemeContext.Provider>
     </>
   );
 }
-
-let theme = createTheme({
-  palette: {
-    primary: {
-      main: $color2,
-    },
-  },
-});
-
-theme = createTheme(theme, {
-  components: {
-    MuiLinearProgress: {
-      styleOverrides: {
-        root: {
-          // ap
-          backgroundColor: $color3,
-          height: 4,
-        },
-      },
-    },
-  },
-});
 
 export default MyApp;
