@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import {
   $borderColor,
   $borderColorLighter,
@@ -6,13 +6,16 @@ import {
   $color2,
 } from "../../utils/config";
 import { FaCalendarAlt } from "react-icons/fa";
+import { useContext } from "react";
 
 export function VerticalTimeLine(props) {
+  const mode = useContext(ThemeContext);
+
   return (
-    <OutsideDiv className="d-flex flex-column flex-grow-1">
+    <OutsideDiv mode={mode} className="d-flex flex-column flex-grow-1">
       {props.cards.map((card, index) => {
         return (
-          <Card key={"card" + index} className="mb-4 mb-4b ps-3">
+          <Card mode={mode} key={"card" + index} className="mb-4 mb-4b ps-3">
             <div className="triangle" />
             <div className="line" />
             <h6 className="date d-flex color2">

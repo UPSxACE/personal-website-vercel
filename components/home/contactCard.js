@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
 import {
   $borderColor,
   $color2,
@@ -6,8 +7,13 @@ import {
 } from "../../utils/config";
 
 export function ContactCard(props) {
+  const mode = useContext(ThemeContext);
+
   return (
-    <ContactDiv className="d-flex justify-content-center align-items-center h-100 flex-column">
+    <ContactDiv
+      mode={mode}
+      className="d-flex justify-content-center align-items-center h-100 flex-column"
+    >
       {props.children}
     </ContactDiv>
   );

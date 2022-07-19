@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
 import { $color2, $color3 } from "../../utils/config";
 
 export function Section(props) {
@@ -49,10 +50,12 @@ export function SubSection(props) {
 }
 
 function LineDiv() {
+  const mode = useContext(ThemeContext);
+
   return (
     <>
-      <Square className="mt-3" />
-      <Line />
+      <Square mode={mode} className="mt-3" />
+      <Line mode={mode} />
     </>
   );
 }

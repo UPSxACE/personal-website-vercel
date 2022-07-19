@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import {
   AnimatePresence,
   AnimateSharedLayout,
@@ -19,7 +19,7 @@ import {
   $textColor1,
   $textColor1Alt,
 } from "../utils/config";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import { TypedSpanDiv } from "../components/text";
 import { Main } from "../components/main";
@@ -56,6 +56,8 @@ export default function Home() {
   const [frontPage, setFrontPage] = useState(true);
 
   const [tab, setTab] = useState(0);
+
+  const mode = useContext(ThemeContext);
 
   useEffect(() => {
     console.log("tab: " + tab);
@@ -126,7 +128,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main>
+      <Main mode={mode}>
         <AnimatePresence>
           {phoneMenu && (
             <motion.div
@@ -161,7 +163,7 @@ export default function Home() {
               frontPage={frontPage}
               side={"left"}
             >
-              <TypedSpanDiv className="mb-2">
+              <TypedSpanDiv mode={mode} className="mb-2">
                 <span id="typed" className="textColor2"></span>
               </TypedSpanDiv>
               <ButtonPairWrapper className="d-flex justify-content-center mt-4 flex-wrap">
@@ -184,6 +186,7 @@ export default function Home() {
               side={"right"}
             >
               <Arrow
+                mode={mode}
                 className="arrow1"
                 animate={{ top: $padding1, left: $padding1 }}
                 transition={{
@@ -193,6 +196,7 @@ export default function Home() {
                 }}
               ></Arrow>
               <Arrow
+                mode={mode}
                 className="arrow2"
                 animate={{ top: $padding1, right: $padding1 }}
                 transition={{
@@ -202,6 +206,7 @@ export default function Home() {
                 }}
               ></Arrow>
               <Arrow
+                mode={mode}
                 className="arrow3"
                 animate={{ bottom: $padding1, left: $padding1 }}
                 transition={{
@@ -211,6 +216,7 @@ export default function Home() {
                 }}
               ></Arrow>
               <Arrow
+                mode={mode}
                 className="arrow4"
                 animate={{ bottom: $padding1, right: $padding1 }}
                 transition={{
@@ -373,6 +379,7 @@ export default function Home() {
                           "h-100 w-100" +
                           (tab !== 0 && tab !== (index + 1) * 2 ? " zero" : "")
                         }
+                        mode={mode}
                       >
                         {page}
                       </ContentDiv>
@@ -381,7 +388,7 @@ export default function Home() {
                 })
               ) : (
                 <PageTransition preset={getAnimation()} transitionKey={tab}>
-                  <ContentDiv className="h-100">
+                  <ContentDiv mode={mode} className="h-100">
                     {pages[(tab - 1) / 2]}
                   </ContentDiv>
                 </PageTransition>
@@ -465,6 +472,7 @@ const Picture = styled(motion.img)`
 
 function ResizableContainerHalfCol(props) {
   let [ref, { width }] = useMeasure();
+  const mode = useContext(ThemeContext);
 
   return (
     <Col
@@ -497,6 +505,7 @@ function ResizableContainerHalfCol(props) {
             " h-100" +
             (props.dNoneToBlock ? " d-" + props.dNoneToBlock + "-block" : "")
           }
+          mode={mode}
         >
           {props.children}
         </ContainerHalf>
@@ -507,6 +516,7 @@ function ResizableContainerHalfCol(props) {
 
 function ResizableFixedCol(props) {
   let [ref, { width }] = useMeasure();
+  const mode = useContext(ThemeContext);
 
   return (
     <FixedCol
@@ -519,6 +529,7 @@ function ResizableFixedCol(props) {
         " extra" +
         (!props.frontPage ? " showInfo" : "")
       }
+      mode={mode}
       xs={12}
       style={props.style}
       ref={ref}
@@ -534,6 +545,7 @@ function ResizableFixedCol(props) {
             " h-100" +
             (props.dNoneToBlock ? " d-" + props.dNoneToBlock + "-block" : "")
           }
+          mode={mode}
         >
           {props.children}
         </ContainerHalf>

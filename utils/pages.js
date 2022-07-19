@@ -8,7 +8,7 @@ import {
   AiOutlineHome,
 } from "react-icons/ai";
 import { Container, Row, Col, Form } from "react-bootstrap";
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { $color1 } from "./config";
 import { createTheme, LinearProgress } from "@mui/material";
 import { ProgressBar } from "../components/progressBar";
@@ -30,7 +30,7 @@ import { GrLocation, GrMailOption, GrPhone } from "react-icons/gr";
 import { $color2 } from "./config";
 import { ProjectGallery } from "../components/home/projectGallery";
 import axios from "axios";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 
 const ContentDiv = styled.div`
   overflow-y: auto;
@@ -135,6 +135,7 @@ function ContactSection(props) {
   const nameref = useRef("");
   const emailref = useRef("");
   const messageref = useRef("");
+  const mode = useContext(ThemeContext);
 
   function submitForm(form) {
     const sendPostRequest = async () => {
@@ -181,7 +182,7 @@ function ContactSection(props) {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.00302705745!2d-6.757794067689142!3d41.806695211428085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3a49fc3e4f4915%3A0xe96f35f2dfacc35!2sLargo%20Cel.%20Albino%20Lopo%2023%2C%205300-111%20Bragan%C3%A7a!5e0!3m2!1spt-PT!2spt!4v1657979060419!5m2!1spt-PT!2spt"
                   width="100%"
                   height="520px"
-                  style={{ border: `1px solid ${$borderColor}` }}
+                  style={{ border: `1px solid ${$borderColor[mode]}` }}
                   allowFullScreen=""
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>

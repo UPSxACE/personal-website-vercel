@@ -1,10 +1,15 @@
-import { useEffect, useRef } from "react";
-import styled from "styled-components";
+import { useContext, useEffect, useRef } from "react";
+import styled, { ThemeContext } from "styled-components";
 import { $textColor1 } from "../utils/config";
 
 export function HamburguerMenuIcon(props) {
+  const mode = useContext(ThemeContext);
+
   return (
-    <HamburguerMenuIconDiv className="d-flex align-items-center ms-auto">
+    <HamburguerMenuIconDiv
+      mode={mode}
+      className="d-flex align-items-center ms-auto"
+    >
       <input
         onClick={props.onClick}
         id="toggle"

@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { Button } from "react-bootstrap";
 import { $color1, $color2, $textColor1, $textColor2 } from "../utils/config";
+import { useContext } from "react";
 
 const Button1Base = styled.button`
   border-style: solid;
@@ -28,11 +29,14 @@ const Button1Base = styled.button`
 `;
 
 export const Button1 = (props) => {
+  const mode = useContext(ThemeContext);
+
   return (
     <Button1Base
       type={props.type}
       className={props.className}
       style={props.style}
+      mode={mode}
     >
       {props.children}
     </Button1Base>
@@ -54,11 +58,14 @@ const Button2Base = styled(Button1Base)`
 `;
 
 export const Button2 = (props) => {
+  const mode = useContext(ThemeContext);
+
   return (
     <Button2Base
       type={props.type}
       className={props.className}
       style={props.style}
+      mode={mode}
     >
       {props.children}
     </Button2Base>

@@ -7,6 +7,13 @@ import loadingIcon from "../img/atoms-lottie-animation-200x200-black.gif";
 import Image from "next/image";
 import { createTheme, ThemeProvider } from "@mui/system";
 import { $color1, $color2, $color3 } from "../utils/config";
+import { ThemeContext } from "styled-components";
+
+export let mode = 0;
+function changeMode() {
+  mode = mode + 1;
+  console.log("New mode: " + mode);
+}
 
 function Loading(props) {
   const router = useRouter();
@@ -58,13 +65,20 @@ function Loading(props) {
 
 function MyApp({ Component, pageProps }) {
   const [loaded, setLoaded] = useState(false);
+  const [mode, setMode] = useState(0);
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Loading setLoaded={setLoaded} />
-        <Component key={loaded} {...pageProps} />
-      </ThemeProvider>
+      <ThemeContext.Provider value={mode}>
+        <ThemeProvider theme={theme}>
+          <Loading setLoaded={setLoaded} />
+          <Component
+            key={loaded + mode}
+            changeMode={changeMode}
+            {...pageProps}
+          />
+        </ThemeProvider>
+      </ThemeContext.Provider>
     </>
   );
 }

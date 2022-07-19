@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { $borderColor } from "../utils/config";
 
 export function FormWrapper(props) {
   const [validated, setValidated] = useState(false);
+  const mode = useContext(ThemeContext);
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -27,6 +29,7 @@ export function FormWrapper(props) {
       noValidate
       validated={validated}
       onSubmit={handleSubmit}
+      mode={mode}
     >
       {props.children}
     </FormStyled>

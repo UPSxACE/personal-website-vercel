@@ -1,11 +1,16 @@
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { $color2 } from "../../utils/config";
+import { useContext } from "react";
 
 export function IconSpanDiv(props) {
+  const mode = useContext(ThemeContext);
+
   return (
     <div className="d-flex mt-1 mb-1">
-      <IconWrapper className={props.flip && "flip"}>{props.icon}</IconWrapper>
+      <IconWrapper mode={mode} className={props.flip && "flip"}>
+        {props.icon}
+      </IconWrapper>
       <Span>{props.children}</Span>
     </div>
   );
