@@ -37,6 +37,7 @@ export const Button1 = (props) => {
       className={props.className}
       style={props.style}
       mode={mode}
+      onClick={props.onClick}
     >
       {props.children}
     </Button1Base>
@@ -66,6 +67,7 @@ export const Button2 = (props) => {
       className={props.className}
       style={props.style}
       mode={mode}
+      onClick={props.onClick}
     >
       {props.children}
     </Button2Base>

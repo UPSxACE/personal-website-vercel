@@ -171,7 +171,18 @@ export default function Home(props) {
               </TypedSpanDiv>
               <ButtonPairWrapper className="d-flex justify-content-center mt-4 flex-wrap">
                 <Button1 className="p-2 ps-3 pe-3">Download CV</Button1>
-                <Button2 className="p-2 ps-3 pe-3">Contact Me</Button2>
+                <Button2
+                  className="p-2 ps-3 pe-3"
+                  onClick={() => {
+                    clearTimeout(delayTimer);
+                    toggleFrontPage(false);
+                    togglePhoneMenu(false);
+                    setCheckbox(false);
+                    setTab(7);
+                  }}
+                >
+                  Contact Me
+                </Button2>
               </ButtonPairWrapper>
             </ResizableContainerHalfCol>
 
@@ -255,7 +266,11 @@ export default function Home(props) {
                     className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
-                    <Link href={"/"}>
+                    <Link
+                      href={
+                        "https://www.linkedin.com/in/eduardobotelho1029/?locale=en_US"
+                      }
+                    >
                       <FontAwesomeIcon icon={faLinkedinIn}></FontAwesomeIcon>
                     </Link>
                   </motion.li>
@@ -263,7 +278,7 @@ export default function Home(props) {
                     className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
-                    <Link href={"/"}>
+                    <Link href={"https://github.com/UPSxACE"}>
                       <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
                     </Link>
                   </motion.li>
@@ -271,7 +286,7 @@ export default function Home(props) {
                     className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
-                    <Link href={"/"}>
+                    <Link href={"https://www.instagram.com/upsxace/"}>
                       <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
                     </Link>
                   </motion.li>
@@ -279,7 +294,7 @@ export default function Home(props) {
                     className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
-                    <Link href={"/"}>
+                    <Link href={"https://www.facebook.com/eduardo1029x/"}>
                       <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
                     </Link>
                   </motion.li>
