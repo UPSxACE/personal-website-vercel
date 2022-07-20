@@ -86,7 +86,7 @@ const SquareBase = styled.div`
   align-items: center;
   width: 100%;
   object-fit: cover;
-  border: 3px solid ${(props) => $borderColor[props.mode]};
+  border: 3px solid rgba(0, 0, 0, 0.07);
   //background-color: white;
 
   svg {

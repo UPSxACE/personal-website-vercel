@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { $aboutMePicture } from "../../utils/config";
 
 export function ProfilePicture() {
   return (
     <PictureDiv>
-      <PictureBase src="https://preview.colorlib.com/theme/meetme/img/xpersonal.jpg.pagespeed.ic.0nYDRDpxHl.webp" />
+      <PictureBase src={$aboutMePicture} />
     </PictureDiv>
   );
 }

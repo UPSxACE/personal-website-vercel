@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {
   $borderColor,
+  $borderColorImproved,
   $color1,
   $color2,
   $color2Alt,
@@ -253,7 +254,7 @@ export const Main = styled.main`
     }
 
     .contentCol .right {
-      border-right: solid 1px ${(props) => $borderColor[props.mode]};
+      border-right: solid 1px ${(props) => $borderColorImproved[props.mode]};
     }
   }
 

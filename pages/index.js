@@ -17,6 +17,7 @@ import {
   $color1,
   $margin1,
   $padding1,
+  $profilePicture,
   $textColor0,
   $textColor1,
   $textColor1Alt,
@@ -234,7 +235,10 @@ export default function Home(props) {
                 className="d-flex justify-content-center align-items-center flex-column frontpage"
                 transition={{ delay: 1.75, default: { duration: 1.65 } }}
               >
-                <Picture variants={overlayDivChildAnimation} />
+                <Picture
+                  src={$profilePicture}
+                  variants={overlayDivChildAnimation}
+                />
                 <motion.h3
                   className="myName textColor0"
                   variants={overlayDivChildAnimation}
@@ -464,11 +468,11 @@ const Picture = styled(motion.img)`
   display: inline-block;
   height: 8rem;
   width: 8rem;
-  padding: 4rem;
+  //padding: 4rem;
    {
     /* make it a perfect circle */
   }
-  background-color: black;
+  //background-color: black;
   border-radius: 100%;
 `;
 
@@ -582,6 +586,7 @@ const ContainerHalf = styled.div`
   &.right {
     background-color: ${(props) => $color1[props.mode]};
     position: relative;
+    box-shadow: 0 0 15px rgb(0 0 0 / 7%);
   }
 `;
 

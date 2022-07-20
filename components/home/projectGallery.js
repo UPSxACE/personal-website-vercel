@@ -60,26 +60,30 @@ export function ProjectGallery() {
             variant="dark"
           >
             <Carousel.Item interval={5000}>
-              <Image
+              <img
                 className="d-block w-100"
                 alt="Project main picture"
                 src={projects[projectToShow].medPic}
               />
             </Carousel.Item>
-            <Carousel.Item interval={5000}>
-              <Image
-                className="d-block w-100"
-                alt="Project main picture"
-                src={projects[projectToShow].medPic}
-              />
-            </Carousel.Item>
-            <Carousel.Item interval={5000}>
-              <Image
-                className="d-block w-100"
-                alt="Project main picture"
-                src={projects[projectToShow].medPic}
-              />
-            </Carousel.Item>
+            {projects[projectToShow].pic2 && (
+              <Carousel.Item interval={5000}>
+                <img
+                  className="d-block w-100"
+                  alt="Project main picture"
+                  src={projects[projectToShow].pic2}
+                />
+              </Carousel.Item>
+            )}
+            {projects[projectToShow].pic3 && (
+              <Carousel.Item interval={5000}>
+                <img
+                  className="d-block w-100"
+                  alt="Project main picture"
+                  src={projects[projectToShow].pic3}
+                />
+              </Carousel.Item>
+            )}
           </PicturesCarousel>
           <h4 className="pt-3">Project Info:</h4>
           <p className="h5 fw-300 mb-0">{projects[projectToShow].info}</p>
@@ -258,7 +262,7 @@ export function ProjectGallery() {
                         {project.typeString}
                       </span>
                     </div>
-                    <Image alt="project preview" src={project.smlPic} />
+                    <img alt="project preview" src={project.smlPic} />
                   </ProjectCard>
                   <ProjectCard
                     onClick={() => {
@@ -278,7 +282,7 @@ export function ProjectGallery() {
                         {project.typeString}
                       </span>
                     </div>
-                    <Image alt="project preview" src={project.medPic} />
+                    <img alt="project preview" src={project.medPic} />
                   </ProjectCard>
                 </Col>
               );
@@ -298,6 +302,7 @@ const ProjectCard = styled.div`
   display: flex;
   position: relative;
   z-index: 999;
+  overflow: hidden;
 
   img {
     width: 100%;
@@ -389,5 +394,19 @@ const PicturesCarousel = styled(Carousel)`
     background-color: ${(props) => $color2[props.mode]}!important;
     border-radius: 100%;
     opacity: 1;
+  }
+
+  @media (min-width: 1400px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+      opacity: 1;
+      transition: all 1s;
+    }
+
+    &:not(:hover) .carousel-control-prev,
+    &:not(:hover) .carousel-control-next {
+      opacity: 0;
+      transition: all 0.7s;
+    }
   }
 `;
