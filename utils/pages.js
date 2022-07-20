@@ -9,7 +9,14 @@ import {
 } from "react-icons/ai";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import styled, { ThemeContext } from "styled-components";
-import { $color1 } from "./config";
+import {
+  $color1,
+  $emjs_endpoint,
+  $emjs_service_id,
+  $emjs_template_id,
+  $emjs_user_id,
+  $mapLocation,
+} from "./config";
 import { createTheme, LinearProgress } from "@mui/material";
 import { ProgressBar } from "../components/progressBar";
 import {
@@ -138,15 +145,15 @@ function ContactSection(props) {
       try {
         let formData = new FormData(form);
         //formdata.append("image", file);
-        formData.append("service_id", "service_ke39srj"); //emailjs library field
-        formData.append("template_id", "template_11n3w2i"); //emailjs library field
-        formData.append("user_id", "q9cqZXRj8XF2PZJLF"); //emailjs library field
+        formData.append("service_id", $emjs_service_id); //emailjs library field
+        formData.append("template_id", $emjs_template_id); //emailjs library field
+        formData.append("user_id", $emjs_user_id); //emailjs library field
         formData.append("name", nameref.current.value);
         formData.append("email", emailref.current.value);
         formData.append("message", messageref.current.value);
 
         const resp = await axios.post(
-          "https://api.emailjs.com/api/v1.0/email/send-form", //emailjs api
+          $emjs_endpoint, //emailjs api
           formData,
           {
             headers: {
@@ -175,7 +182,7 @@ function ContactSection(props) {
               <SubSection title="Location">
                 <iframe
                   className="map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.00302705745!2d-6.757794067689142!3d41.806695211428085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3a49fc3e4f4915%3A0xe96f35f2dfacc35!2sLargo%20Cel.%20Albino%20Lopo%2023%2C%205300-111%20Bragan%C3%A7a!5e0!3m2!1spt-PT!2spt!4v1657979060419!5m2!1spt-PT!2spt"
+                  src={$mapLocation}
                   width="100%"
                   height="520px"
                   style={{ border: `1px solid ${$borderColor[mode]}` }}
