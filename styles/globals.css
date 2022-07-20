@@ -76,3 +76,64 @@ a {
     transform: rotate(359deg);
   }
 }
+
+.fw-300 {
+  font-weight: 300 !important;
+}
+
+.fw-400 {
+  font-weight: 400 !important;
+}
+
+.fw-500 {
+  font-weight: 500 !important;
+}
+
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+.fw-700 {
+  font-weight: 700 !important;
+}
+
+.h1,
+.h2,
+h1,
+h2 {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.h3,
+.h4,
+.h5,
+.h6,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+p,
+span {
+  font-family: "Poppins", sans-serif;
+  color: #3a3a3a;
+}
+
+.textColor1 {
+  color: #21252a;
+}
+
+.h3force {
+  font-size: calc(1.3rem + 0.6vw) !important;
+}
+
+.url,
+.url:hover,
+.url *,
+.url * {
+  color: #ff4c60;
+}

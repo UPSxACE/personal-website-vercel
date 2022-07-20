@@ -7,6 +7,7 @@ import { Carousel, Col, Modal } from "react-bootstrap";
 import Image from "next/image";
 import { GoPlus } from "react-icons/go";
 import { $color2 } from "../../utils/config";
+import Link from "next/link";
 
 let movement_transition_duration = 0.3;
 
@@ -48,7 +49,7 @@ export function ProjectGallery() {
           className="ps-3 pe-3 ps-md-4 pe-md-4 ps-xl-5 pe-xl-5"
           closeButton
         >
-          <Modal.Title id="project-modal">
+          <Modal.Title id="project-modal" className="h3force">
             {projects[projectToShow].title}
           </Modal.Title>
         </Modal.Header>
@@ -80,6 +81,74 @@ export function ProjectGallery() {
               />
             </Carousel.Item>
           </PicturesCarousel>
+          <h4 className="pt-3">Project Info:</h4>
+          <p className="h5 fw-300 mb-0">{projects[projectToShow].info}</p>
+          <h4 className="pt-3">Project Details</h4>
+          {projects[projectToShow].status && (
+            <>
+              <div>
+                <span className="h5 textColor1">Status: </span>
+                <span className="h5 fw-300">
+                  {projects[projectToShow].status}
+                </span>
+              </div>
+              <hr className="mt-2 mb-2" />
+            </>
+          )}
+          {projects[projectToShow].technologies && (
+            <>
+              <div>
+                <span className="h5 textColor1">Technologies: </span>
+                <span className="h5 fw-300">
+                  {projects[projectToShow].technologies}
+                </span>
+              </div>
+              <hr className="mt-2 mb-2" />
+            </>
+          )}
+
+          {projects[projectToShow].startdate && (
+            <>
+              <div>
+                <span className="h5 textColor1">Start Date: </span>
+                <span className="h5 fw-300">
+                  {projects[projectToShow].startdate}
+                </span>
+              </div>
+              <hr className="mt-2 mb-2" />
+            </>
+          )}
+
+          {projects[projectToShow].finishdate && (
+            <>
+              <div>
+                <span className="h5 textColor1">Finish Date: </span>
+                <span className="h5 fw-300">
+                  {projects[projectToShow].finishdate}
+                </span>
+              </div>
+              <hr className="mt-2 mb-2" />
+            </>
+          )}
+
+          {projects[projectToShow].demo && (
+            <>
+              <div>
+                <span className="h5 textColor1">Demo: </span>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href={projects[projectToShow].demo}
+                  className="url"
+                >
+                  <span className="h5 fw-300">
+                    {projects[projectToShow].demo}
+                  </span>
+                </a>
+              </div>
+              <hr className="mt-2 mb-2" />
+            </>
+          )}
         </Modal.Body>
       </ProjectModal>
       <div className="d-flex w-100 z999">
@@ -262,6 +331,7 @@ const ProjectCard = styled.div`
     opacity: 1;
     //transform: scale(1);
     transition-duration: 0.5s;
+    cursor: pointer;
   }
 `;
 
@@ -297,6 +367,7 @@ const PicturesCarousel = styled(Carousel)`
   }
   .carousel-control-next-icon {
     background-image: url("/next-arrow-pink.png");
+    background-size: contain;
     filter: none;
   }
 

@@ -121,7 +121,7 @@ export default function Home(props) {
   }, []);
 
   return (
-    <div>
+    <div className="index">
       <Head>
         <title>Eduardo Botelho</title>
         <meta
