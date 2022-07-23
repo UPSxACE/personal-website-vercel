@@ -15,6 +15,7 @@ import {
   $backgroundColor,
   $color0,
   $color1,
+  $color2,
   $margin1,
   $padding1,
   $profilePicture,
@@ -52,6 +53,7 @@ import {
   AiOutlineMail,
   AiOutlineHome,
 } from "react-icons/ai";
+import { BsGearFill } from "react-icons/bs";
 import { pages } from "../utils/pages";
 
 export default function Home(props) {
@@ -59,6 +61,8 @@ export default function Home(props) {
   const [frontPage, setFrontPage] = useState(true);
 
   const [tab, setTab] = useState(0);
+
+  const [spin, setSpin] = useState(false);
 
   const mode = useContext(ThemeContext);
 
@@ -122,7 +126,7 @@ export default function Home(props) {
   }, []);
 
   return (
-    <div className="index">
+    <div className={spin ? "index changingTheme" : "index"}>
       <Head>
         <title>Eduardo Botelho</title>
         <meta
@@ -174,11 +178,13 @@ export default function Home(props) {
                 <Button2
                   className="p-2 ps-3 pe-3"
                   onClick={() => {
-                    clearTimeout(delayTimer);
-                    toggleFrontPage(false);
-                    togglePhoneMenu(false);
-                    setCheckbox(false);
-                    setTab(7);
+                    if (!spin) {
+                      clearTimeout(delayTimer);
+                      toggleFrontPage(false);
+                      togglePhoneMenu(false);
+                      setCheckbox(false);
+                      setTab(7);
+                    }
                   }}
                 >
                   Contact Me
@@ -304,16 +310,18 @@ export default function Home(props) {
                     className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
-                      clearTimeout(delayTimer);
-                      let tabWhenPressed = tab;
-                      delayTimer = setTimeout(() => {
-                        if (tabWhenPressed % 2 !== 0)
-                          //the tab value is verified again to avoid bugs related to the fact of setTimeout being an asynchronous function
-                          setTab(tabWhenPressed + 1);
-                      }, 1000);
-                      toggleFrontPage(true);
-                      togglePhoneMenu(false);
-                      setCheckbox(false);
+                      if (!spin) {
+                        clearTimeout(delayTimer);
+                        let tabWhenPressed = tab;
+                        delayTimer = setTimeout(() => {
+                          if (tabWhenPressed % 2 !== 0)
+                            //the tab value is verified again to avoid bugs related to the fact of setTimeout being an asynchronous function
+                            setTab(tabWhenPressed + 1);
+                        }, 1000);
+                        toggleFrontPage(true);
+                        togglePhoneMenu(false);
+                        setCheckbox(false);
+                      }
                     }}
                   >
                     Home
@@ -324,11 +332,13 @@ export default function Home(props) {
                     className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
-                      clearTimeout(delayTimer);
-                      toggleFrontPage(false);
-                      togglePhoneMenu(false);
-                      setCheckbox(false);
-                      setTab(1);
+                      if (!spin) {
+                        clearTimeout(delayTimer);
+                        toggleFrontPage(false);
+                        togglePhoneMenu(false);
+                        setCheckbox(false);
+                        setTab(1);
+                      }
                     }}
                   >
                     About Me
@@ -339,11 +349,13 @@ export default function Home(props) {
                     className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
-                      clearTimeout(delayTimer);
-                      toggleFrontPage(false);
-                      togglePhoneMenu(false);
-                      setCheckbox(false);
-                      setTab(3);
+                      if (!spin) {
+                        clearTimeout(delayTimer);
+                        toggleFrontPage(false);
+                        togglePhoneMenu(false);
+                        setCheckbox(false);
+                        setTab(3);
+                      }
                     }}
                   >
                     My Resume
@@ -354,11 +366,13 @@ export default function Home(props) {
                     className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
-                      clearTimeout(delayTimer);
-                      toggleFrontPage(false);
-                      togglePhoneMenu(false);
-                      setCheckbox(false);
-                      setTab(5);
+                      if (!spin) {
+                        clearTimeout(delayTimer);
+                        toggleFrontPage(false);
+                        togglePhoneMenu(false);
+                        setCheckbox(false);
+                        setTab(5);
+                      }
                     }}
                   >
                     Projects
@@ -369,14 +383,45 @@ export default function Home(props) {
                     className="menuItem clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                     onClick={() => {
-                      clearTimeout(delayTimer);
-                      toggleFrontPage(false);
-                      togglePhoneMenu(false);
-                      setCheckbox(false);
-                      setTab(7);
+                      if (!spin) {
+                        clearTimeout(delayTimer);
+                        toggleFrontPage(false);
+                        togglePhoneMenu(false);
+                        setCheckbox(false);
+                        setTab(7);
+                      }
                     }}
                   >
                     Contact Me
+                  </motion.h4>
+                </Link>
+                <Link href={"/"}>
+                  <motion.h4
+                    className={
+                      "menuItem clickable1 textColor0" +
+                      (spin ? " spinTransition" : "")
+                    }
+                    mode={mode}
+                    variants={overlayDivChildAnimation}
+                    onClick={() => {
+                      switch (mode) {
+                        case 0:
+                          props.setMode(mode + 1);
+                          break;
+                        case 1:
+                          props.setMode(0);
+                          break;
+                        default:
+                          props.setMode(0);
+                          break;
+                      }
+                      setSpin(true);
+                      setTimeout(() => {
+                        setSpin(false);
+                      }, 2000);
+                    }}
+                  >
+                    <BsGearFill variants={overlayDivChildAnimation} />
                   </motion.h4>
                 </Link>
               </OverlayDiv>
@@ -676,7 +721,7 @@ const OverlayDiv = styled(motion.div)`
   height: 100%;
   width: 100%;
 
-  * {
+  *:not(svg):not(path) {
     opacity: 0;
   }
 
@@ -686,6 +731,26 @@ const OverlayDiv = styled(motion.div)`
 
   &.frontpage .myName {
     font-weight: 500;
+  }
+
+  .spinTransition {
+    transform: scale(1.22);
+    transition-duration: 0.16s;
+    color: ${$color2[0]}!important; //${(props) =>
+      $color2[props.mode]}!important;
+  }
+
+  .spinTransition svg {
+    animation: rotating 2s linear infinite;
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 `;
 

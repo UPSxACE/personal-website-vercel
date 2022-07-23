@@ -137,3 +137,7 @@ span {
 .url * {
   color: #ff4c60;
 }
+
+.changingTheme *:not(svg):not(path) {
+  transition: color 2s, background-color 2s, box-shadow 2s !important;
+}

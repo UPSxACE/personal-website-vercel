@@ -88,7 +88,7 @@ function MyApp({ Component, pageProps }) {
       <ThemeContext.Provider value={mode}>
         <ThemeProvider theme={theme}>
           <Loading setLoaded={setLoaded} />
-          <Component key={loaded} {...pageProps} />
+          <Component key={loaded} {...pageProps} setMode={setMode} />
         </ThemeProvider>
       </ThemeContext.Provider>
     </>
