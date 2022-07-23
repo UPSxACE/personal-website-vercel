@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {
   $borderColor,
   $borderColorImproved,
+  $boxShadow1,
   $color1,
   $color2,
   $color2Alt,
@@ -199,7 +200,7 @@ export const Main = styled.main`
   .phoneNav {
     display: none;
     z-index: 96;
-    box-shadow: 1px 1px 5px rgb(95 95 95 / 28%);
+    box-shadow: 1px 1px 5px ${(props) => $boxShadow1[props.mode]};
     background-color: ${(props) => $color1[props.mode]};
 
     @media (max-width: 991px) {

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import styled, { ThemeContext } from "styled-components";
-import { $textColor1 } from "../utils/config";
+import { $textColor0, $textColor1 } from "../utils/config";
 
 export function HamburguerMenuIcon(props) {
   const mode = useContext(ThemeContext);
@@ -36,7 +36,7 @@ const HamburguerMenuIconDiv = styled.div`
     width: 2em;
     height: 3px;
     border-radius: 3px;
-    background-color: ${(props) => $textColor1[props.mode]};
+    background-color: ${(props) => $textColor0[props.mode]};
     margin: 5px;
     transition: all 0.3s ease-in-out;
   }

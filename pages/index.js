@@ -154,7 +154,7 @@ export default function Home(props) {
              align-items-center"
               xs={12}
             >
-              <h3 className="m-0">Eduardo</h3>
+              <h3 className="m-0 textColor0">Eduardo</h3>
               <HamburguerMenuIcon
                 checkboxRef={state}
                 onClick={togglePhoneMenu}

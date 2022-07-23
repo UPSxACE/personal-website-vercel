@@ -139,5 +139,5 @@ span {
 }
 
 .changingTheme *:not(svg):not(path) {
-  transition: color 2s, background-color 2s, box-shadow 2s !important;
+  transition: color 2s, background-color 2s, box-shadow 2s, background-image !important;
 }

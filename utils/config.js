@@ -19,6 +19,7 @@ export const $borderColor = [
 ];
 export const $borderColorLighter = ["#eee", "#eee"];
 export const $borderColorSolid = ["#ced4da", "#ced4da"]; //not used yet
+export const $boxShadow1 = ["rgb(95 95 95 / 28%)", "rgb(0 0 0 / 28%)"];
 export const $color0 = ["#f8f9fa", "#f9f9ff"];
 export const $color1 = ["#fff", "#353356"]; //old main color: #f9f9ff
 export const $color2 = ["#FF4C60", "#FF4C60"];
