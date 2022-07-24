@@ -16,6 +16,7 @@ import {
   $color0,
   $color1,
   $color2,
+  $color6,
   $margin1,
   $padding1,
   $profilePicture,
@@ -176,6 +177,7 @@ export default function Home(props) {
               <ButtonPairWrapper className="d-flex justify-content-center mt-4 flex-wrap">
                 <Button1 className="p-2 ps-3 pe-3">Download CV</Button1>
                 <Button2
+                  mode={mode}
                   className="p-2 ps-3 pe-3"
                   onClick={() => {
                     if (!spin) {
@@ -205,6 +207,7 @@ export default function Home(props) {
               frontPage={frontPage}
               side={"right"}
             >
+              <div className={"gradientDiv" + (mode === 2 ? " active" : "")} />
               <Arrow
                 mode={mode}
                 className="arrow1"
@@ -404,21 +407,26 @@ export default function Home(props) {
                     mode={mode}
                     variants={overlayDivChildAnimation}
                     onClick={() => {
-                      switch (mode) {
-                        case 0:
-                          props.setMode(mode + 1);
-                          break;
-                        case 1:
-                          props.setMode(0);
-                          break;
-                        default:
-                          props.setMode(0);
-                          break;
+                      if (!spin) {
+                        switch (mode) {
+                          case 0:
+                            props.setMode(mode + 1);
+                            break;
+                          case 1:
+                            props.setMode(mode + 1);
+                            break;
+                          case 2:
+                            props.setMode(0);
+                            break;
+                          default:
+                            props.setMode(0);
+                            break;
+                        }
+                        setSpin(true);
+                        setTimeout(() => {
+                          setSpin(false);
+                        }, 2000);
                       }
-                      setSpin(true);
-                      setTimeout(() => {
-                        setSpin(false);
-                      }, 2000);
                     }}
                   >
                     <BsGearFill variants={overlayDivChildAnimation} />
@@ -638,8 +646,77 @@ const FixedCol = styled(Col)`
 `;
 
 const ContainerHalf = styled.div`
+  .gradientDiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    /* ff 3.6+ */
+    background: -moz-linear-gradient(
+      18deg,
+      rgba(47, 40, 27, 1) 0%,
+      rgba(96, 82, 55, 0.95) 36%,
+      rgba(96, 82, 55, 0.95) 38%,
+      rgba(83, 71, 47, 1) 52%,
+      rgba(47, 40, 27, 1) 81%,
+      rgba(47, 40, 27, 1) 100%
+    );
+
+    /* safari 5.1+,chrome 10+ */
+    background: -webkit-linear-gradient(
+      18deg,
+      rgba(47, 40, 27, 1) 0%,
+      rgba(96, 82, 55, 0.95) 36%,
+      rgba(96, 82, 55, 0.95) 38%,
+      rgba(83, 71, 47, 1) 52%,
+      rgba(47, 40, 27, 1) 81%,
+      rgba(47, 40, 27, 1) 100%
+    );
+
+    /* opera 11.10+ */
+    background: -o-linear-gradient(
+      18deg,
+      rgba(47, 40, 27, 1) 0%,
+      rgba(96, 82, 55, 0.95) 36%,
+      rgba(96, 82, 55, 0.95) 38%,
+      rgba(83, 71, 47, 1) 52%,
+      rgba(47, 40, 27, 1) 81%,
+      rgba(47, 40, 27, 1) 100%
+    );
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2F281B', endColorstr='#2F281B', GradientType=1 );
+
+    /* ie 10+ */
+    background: -ms-linear-gradient(
+      18deg,
+      rgba(47, 40, 27, 1) 0%,
+      rgba(96, 82, 55, 0.95) 36%,
+      rgba(96, 82, 55, 0.95) 38%,
+      rgba(83, 71, 47, 1) 52%,
+      rgba(47, 40, 27, 1) 81%,
+      rgba(47, 40, 27, 1) 100%
+    );
+
+    /* global 94%+ browsers support */
+    background: linear-gradient(
+      18deg,
+      rgba(47, 40, 27, 1) 0%,
+      rgba(96, 82, 55, 0.95) 36%,
+      rgba(96, 82, 55, 0.95) 38%,
+      rgba(83, 71, 47, 1) 52%,
+      rgba(47, 40, 27, 1) 81%,
+      rgba(47, 40, 27, 1) 100%
+    );
+  }
+
+  .gradientDiv.active {
+    opacity: 1;
+  }
+
   &.left {
-    background-color: #21252a; //${(props) => $textColor1[props.mode]};
+    background-color: ${(props) => $color6[props.mode]};
     z-index: 90;
   }
 
@@ -735,7 +812,7 @@ const OverlayDiv = styled(motion.div)`
 
   .spinTransition {
     transform: scale(1.22);
-    transition-duration: 0.16s;
+    transition: scale(1.22) 0.16s, color 0.16s;
     color: ${$color2[0]}!important; //${(props) =>
       $color2[props.mode]}!important;
   }

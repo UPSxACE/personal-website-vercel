@@ -1,6 +1,13 @@
 import styled, { ThemeContext } from "styled-components";
 import { Button } from "react-bootstrap";
-import { $color1, $color2, $textColor1, $textColor2 } from "../utils/config";
+import {
+  $color1,
+  $color2,
+  $color4,
+  $color5,
+  $textColor1,
+  $textColor2,
+} from "../utils/config";
 import { useContext } from "react";
 
 const Button1Base = styled.button`
@@ -46,8 +53,10 @@ export const Button1 = (props) => {
 
 const Button2Base = styled(Button1Base)`
   background-color: transparent;
+  border-color: ${(props) => $color4[props.mode]};
   &:hover:not(.static) {
     transition-duration: 0.16s;
+    border-color: ${(props) => $color4[props.mode]};
      {
       /*background-color: ${(props) => $color2[props.mode]};*/
     }

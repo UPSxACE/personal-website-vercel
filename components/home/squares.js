@@ -3,6 +3,7 @@ import { Col } from "react-bootstrap";
 
 import {
   $borderColor,
+  $borderColorImproved3px,
   $borderColorLighter,
   $color2,
   $textColor1,
@@ -86,8 +87,7 @@ const SquareBase = styled.div`
   align-items: center;
   width: 100%;
   object-fit: cover;
-  border: 3px solid rgba(0, 0, 0, 0.07);
-  //background-color: white;
+  border: ${(props) => $borderColorImproved3px[props.mode]};
 
   svg {
     width: 100%;

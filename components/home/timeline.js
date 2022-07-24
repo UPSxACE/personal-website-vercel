@@ -4,6 +4,7 @@ import {
   $borderColorLighter,
   $color1,
   $color2,
+  $color7,
 } from "../../utils/config";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useContext } from "react";
@@ -42,7 +43,7 @@ const OutsideDiv = styled.div`
 
 const Card = styled.div`
   position: relative;
-  background-color: white;
+  background-color: ${(props) => $color7[props.mode]};
   border: 1px solid ${(props) => $borderColorLighter[props.mode]};
   //border-radius: 8px;
   width: calc(100% - 16px);

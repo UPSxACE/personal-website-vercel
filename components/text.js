@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { $color1, $color2, $textColor1, $textColor2 } from "../utils/config";
+import {
+  $color1,
+  $color2,
+  $color4,
+  $textColor1,
+  $textColor2,
+} from "../utils/config";
 
 export const TypedSpanDiv = styled.div`
   color: ${(props) => $textColor2[props.mode]}!important;
@@ -38,6 +44,6 @@ export const TypedSpanDiv = styled.div`
 
   em {
     font-style: normal;
-    color: ${(props) => $color2[props.mode]};
+    color: ${(props) => $color4[props.mode]};
   }
 `;

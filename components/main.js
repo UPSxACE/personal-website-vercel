@@ -170,7 +170,7 @@ export const Main = styled.main`
     cursor: pointer;
     transition-duration: 0.16s;
     transform: scale(1.22);
-    color: ${(props) => $color2[props.mode]};
+    color: ${(props) => $color2Alt[props.mode]};
   }
 
   .clickable1.active {
@@ -184,11 +184,11 @@ export const Main = styled.main`
   .clickable2:hover {
     cursor: pointer;
     transition-duration: 0.16s;
-    color: ${(props) => $color2[props.mode]};
+    color: ${(props) => $color2Alt[props.mode]};
   }
 
   .clickable2.active {
-    color: ${(props) => $color2[props.mode]};
+    color: ${(props) => $color2Alt[props.mode]};
   }
 
   .iconList li {
