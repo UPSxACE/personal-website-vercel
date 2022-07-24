@@ -54,11 +54,7 @@ export function ProjectGallery() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="d-flex flex-column justify-content-center p-3 p-md-4 p-xl-5 pt-4 pt-md-4 pt-xl-4">
-          <PicturesCarousel
-            indicators={<div>a</div>}
-            mode={mode}
-            variant="dark"
-          >
+          <PicturesCarousel mode={mode} variant="dark">
             <Carousel.Item interval={5000}>
               <img
                 className="d-block w-100"
@@ -366,13 +362,19 @@ const ProjectModal = styled(Modal)`
 
 const PicturesCarousel = styled(Carousel)`
   .carousel-control-prev-icon {
-    background-image: url("/prev-arrow-pink.png");
-    background-size: contain;
+    background-image: ${(props) =>
+      props.mode === 2
+        ? 'url("/prev-arrow-brown.png")'
+        : 'url("/prev-arrow-pink.png")'};
+    background-size: ${(props) => (props.mode === 2 ? "contain" : "contain")};
     filter: none;
   }
   .carousel-control-next-icon {
-    background-image: url("/next-arrow-pink.png");
-    background-size: contain;
+    background-image: ${(props) =>
+      props.mode === 2
+        ? 'url("/next-arrow-brown.png")'
+        : 'url("/next-arrow-pink.png")'};
+    background-size: ${(props) => (props.mode === 2 ? "contain" : "contain")};
     filter: none;
   }
 
