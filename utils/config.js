@@ -45,7 +45,7 @@ export const $color2Alt = ["#FF4C60", "#FF4C60", "#ffb100"];
 export const $color3 = ["#e0e0e5", "#e0e0e5", "#e0e0e5"]; //"#ececec"
 export const $color4 = ["#FF4C60", "#FF4C60", "#fff"];
 export const $color5 = ["#FF4C60", "#FF4C60", "#ffb100"]; // 52452e
-export const $color6 = ["#21252a", "#21252a", "#303134"]; //#021622, #303134
+export const $color6 = ["#21252a", "#21252a", "#21252a"]; //#021622, #303134, #21252a
 export const $color7 = ["#fff", "#fff", "#fff"];
 //2 and 4
 export const $componentBackground = ["#fff", "#fff", "#fff"];
