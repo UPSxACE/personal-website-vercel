@@ -77,24 +77,29 @@ export const Main = styled.main`
     color: ${(props) => $color2Alt[props.mode]};
   }
 
-  .textColor0 {
-    color: ${(props) => $textColor0[props.mode]};
+  .textColor0,
+  .textColor0 a {
+    color: ${(props) => $textColor0[props.mode]}!important;
   }
 
-  .textColor1 {
-    color: ${(props) => $textColor1[props.mode]};
+  .textColor1,
+  .textColor1 a {
+    color: ${(props) => $textColor1[props.mode]}!important;
   }
 
-  .textColor2 {
-    color: ${(props) => $textColor2[props.mode]};
+  .textColor2,
+  .textColor2 a {
+    color: ${(props) => $textColor2[props.mode]}!important;
   }
 
-  .textColor2Alt {
-    color: ${(props) => $textColor2Alt[props.mode]};
+  .textColor2Alt,
+  .textColor2Alt a {
+    color: ${(props) => $textColor2Alt[props.mode]}!important;
   }
 
-  .textColor2Lighter {
-    color: ${(props) => $textColor2Lighter[props.mode]};
+  .textColor2Lighter,
+  .textColor2Lighter a {
+    color: ${(props) => $textColor2Lighter[props.mode]}!important;
   }
 
   .zero {
@@ -170,11 +175,11 @@ export const Main = styled.main`
     cursor: pointer;
     transition-duration: 0.16s;
     transform: scale(1.22);
-    color: ${(props) => $color2Alt[props.mode]};
+    color: ${(props) => $color2Alt[props.mode]}!important;
   }
 
   .clickable1.active {
-    color: ${(props) => $color2[props.mode]};
+    color: ${(props) => $color2[props.mode]}!important;
   }
 
   .clickable2 {
@@ -184,11 +189,11 @@ export const Main = styled.main`
   .clickable2:hover {
     cursor: pointer;
     transition-duration: 0.16s;
-    color: ${(props) => $color2Alt[props.mode]};
+    color: ${(props) => $color2Alt[props.mode]}!important;
   }
 
   .clickable2.active {
-    color: ${(props) => $color2Alt[props.mode]};
+    color: ${(props) => $color2Alt[props.mode]}!important;
   }
 
   .iconList li {

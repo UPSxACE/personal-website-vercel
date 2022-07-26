@@ -16,6 +16,7 @@ import {
   $color0,
   $color1,
   $color2,
+  $color2Alt,
   $color6,
   $margin1,
   $padding1,
@@ -249,6 +250,7 @@ export default function Home(props) {
                 }}
               ></Arrow>
               <OverlayDiv
+                mode={mode}
                 animate="show"
                 initial="initial"
                 variants={overlayDivParentAnimation}
@@ -835,7 +837,7 @@ const OverlayDiv = styled(motion.div)`
   .spinTransition {
     transform: scale(1.22);
     transition: scale(1.22) 0.16s, color 0.16s;
-    color: ${$color2[0]}!important; //${(props) =>
+    color: ${(props) => $color2Alt[props.mode]}!important; //${(props) =>
       $color2[props.mode]}!important;
   }
 
