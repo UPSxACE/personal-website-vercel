@@ -82,7 +82,7 @@ export function ProjectGallery() {
               mode={mode}
               variant="dark"
             >
-              <Carousel.Item interval={5000}>
+              <Carousel.Item interval={3000}>
                 <img
                   className="d-block w-100"
                   alt="Project main picture"
@@ -90,7 +90,7 @@ export function ProjectGallery() {
                 />
               </Carousel.Item>
               {projects[projectToShow].pic2 && (
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={3000}>
                   <img
                     className="d-block w-100"
                     alt="Project main picture"
@@ -99,7 +99,7 @@ export function ProjectGallery() {
                 </Carousel.Item>
               )}
               {projects[projectToShow].pic3 && (
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={3000}>
                   <img
                     className="d-block w-100"
                     alt="Project main picture"
