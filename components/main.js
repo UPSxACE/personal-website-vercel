@@ -178,7 +178,15 @@ export const Main = styled.main`
     color: ${(props) => $color2Alt[props.mode]}!important;
   }
 
+  .clickable1:hover a {
+    color: ${(props) => $color2Alt[props.mode]}!important;
+  }
+
   .clickable1.active {
+    color: ${(props) => $color2[props.mode]}!important;
+  }
+
+  .clickable1.active a {
     color: ${(props) => $color2[props.mode]}!important;
   }
 
@@ -192,7 +200,15 @@ export const Main = styled.main`
     color: ${(props) => $color2Alt[props.mode]}!important;
   }
 
+  .clickable2:hover a {
+    color: ${(props) => $color2Alt[props.mode]}!important;
+  }
+
   .clickable2.active {
+    color: ${(props) => $color2Alt[props.mode]}!important;
+  }
+
+  .clickable2.active a {
     color: ${(props) => $color2Alt[props.mode]}!important;
   }
 
