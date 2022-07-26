@@ -403,8 +403,14 @@ const PicturesCarousel = styled(Carousel)`
     opacity: 0.5;
   }
 
+  .carousel-control-prev,
+  .carousel-control-next {
+    transition: all 0.45s;
+  }
+
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
+    transition: all 0.45s;
     z-index: 1;
     height: 44px;
     width: 44px;
@@ -466,16 +472,15 @@ const PicturesCarousel = styled(Carousel)`
   }
 
   @media (min-width: 1400px) {
-    .carousel-control-prev,
-    .carousel-control-next {
-      opacity: 1;
+    .carousel-control-prev:not(:hover),
+    .carousel-control-next:not(:hover) {
+      opacity: 0.5;
       transition: all 1s;
     }
 
     &:not(:hover) .carousel-control-prev,
     &:not(:hover) .carousel-control-next {
-      opacity: 0;
-      transition: all 0.7s;
+      opacity: 0 !important;
     }
   }
 `;
