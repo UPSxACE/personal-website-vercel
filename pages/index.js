@@ -275,36 +275,58 @@ export default function Home(props) {
                     className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
-                    <Link
-                      href={
-                        "https://www.linkedin.com/in/eduardobotelho1029/?locale=en_US"
-                      }
-                    >
-                      <FontAwesomeIcon icon={faLinkedinIn}></FontAwesomeIcon>
+                    <Link href={""}>
+                      <motion.a
+                        variants={overlayDivChildAnimation}
+                        target={"_blank"}
+                        href={
+                          "https://www.linkedin.com/in/eduardobotelho1029/?locale=en_US"
+                        }
+                      >
+                        <FontAwesomeIcon icon={faLinkedinIn}></FontAwesomeIcon>
+                      </motion.a>
                     </Link>
                   </motion.li>
                   <motion.li
                     className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
-                    <Link href={"https://github.com/UPSxACE"}>
-                      <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+                    <Link href="">
+                      <motion.a
+                        variants={overlayDivChildAnimation}
+                        target={"_blank"}
+                        href={"https://github.com/UPSxACE"}
+                      >
+                        <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
+                      </motion.a>
                     </Link>
                   </motion.li>
                   <motion.li
                     className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
-                    <Link href={"https://www.instagram.com/upsxace/"}>
-                      <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
+                    <Link href="">
+                      <motion.a
+                        href={"https://www.instagram.com/upsxace/"}
+                        target="_blank"
+                        variants={overlayDivChildAnimation}
+                      >
+                        <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
+                      </motion.a>
                     </Link>
                   </motion.li>
                   <motion.li
                     className="clickable1 textColor0"
                     variants={overlayDivChildAnimation}
                   >
-                    <Link href={"https://www.facebook.com/eduardo1029x/"}>
-                      <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
+                    <Link href="">
+                      <motion.a
+                        href={"https://www.facebook.com/eduardo1029x/"}
+                        target="_blank"
+                        variants={overlayDivChildAnimation}
+                      >
+                        <FontAwesomeIcon icon={faFacebookF}></FontAwesomeIcon>
+                      </motion.a>
                     </Link>
                   </motion.li>
                 </motion.ul>
