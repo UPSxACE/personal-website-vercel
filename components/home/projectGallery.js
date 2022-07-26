@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import { projects } from "../../utils/projects";
 import { Carousel, Col, Modal } from "react-bootstrap";
 import Image from "next/image";
-import { GoPlus } from "react-icons/go";
+import { GoPlus, GoChevronLeft, GoChevronRight } from "react-icons/go";
+import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 import { $color2 } from "../../utils/config";
 import Link from "next/link";
 
@@ -54,33 +55,67 @@ export function ProjectGallery() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="d-flex flex-column justify-content-center p-3 p-md-4 p-xl-5 pt-4 pt-md-4 pt-xl-4">
-          <PicturesCarousel mode={mode} variant="dark">
-            <Carousel.Item interval={5000}>
-              <img
-                className="d-block w-100"
-                alt="Project main picture"
-                src={projects[projectToShow].medPic}
-              />
-            </Carousel.Item>
-            {projects[projectToShow].pic2 && (
+          {projects[projectToShow].pic2 ? (
+            <PicturesCarousel
+              prevIcon={
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="carousel-control-prev-icon"
+                  >
+                    <VscChevronLeft />
+                  </span>
+                  <div className="circle" />
+                </>
+              }
+              nextIcon={
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="carousel-control-next-icon"
+                  >
+                    <VscChevronRight />
+                  </span>
+                  <div className="circle" />
+                </>
+              }
+              mode={mode}
+              variant="dark"
+            >
               <Carousel.Item interval={5000}>
                 <img
                   className="d-block w-100"
                   alt="Project main picture"
-                  src={projects[projectToShow].pic2}
+                  src={projects[projectToShow].medPic}
                 />
               </Carousel.Item>
-            )}
-            {projects[projectToShow].pic3 && (
-              <Carousel.Item interval={5000}>
-                <img
-                  className="d-block w-100"
-                  alt="Project main picture"
-                  src={projects[projectToShow].pic3}
-                />
-              </Carousel.Item>
-            )}
-          </PicturesCarousel>
+              {projects[projectToShow].pic2 && (
+                <Carousel.Item interval={5000}>
+                  <img
+                    className="d-block w-100"
+                    alt="Project main picture"
+                    src={projects[projectToShow].pic2}
+                  />
+                </Carousel.Item>
+              )}
+              {projects[projectToShow].pic3 && (
+                <Carousel.Item interval={5000}>
+                  <img
+                    className="d-block w-100"
+                    alt="Project main picture"
+                    src={projects[projectToShow].pic3}
+                  />
+                </Carousel.Item>
+              )}
+            </PicturesCarousel>
+          ) : (
+            <img
+              className="d-block w-100"
+              alt="Project main picture"
+              src={projects[projectToShow].medPic}
+            />
+          )}
+
           <h4 className="pt-3">Project Info:</h4>
           <p className="h5 fw-300 mb-0">{projects[projectToShow].info}</p>
           <h4 className="pt-3">Project Details</h4>
@@ -361,6 +396,38 @@ const ProjectModal = styled(Modal)`
 `;
 
 const PicturesCarousel = styled(Carousel)`
+  .carousel-control-prev:active:not(:hover),
+  .carousel-control-prev:focus:not(:hover),
+  .carousel-control-next:active:not(:hover),
+  .carousel-control-next:focus:not(:hover) {
+    opacity: 0.5;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    z-index: 1;
+    height: 44px;
+    width: 44px;
+    background-image: none !important;
+    color: white;
+  }
+
+  .carousel-control-prev-icon svg,
+  .carousel-control-next-icon svg {
+    margin: 4px;
+    height: 36px;
+    width: 36px;
+  }
+
+  .circle {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: ${(props) => $color2[props.mode]};
+    border-radius: 100%;
+    border: 1px solid ${(props) => $color2[props.mode]};
+  }
+
   .carousel-control-prev-icon {
     background-image: ${(props) =>
       props.mode === 2
