@@ -38,6 +38,11 @@ export const $boxShadow1 = [
   "rgb(0 0 0 / 28%)",
   "rgb(0 0 0 / 28%)",
 ];
+export const $boxShadow2 = [
+  "rgb(255 76 96 / 50%)",
+  "rgb(255 76 96 / 50%)",
+  "rgb(82 69 46 / 50%)",
+];
 export const $color0 = ["#f8f9fa", "#f9f9ff", "#f9f9ff"]; //#303134, #021622"
 export const $color1 = ["#fff", "#353356", "#52452e"]; //old main color: #f9f9ff
 export const $color2 = ["#FF4C60", "#FF4C60", "#52452e"];

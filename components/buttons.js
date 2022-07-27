@@ -1,6 +1,7 @@
 import styled, { ThemeContext } from "styled-components";
 import { Button } from "react-bootstrap";
 import {
+  $boxShadow2,
   $color1,
   $color2,
   $color4,
@@ -31,7 +32,7 @@ const Button1Base = styled.button`
   &:focus:not(.static) {
     transform: scale(1.12);
     transition-duration: 0.5s;
-    box-shadow: 0 0 0 0.2rem rgb(255 76 96 / 50%);
+    box-shadow: 0 0 0 0.2rem ${(props) => $boxShadow2[props.mode]};
   }
 `;
 
