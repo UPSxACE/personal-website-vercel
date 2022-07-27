@@ -326,13 +326,13 @@ export function ProjectGallery() {
 }
 
 const ProjectFilterSpan = styled.span`
-  z-index: 999;
+  z-index: 998;
 `;
 
 const ProjectCard = styled.div`
   display: flex;
   position: relative;
-  z-index: 999;
+  z-index: 998;
   overflow: hidden;
 
   img {

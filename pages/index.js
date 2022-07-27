@@ -434,16 +434,25 @@ export default function Home(props) {
                       if (!spin) {
                         switch (mode) {
                           case 0:
-                            props.setMode(mode + 1);
+                            localStorage.setItem("theme", Number(mode) + 1);
+                            props.setMode(Number(mode) + 1);
                             break;
                           case 1:
-                            props.setMode(mode + 1);
+                            localStorage.setItem("theme", Number(mode) + 1);
+                            props.setMode(Number(mode) + 1);
                             break;
                           case 2:
+                            localStorage.setItem("theme", 0);
                             props.setMode(0);
                             break;
                           default:
-                            props.setMode(0);
+                            let theme = localStorage.getItem("theme");
+                            if (theme && theme >= 0 && theme <= 2) {
+                              localStorage.setItem("theme", theme + 1);
+                            } else {
+                              localStorage.setItem("theme", 0);
+                            }
+                            props.setMode(theme + 1);
                             break;
                         }
                         setSpin(true);

@@ -17,7 +17,7 @@ import {
 
 export const Main = styled.main`
   .z999 {
-    z-index: 999;
+    z-index: 998;
   }
 
   font-family: ${$fontFamily1};

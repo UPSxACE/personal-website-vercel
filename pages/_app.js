@@ -9,6 +9,19 @@ import { createTheme, ThemeProvider } from "@mui/system";
 import { $color1, $color2, $color3 } from "../utils/config";
 import { ThemeContext } from "styled-components";
 
+function checkThemeCookie() {
+  if (typeof window !== "undefined") {
+    let theme = localStorage.getItem("theme");
+    if (theme && theme <= 2 && theme >= 0) {
+      return Number(theme);
+    }
+    localStorage.setItem("theme", 0);
+    return 0;
+  } else {
+    return 0;
+  }
+}
+
 function Loading(props) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -45,7 +58,7 @@ function Loading(props) {
           className="spinner-wrapper"
           transition={{ default: { duration: 0.65 } }}
           exit={{ opacity: 0 }}
-          style={{ zIndex: 99 }}
+          style={{ zIndex: 999 }}
         >
           <Image alt="loader icon" src={loadingIcon} />
         </motion.div>
@@ -59,7 +72,7 @@ function Loading(props) {
 
 function MyApp({ Component, pageProps }) {
   const [loaded, setLoaded] = useState(false);
-  const [mode, setMode] = useState(0);
+  const [mode, setMode] = useState(checkThemeCookie());
 
   let theme = createTheme({
     palette: {
