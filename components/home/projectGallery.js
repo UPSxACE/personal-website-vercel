@@ -107,6 +107,33 @@ export function ProjectGallery() {
                   />
                 </Carousel.Item>
               )}
+              {projects[projectToShow].pic4 && (
+                <Carousel.Item interval={3500}>
+                  <img
+                    className="d-block w-100"
+                    alt="Project main picture"
+                    src={projects[projectToShow].pic4}
+                  />
+                </Carousel.Item>
+              )}
+              {projects[projectToShow].pic5 && (
+                <Carousel.Item interval={3500}>
+                  <img
+                    className="d-block w-100"
+                    alt="Project main picture"
+                    src={projects[projectToShow].pic5}
+                  />
+                </Carousel.Item>
+              )}
+              {projects[projectToShow].pic6 && (
+                <Carousel.Item interval={3500}>
+                  <img
+                    className="d-block w-100"
+                    alt="Project main picture"
+                    src={projects[projectToShow].pic6}
+                  />
+                </Carousel.Item>
+              )}
             </PicturesCarousel>
           ) : (
             <img
