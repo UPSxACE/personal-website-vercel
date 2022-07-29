@@ -176,7 +176,9 @@ export default function Home(props) {
                 <span id="typed" className="textColor2Alt"></span>
               </TypedSpanDiv>
               <ButtonPairWrapper className="d-flex justify-content-center mt-4 flex-wrap">
-                <Button1 className="p-2 ps-3 pe-3">Download CV</Button1>
+                <a href="./cv_en.pdf" download="cv_english.pdf">
+                  <Button1 className="p-2 ps-3 pe-3">Download CV</Button1>
+                </a>
                 <Button2
                   mode={mode}
                   className="p-2 ps-3 pe-3"
