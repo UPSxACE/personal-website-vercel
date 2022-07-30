@@ -281,6 +281,7 @@ export default function Home(props) {
                   >
                     <Link href={""}>
                       <motion.a
+                        rel="noreferrer"
                         variants={overlayDivChildAnimation}
                         target={"_blank"}
                         href={
@@ -297,6 +298,7 @@ export default function Home(props) {
                   >
                     <Link href="">
                       <motion.a
+                        rel="noreferrer"
                         variants={overlayDivChildAnimation}
                         target={"_blank"}
                         href={"https://github.com/UPSxACE"}
@@ -311,6 +313,7 @@ export default function Home(props) {
                   >
                     <Link href="">
                       <motion.a
+                        rel="noreferrer"
                         href={"https://www.instagram.com/upsxace/"}
                         target="_blank"
                         variants={overlayDivChildAnimation}
@@ -326,6 +329,7 @@ export default function Home(props) {
                     <Link href="">
                       <motion.a
                         href={"https://www.facebook.com/eduardo1029x/"}
+                        rel="noreferrer"
                         target="_blank"
                         variants={overlayDivChildAnimation}
                       >

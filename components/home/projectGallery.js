@@ -7,8 +7,10 @@ import { Carousel, Col, Modal } from "react-bootstrap";
 import Image from "next/image";
 import { GoPlus, GoChevronLeft, GoChevronRight } from "react-icons/go";
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
+import { RiCodeSSlashFill } from "react-icons/ri";
 import { $color2 } from "../../utils/config";
 import Link from "next/link";
+import { Button1, Button2 } from "../buttons";
 
 let movement_transition_duration = 0.3;
 
@@ -210,6 +212,21 @@ export function ProjectGallery() {
               </div>
               <hr className="mt-2 mb-2" />
             </>
+          )}
+          {projects[projectToShow].source && (
+            //maybe make this button max-width = 150px
+            <a
+              href={projects[projectToShow].source}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Button1 mode={mode} className="p-2 ps-3 pe-3 static">
+                <strong className="h5">Source </strong>
+                <strong className="h4">
+                  <RiCodeSSlashFill />
+                </strong>
+              </Button1>
+            </a>
           )}
         </Modal.Body>
       </ProjectModal>

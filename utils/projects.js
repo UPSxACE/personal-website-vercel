@@ -18,7 +18,7 @@ export const projects = [
     startdate: "5th July 2022",
     finishdate: undefined,
     demo: "https://vercel.eduardobotelho.com",
-    source: undefined,
+    source: "https://github.com/UPSxACE/personal-website-vercel",
   },
   {
     title: "Quarry manager platform",
@@ -34,7 +34,7 @@ export const projects = [
     startdate: "23rd February 2022",
     finishdate: "23rd June 2022",
     demo: undefined,
-    source: undefined,
+    source: "https://github.com/UPSxACE/quarrymanager-yii2backend",
   },
   {
     title: "Static online portfolio",
@@ -49,7 +49,8 @@ export const projects = [
     startdate: "11th January 2022",
     finishdate: "21st February 2022",
     demo: undefined,
-    source: undefined,
+    source:
+      "https://github.com/UPSxACE/Static-Personal-Website-Wordpress-Version",
   },
   {
     title: "Bragança 3D render, using Lumion",
